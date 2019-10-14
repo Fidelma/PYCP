@@ -15,8 +15,7 @@ const Activity = new Schema({
 const Person = new Schema({
   name: {
     firstName: String,
-    lastName: String,
-    index: true
+    lastName: String
   },
   gender: String,
   dob: Date,
@@ -81,3 +80,6 @@ const Person = new Schema({
     notes: String
   }
 })
+
+module.exports = mongoose.model('Activity', Activity);
+// module.exports = mongoose.model('Person', Person);
