@@ -9,7 +9,7 @@ db.activities.insertMany([
     endTime: '18.15',
     age: ['s1', 's2', 's3', 's4'],
     gender: 'Both',
-    location: ,
+    location: 'pycp',
     description: 'Free condoms and advice on sexual health'
   },
   {
@@ -22,4 +22,4 @@ db.activities.insertMany([
     location: 'pycp',
     description: 'Fun activities, arts and crafts, games and sports!'
   }
-])
+]);

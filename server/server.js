@@ -1,32 +1,39 @@
-'use strict';
 const express = require('express');
-const mongoose = require('mongoose');
-const app = express()
-const cors = require('cors');
+const app = express();
 const bodyParser = require('body-parser');
-const connection = 'mongodb://127.0.0.1:27017/pycp'
-const Schema = mongoose.Schema;
-const Activity = require('./schema')
+const mongoose = require('mongoose');
+const Activity = require('./db/Activity.model')
 
-mongoose.connect(connection)
-// .then((client) => {
-//   const db = client.db('pycp');
-//   const activities = db.collection('activities');
-//   const activitiesRouter = createRouter(activities);
-//   app.use('/activities', activitiesRouter);
-// })
-// .catch(console.err);
 
-// const uri = 'mongodb://localhost/pycp';
-// global.db = mongoose.createConnection(uri);
+const port = 27017;
+const db = 'mongodb://localhost/pycp';
 
-// const routes = require('./routes');
+mongoose.connect(db);
 
-// const app = express();
-// app.get('/', routes.home);
-// app.get('/insert', routes.insert);
-// app.get('/name', routes.modelName);
+app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 
-app.listen(3000, function() {
-  console.log('listening on http://localhost:3000');
+app.get('/', function(req, res) {
+ res.send('happy to be here');
+});
+
+app.get('/activities', function(req, res) {
+ console.log('getting all activities');
+ Activity.find({})
+   .exec(function(err, activities) {
+     if(err) {
+       res.send('error occured')
+     } else {
+       console.log(activities);
+       res.json(activities);
+     }
+   });
+});
+
+
+
+app.listen(27017, function() {
+  console.log('listening on http://localhost:27017');
 });
