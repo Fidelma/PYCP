@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Activity = require('./db/Activity.model')
+const Activity = require('./db/Activity.model.js')
 
 
 const port = 27017;
@@ -11,9 +11,9 @@ const db = 'mongodb://localhost/pycp';
 mongoose.connect(db);
 
 app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get('/', function(req, res) {
  res.send('happy to be here');
