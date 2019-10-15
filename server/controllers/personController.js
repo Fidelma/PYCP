@@ -3,7 +3,7 @@
 Person = require('../models/personModel');
 // Handle index actions
 exports.index = function (req, res) {
-    Person.get(function (err, people) {
+    Person.get(function (err, persons) {
         if (err) {
             res.json({
                 status: "error",
@@ -12,15 +12,17 @@ exports.index = function (req, res) {
         }
         res.json({
             status: "success",
-            message: "Contacts retrieved successfully",
-            data: people
+            message: "People retrieved successfully",
+            data: persons
         });
     });
 };
 // Handle create contact actions
 exports.new = function (req, res) {
     var person = new Person();
-    person.name = req.body.name;
+    // person.name = req.body.name;
+    person.name.firstName = req.body.name.firstName;
+    person.name.lastName = req.body.name.lastName;
     person.gender = req.body.gender;
     person.dob = req.body.dob;
     person.address = req.body.address;

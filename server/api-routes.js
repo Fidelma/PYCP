@@ -15,7 +15,7 @@ var personController = require('./controllers/personController');
 router.route('/activities')
     .get(activityController.index)
     .post(activityController.new);
-router.route('/people')
+router.route('/persons')
     .get(personController.index)
     .post(personController.new);
 router.route('/activities/:activity_id')
@@ -23,5 +23,10 @@ router.route('/activities/:activity_id')
     .patch(activityController.update)
     .put(activityController.update)
     .delete(activityController.delete);
+router.route('/persons/:person_id')
+    .get(personController.view)
+    .patch(personController.update)
+    .put(personController.update)
+    .delete(personController.delete);
 // Export API routes
 module.exports = router;
