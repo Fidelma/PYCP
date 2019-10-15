@@ -25,9 +25,11 @@ exports.new = function (req, res) {
     person.name.lastName = req.body.name.lastName;
     person.gender = req.body.gender;
     person.dob = req.body.dob;
-    person.address = req.body.address;
+    person.address.address = req.body.address.address;
+    person.address.postcode = req.body.address.postcode;
     person.primaryContact = req.body.primaryContact;
-    person.emergencyContact = req.body.emergencyContact;
+    person.emergencyContact.name = req.body.emergencyContact.name;
+    person.emergencyContact.relationship = req.body.emergencyContact.relationship;
     person.email = req.body.email;
     person.dietaryRequirements = req.body.dietaryRequirements;
 // save the contact and check for errors
