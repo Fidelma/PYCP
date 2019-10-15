@@ -22,76 +22,145 @@ db.activities.insertMany([
     location: 'pycp',
     description: 'Fun activities, arts and crafts, games and sports!'
   }
-]);
-
-db.persons.insertMany([
-  {
-    name: {
-      firstName: 'Harry',
-      lastName: 'Hood'
-    },
-    gender: 'male'
-    // dob: Date,
-    // address: {
-    //   address: 'Castle Terrace',
-    //   postcode: 'EH1 3JW'
-    // },
-    // primaryContact: 07777283647,
-    // secondaryContact: ,
-    // emergencyContact: {
-    //   name: Ben,
-    //   relationship: 'Complicated',
-    //   number: 077763542621
-    // },
-    // email: 'ben@hotmail.com',
-    // dietaryRequirements: {
-    //   exists: false,
-    //   details:
-    // },
-    // medicalConditions: {
-    //   exists: false,
-    //   details: ,
-    //   medications:
-    // },
-    // allergies: {
-    //   exists: false,
-    //   allergens: [],
-    //   other:
-    // },
-    // doctorsSurgery: 'Conan Doyle Surgery',
-    // community: 'Muirhouse',
-    // school: {
-    //   name: 'Pilton',
-    //   year: 'P3'
-    // },
-    // photographyPermission: true,
-    // collection: {
-    //   toBeCollected: false,
-    //   byWho:
-    // },
-    // siblings: {
-    //   exists: false,
-    //   siblings: [{
-    //     type: Schema.ObjectId,
-    //     ref:
-    //   }]
-    // },
-    // ethnicity: 'White Scottish',
-    // volunteering: false,
-    // signed: {
-    //   signed: true,
-    //   name: 'Ben',
-    //   relationship: 'complicated',
-    //   date: {
-    //     type: Date,
-    //     default: Date.now
-    //   }
-    // },
-    // restrictions: {
-    //   exists: false,
-    //   type: ,
-    //   notes:
-    // }
-
-  }
 ])
+
+
+db.people.insertMany([
+ {
+   name: {
+     firstName: 'Harry',
+     lastName: 'Hood'
+   },
+   gender: 'male',
+   dob: '11/06/1981',
+   address: {
+     address: 'Castle Terrace',
+     postcode: 'EH1 3JW'
+   },
+   primaryContact: 07777283647,
+   // secondaryContact: ,
+   emergencyContact: {
+     name: 'Ben',
+     relationship: 'Complicated',
+     number: 077763542621
+   },
+   email: 'ben@hotmail.com',
+   dietaryRequirements: {
+     exists: false,
+     details: 'null'
+   }
+   ,
+   medicalConditions: {
+     exists: false,
+     details: 'null',
+     medications: 'null'
+   },
+   allergies: {
+     exists: false,
+     allergens: [],
+     other:'null'
+   },
+   doctorsSurgery: 'Conan Doyle Surgery',
+   community: 'Muirhouse',
+   school: {
+     name: 'Pilton',
+     year: 'P3'
+   },
+   photographyPermission: true,
+   pickUp: {
+     toBeCollected: false,
+     byWho: 'null'
+   },
+   siblings: {
+     exists: false,
+     siblings: [{
+       // type: Schema.ObjectId,
+       // ref: 'Person'
+     }]
+   },
+   ethnicity: 'White Scottish',
+   volunteering: false,
+   signed: {
+     signed: true,
+     name: 'Ben',
+     relationship: 'complicated',
+     date: {
+       type: Date,
+       default: Date.now
+     }
+   },
+   restrictions: {
+     exists: false,
+     type: 'null',
+     notes: 'null'
+   }
+ }
+])
+
+
+// {
+//   "name": {
+//     "firstName" : "Harry",
+//     "lastName" : "Hood"
+//   },
+//   "gender" : "male",
+//   "dob" : "11/06/1981",
+//   "address" : {
+//     "address" : "Castle Terrace",
+//     "postcode" : "EH1 3JW"
+//   },
+//   "primaryContact" : "07777283647",
+//   "emergencyContact": {
+//     "name": "Ben",
+//     "relationship": "Complicated",
+//     "number": "077763542621"
+//   },
+//   "email": "ben@hotmail.com",
+//   "dietaryRequirements": {
+//     "exists": "false",
+//     "details": "null"
+//   }
+//   ,
+//   "medicalConditions": {
+//     "exists": "false",
+//     "details": "null",
+//     "medications": "null"
+//   },
+//   "allergies": {
+//     "exists": "false",
+//     "allergens": [],
+//     "other":"null"
+//   },
+//   "doctorsSurgery": "Conan Doyle Surgery",
+//   "community": "Muirhouse",
+//   "school": {
+//     "name": "Pilton",
+//     "year": "P3"
+//   },
+//   "photographyPermission": "true",
+//   "pickUp": {
+//     "toBeCollected": "false",
+//     "byWho": "null"
+//   },
+//   "siblings": {
+//     "exists": "false",
+//     "siblings": [{
+//
+//     }]
+//   },
+//   "ethnicity": "White Scottish",
+//   "volunteering": "false",
+//   "signed": {
+//     "signed": "true",
+//     "name": "Ben",
+//     "relationship": "complicated",
+//     "date": {
+//
+//     }
+//   },
+//   "restrictions": {
+//     "exists": "false",
+//     "type": "null",
+//     "notes": "null"
+//   }
+// }
