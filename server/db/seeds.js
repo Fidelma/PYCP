@@ -22,4 +22,77 @@ db.activities.insertMany([
     location: 'pycp',
     description: 'Fun activities, arts and crafts, games and sports!'
   }
-]);
+])
+
+
+db.persons.insertMany([
+ {
+   name: {
+     firstName: 'Harry',
+     lastName: 'Hood'
+   },
+   gender: 'male',
+   dob: '11/06/1981',
+   address: {
+     address: 'Castle Terrace',
+     postcode: 'EH1 3JW'
+   },
+   primaryContact: 07777283647,
+   // secondaryContact: ,
+   emergencyContact: {
+     name: 'Ben',
+     relationship: 'Complicated',
+     number: 077763542621
+   },
+   email: 'ben@hotmail.com',
+   dietaryRequirements: {
+     exists: false,
+     details: 'null'
+   }
+   // ,
+   // medicalConditions: {
+   //   exists: false,
+   //   details: ,
+   //   medications:
+   // },
+   // allergies: {
+   //   exists: false,
+   //   allergens: [],
+   //   other:
+   // },
+   // doctorsSurgery: 'Conan Doyle Surgery',
+   // community: 'Muirhouse',
+   // school: {
+   //   name: 'Pilton',
+   //   year: 'P3'
+   // },
+   // photographyPermission: true,
+   // collection: {
+   //   toBeCollected: false,
+   //   byWho:
+   // },
+   // siblings: {
+   //   exists: false,
+   //   siblings: [{
+   //     type: Schema.ObjectId,
+   //     ref:
+   //   }]
+   // },
+   // ethnicity: 'White Scottish',
+   // volunteering: false,
+   // signed: {
+   //   signed: true,
+   //   name: 'Ben',
+   //   relationship: 'complicated',
+   //   date: {
+   //     type: Date,
+   //     default: Date.now
+   //   }
+   // },
+   // restrictions: {
+   //   exists: false,
+   //   type: ,
+   //   notes:
+   // }
+ }
+])
