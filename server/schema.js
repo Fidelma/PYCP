@@ -82,4 +82,4 @@ const Person = new Schema({
 })
 
 module.exports = mongoose.model('Activity', Activity);
-// module.exports = mongoose.model('Person', Person);
+module.exports = mongoose.model('Person', Person);
