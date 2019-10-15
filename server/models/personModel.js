@@ -1,31 +1,34 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const Person = new Schema({
- name: {
-   firstName: String,
-   lastName: String
- }
- ,
- gender: String,
- dob: String,
- address: {
-   address: String,
-   postcode: String
- }
- ,
- primaryContact: Number,
- // secondaryContact: { type: Number, required: false},
- emergencyContact: {
-   name: String,
-   relationship: String,
-   number: Number
- }
- ,
- email: String,
- dietaryRequirements: {
-   exists: Boolean,
-   details: String
- }
+const personSchema = mongoose.Schema({
+
+   name: {
+     firstName: String,
+     lastName: String
+   }
+   ,
+   gender: String,
+   dob: String,
+   address: {
+     address: String,
+     postcode: String
+   }
+   ,
+   primaryContact: Number,
+   // secondaryContact: { type: Number, required: false},
+   emergencyContact: {
+     name: String,
+     relationship: String,
+     number: Number
+   }
+   ,
+   email: String,
+   dietaryRequirements: {
+     exists: Boolean,
+     details: String
+   }
+
+})
+
  // ,
  // medicalConditions: {
  //   exists: Boolean,
@@ -71,5 +74,8 @@ const Person = new Schema({
  //   type: String,
  //   notes: String
  // }
-})
-module.exports = mongoose.model('Person', Person);
+
+var Person = module.exports = mongoose.model('person', personSchema);
+module.exports.get = function (callback, limit) {
+    Person.find(callback).limit(limit);
+}
