@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ContactContainer from './ContactContainer';
 import PersonContainer from './PersonContainer';
 import ActivityContainer from './ActivityContainer';
+import RegistrationContainer from './RegistrationContainer';
 
 class HomePageContainer extends Component {
   constructor(props){
@@ -176,6 +177,7 @@ class HomePageContainer extends Component {
       <h1>HomePageContainer</h1>
       <h4> {this.state.people[0].name.firstName}</h4>
       <ContactContainer people={this.state.people}/>
+      <RegistrationContainer />
       <PersonContainer people={this.state.people}/>
       <ActivityContainer activities={this.state.activities}/>
       </>
