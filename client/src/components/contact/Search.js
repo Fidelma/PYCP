@@ -22,7 +22,7 @@ class Search extends Component {
 
     return(
       <>
-      <label >Search for existing person</label>
+      <label >Search the Database</label>
       <input type="text"
       value={this.state.search}
       onChange={this.updateSearch}/>
