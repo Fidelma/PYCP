@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ContactContainer from './ContactContainer';
+import PersonContainer from './PersonContainer';
 
 class HomePageContainer extends Component {
   constructor(props){
@@ -152,6 +153,7 @@ class HomePageContainer extends Component {
       <h1>HomePageContainer</h1>
       <h4> {this.state.people[0].name.firstName}</h4>
       <ContactContainer people={this.state.people}/>
+      <PersonContainer people={this.state.people}/>
       </>
     )
   }
