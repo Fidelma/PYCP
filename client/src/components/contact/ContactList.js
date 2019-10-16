@@ -6,7 +6,6 @@ const ContactList = ({people}) => {
     return (
       <>
       <ContactListItem person={person} key={index}/>
-      <PersonListItem person={person} key={index}/>
       </>
     )
   });
