@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ActivityList from '../components/activity/ActivityList';
-
+import ActivityForm from '../components/activity/ActivityForm';
 
 class ActivityContainer extends Component {
   constructor(props){
@@ -12,6 +12,7 @@ class ActivityContainer extends Component {
       <>
       <h2>Activity Container</h2>
       <ActivityList activities={this.props.activities}/>
+      <ActivityForm/>
       </>
     )
   }
