@@ -21,21 +21,17 @@ class Search extends Component {
     })
 
     return(
-      <div>
-      <div >
+      <>
       <label >Search for existing person</label>
       <input type="text"
       value={this.state.search}
       onChange={this.updateSearch}/>
-      </div>
-      <div >
-      <p>
+
       {filteredPeople.map((person, index) => {
         return<ContactListItem person={person} key={index}/>
       })}
-      </p>
-      </div>
-      </div>
+
+      </>
     )
   }
 
