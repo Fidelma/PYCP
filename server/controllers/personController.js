@@ -3,7 +3,7 @@
 Person = require('../models/personModel');
 // Handle index actions
 exports.index = function (req, res) {
-    Person.get(function (err, persons) {
+    Person.get(function (err, people) {
         if (err) {
             res.json({
                 status: "error",
@@ -13,7 +13,7 @@ exports.index = function (req, res) {
         res.json({
             status: "success",
             message: "People retrieved successfully",
-            data: persons
+            data: people
         });
     });
     // Person.count({}, function (err, count) {
@@ -96,7 +96,7 @@ res.json({
         });
     });
 };
-// Handle view persons info
+// Handle view people info
 exports.view = function (req, res) {
     Person.findById(req.params.person_id, function (err, person) {
         if (err)

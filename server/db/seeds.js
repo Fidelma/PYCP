@@ -89,7 +89,7 @@ db.people.insertMany([
        default: Date.now
      }
    },
-   restrictions: {
+   timeOut: {
      exists: false,
      type: 'null',
      notes: 'null'
