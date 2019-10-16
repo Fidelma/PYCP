@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ContactList from '../components/contact/ContactList';
+import Search from '../components/contact/Search';
 
 class ContactContainer extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ class ContactContainer extends Component {
     return(
       <>
       <h2> ContactContainer </h2>
-      <ContactList people={this.props.people}/>
+      <Search people={this.props.people}/>
       </>
     )
   }
