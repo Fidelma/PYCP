@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import ContactList from '../components/contact/ContactList';
 import Search from '../components/contact/Search';
 
 class ContactContainer extends Component {
