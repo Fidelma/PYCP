@@ -1,6 +1,7 @@
 // personController.js
 // Import person model
 Person = require('../models/personModel');
+
 // Handle index actions
 exports.index = function (req, res) {
     Person.get(function (err, people) {
@@ -16,22 +17,9 @@ exports.index = function (req, res) {
             data: people
         });
     });
-    // Person.count({}, function (err, count) {
-    //     if (err) {
-    //         res.json({
-    //             status: "error",
-    //             message: err,
-    //         });
-    //     }
-    //     res.json({
-    //         status: "success",
-    //         message: "People retrieved successfully",
-    //         count: count
-    //     });
-    // });
 };
 
-// Handle create contact actions
+// Handle create person actions
 exports.new = function (req, res) {
     var person = new Person();
     person.name = req.body.name;
@@ -83,19 +71,18 @@ exports.new = function (req, res) {
     person.timeOut.reason = req.body.timeOut.reason;
     person.timeOut.notes = req.body.timeOut.notes;
 
-
-
 // save the person and check for errors
     person.save(function (err) {
-        // if (err)
-        //     res.json(err);
-res.json({
+        if (err)
+            res.json(err);
+        res.json({
             message: 'New person created!',
             data: person
         });
     });
 };
-// Handle view people info
+
+// Handle view person info
 exports.view = function (req, res) {
     Person.findById(req.params.person_id, function (err, person) {
         if (err)
@@ -106,7 +93,8 @@ exports.view = function (req, res) {
         });
     });
 };
-// Handle update contact info
+
+// Handle update person info
 exports.update = function (req, res) {
 Person.findById(req.params.person_id, function (err, person) {
         if (err)
