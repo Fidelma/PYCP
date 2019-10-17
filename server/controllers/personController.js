@@ -3,7 +3,7 @@
 Person = require('../models/personModel');
 // Handle index actions
 exports.index = function (req, res) {
-    Person.get(function (err, persons) {
+    Person.get(function (err, people) {
         if (err) {
             res.json({
                 status: "error",
@@ -13,7 +13,7 @@ exports.index = function (req, res) {
         res.json({
             status: "success",
             message: "People retrieved successfully",
-            data: persons
+            data: people
         });
     });
     // Person.count({}, function (err, count) {
@@ -34,6 +34,7 @@ exports.index = function (req, res) {
 // Handle create contact actions
 exports.new = function (req, res) {
     var person = new Person();
+    console.log(req.body);
     person.name = req.body.name;
     person.name.firstName = req.body.name.firstName;
     person.name.lastName = req.body.name.lastName;
@@ -79,10 +80,11 @@ exports.new = function (req, res) {
     person.signed.name = req.body.signed.name;
     person.signed.relationship = req.body.signed.relationship;
     // person.signed.date = req.body.signed.date;
-    person.timeOut = req.body.timeOut;
+    person.banana = req.body.timeOut;
+    console.log(person);
     person.timeOut.exists = req.body.timeOut.exists;
-    person.timeOut.type = req.body.timeOut.type;
-    person.timeOut.notes = req.body.timeOut.notes;
+    person.test.type = req.body.test.type;
+    person.test.notes = req.body.test.notes;
 
 
 
@@ -96,7 +98,7 @@ res.json({
         });
     });
 };
-// Handle view persons info
+// Handle view people info
 exports.view = function (req, res) {
     Person.findById(req.params.person_id, function (err, person) {
         if (err)

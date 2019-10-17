@@ -14,11 +14,11 @@ var personController = require('./controllers/personController');
 var activityController = require('./controllers/activityController');
 
 // Activity routes
-router.route('/persons')
+router.route('/people')
     .get(personController.index)
     .post(personController.new);
 
-router.route('/persons/:person_id')
+router.route('/people/:person_id')
     .get(personController.view)
     .patch(personController.update)
     .put(personController.update)

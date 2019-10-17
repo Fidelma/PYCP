@@ -45,26 +45,23 @@ const personSchema = mongoose.Schema({
      byWho: String
    },
  siblings: {
-   exists: Boolean
-   // siblings: [{
-   //   // type: Schema.ObjectId,
-   //   // ref: String
-   // }]
+   exists: Boolean,
+   siblings: [{
+       type: mongoose.Schema.Types.ObjectId,
+       ref: 'Person'
+     }]
  },
  ethnicity: String,
  volunteering: Boolean,
  signed: {
    signed: Boolean,
    name: String,
-   relationship: String
-   // date: {
-   //   type: Date,
-   //   default: Date.now
-   // }
+   relationship: String,
+   date: Date
  },
  timeOut: {
    exists: Boolean,
-   type: String,
+   reason: String,
    notes: String
  }
  })
