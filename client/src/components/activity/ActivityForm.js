@@ -2,6 +2,20 @@ import React, {Component} from 'react';
 
 class ActivityForm extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      day: '',
+      startTime: '',
+      endTime: '',
+      age: [],
+      gender: '',
+      location: '',
+      description: ''
+    };
+  }
+
 render(){
   return(
   <form>
