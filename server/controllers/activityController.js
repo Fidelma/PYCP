@@ -54,15 +54,16 @@ exports.update = function (req, res) {
 Activity.findById(req.params.activity_id, function (err, activity) {
         if (err)
             res.send(err);
-activity.title = req.body.title;
-activity.day = req.body.day;
-activity.startTime = req.body.startTime;
-activity.endTime = req.body.endTime;
-activity.age = req.body.age;
-activity.gender = req.body.gender;
-activity.location = req.body.location;
-activity.description = req.body.description;
-// save the contact and check for errors
+            activity.title = req.body.title;
+            activity.day = req.body.day;
+            activity.startTime = req.body.startTime;
+            activity.endTime = req.body.endTime;
+            activity.age = req.body.age;
+            activity.gender = req.body.gender;
+            activity.location = req.body.location;
+            activity.description = req.body.description;
+
+// save the activity and check for errors
         activity.save(function (err) {
             if (err)
                 res.json(err);

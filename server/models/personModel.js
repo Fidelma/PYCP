@@ -11,12 +11,12 @@ const personSchema = mongoose.Schema({
      address: String,
      postcode: String
    },
-   primaryContact: Number,
-   secondaryContact: { type: Number, required: false},
+   primaryContact: String,
+   secondaryContact: { type: String, required: false},
    emergencyContact: {
      name: String,
      relationship: String,
-     number: Number
+     number: String
    },
    email: String,
    dietaryRequirements: {
