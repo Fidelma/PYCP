@@ -3,8 +3,10 @@ import ContactContainer from './ContactContainer';
 import PersonContainer from './PersonContainer';
 import ActivityContainer from './ActivityContainer';
 import RegistrationContainer from './RegistrationContainer';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class HomePageContainer extends Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -170,17 +172,44 @@ class HomePageContainer extends Component {
       }]
     }
 
+    this.renderMain = this.renderMain.bind(this);
+    this.renderContact = this.renderContact.bind(this);
+    this.renderActivities = this.renderActivities.bind(this);
   }
+
+  renderMain(props) {
+    return (
+      <h1>HomePageContainer</h1>
+    )
+  }
+
+  renderContact(props) {
+    return (
+      <ContactContainer people = {this.state.people}/>
+    )
+  }
+
+  renderActivities(props) {
+    return (
+      <ActivityContainer activities={this.state.activities}/>
+    )
+  }
+
   render(){
     return(
-      <>
-      <h1>HomePageContainer</h1>
-      <h4> {this.state.people[0].name.firstName}</h4>
-      <ContactContainer people={this.state.people}/>
-      <RegistrationContainer />
-      <PersonContainer people={this.state.people}/>
-      <ActivityContainer activities={this.state.activities}/>
-      </>
+      <Router>
+        <React.Fragment>
+        <Route exact path="/" render={this.renderMain} />
+        <Route exact path="/registration" component={RegistrationContainer} />
+        <Route exact path="/contact" render={this.renderContact} />
+        <Route exact path="/activities" render={this.renderActivities} />
+        </React.Fragment>
+      </Router>
+
+
+
+
+
     )
   }
 }
