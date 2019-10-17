@@ -9,17 +9,39 @@ class ActivityForm extends Component {
       day: '',
       startTime: '',
       endTime: '',
-      age: [],
+      age: [
+      {year: 'P1', checked: false},
+      {year: 'P2', checked: false},
+      {year: 'P3', checked: false},
+      {year: 'P4', checked: false},
+      {year: 'P5', checked: false},
+      {year: 'P6', checked: false},
+      {year: 'P7', checked: false},
+      {year: 'S1', checked: false},
+      {year: 'S2', checked: false},
+      {year: 'S3', checked: false},
+      {year: 'S4', checked: false},
+    ],
       gender: '',
       location: '',
       description: ''
     };
     this.handleChange = this.handleChange.bind(this);
+
   }
 
   handleChange({ target: { value, name } }) {
     this.setState({[name]: value});
   }
+
+  onToggle(index, e){
+  let newAges = this.state.age.slice();
+  newAges[index].checked = !newAges[index].checked
+  this.setState({
+    age: newAges
+  })
+}
+
 
 
 
@@ -63,18 +85,14 @@ render(){
 
     <fieldset>
       <div>
-        <label>Age Group</label>
-        <input type="checkbox" name="" checked={this.state.age} onChange={this.handleCheckedBox} value="P1"/>P1
-        <input type="checkbox" name="" value="P2"/>P2
-        <input type="checkbox" name="" value="P3"/>P3
-        <input type="checkbox" name="" value="P4"/>P4
-        <input type="checkbox" name="" value="P5"/>P5
-        <input type="checkbox" name="" value="P6"/>P6
-        <input type="checkbox" name="" value="P7"/>P7
-        <input type="checkbox" name="" value="S1"/>S1
-        <input type="checkbox" name="" value="S2"/>S2
-        <input type="checkbox" name="" value="S3"/>S3
-        <input type="checkbox" name="" value="S4"/>S4
+      <ul>
+                {this.state.age.map((age, i) =>
+                	<li key={i}>
+                    {age.year}
+                	  <input type="checkbox" onChange={this.onToggle.bind(this, i)} />
+                	</li>
+                )}
+          	  </ul>
       </div>
 
     <div>
