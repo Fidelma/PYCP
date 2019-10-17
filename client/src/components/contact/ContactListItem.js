@@ -2,7 +2,7 @@ import React from 'react'
 
 const ContactListItem = ({person}) => (
   <>
-   <h6>{person.name.firstName}</h6>
+   <h3>{person.name.firstName} {person.name.lastName}</h3>
   </>
 )
 
