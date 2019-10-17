@@ -22,6 +22,8 @@ class ActivityForm extends Component {
   }
 
 
+
+
 render(){
   return(
   <form>
@@ -62,7 +64,7 @@ render(){
     <fieldset>
       <div>
         <label>Age Group</label>
-        <input type="checkbox" name="" value="P1"/>P1
+        <input type="checkbox" name="" checked={this.state.age} onChange={this.handleCheckedBox} value="P1"/>P1
         <input type="checkbox" name="" value="P2"/>P2
         <input type="checkbox" name="" value="P3"/>P3
         <input type="checkbox" name="" value="P4"/>P4

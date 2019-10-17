@@ -8,6 +8,7 @@ render(){
       <h2>Registration Form</h2>
 
       <fieldset>
+
       <div>
         <label>First Name</label>
         <input type="text"/>
@@ -24,24 +25,34 @@ render(){
         <label>Date Of Birth</label>
         <input type="text"/>
       </div>
+
+      <div>
+        <h4>Address Details</h4>
+        <label>Address</label>
+        <input type="text"/>
+
+        <label>Postcode</label>
+        <input type="text"/>
+      </div>
+
+      <div>
+      <label>Email</label>
+      <input type="email"/>
+      </div>
+
       </fieldset>
 
 
       <fieldset>
 
-        <div>
-          <h2>Address Details</h2>
-          <label>Address</label>
-          <input type="text"/>
+      <h4>Emergency Contact Details</h4>
 
-          <label>Postcode</label>
-          <input type="text"/>
-        </div>
+      <label>Name</label>
+      <input type="name"/>
 
-      </fieldset>
+      <label>Relationship</label>
+      <input type="relationship"/>
 
-      <fieldset>
-        <h2>Emergency Contact Details</h2>
         <label>Primary Contact Number</label>
         <input type="text"/>
 
@@ -52,13 +63,10 @@ render(){
         <input type="text"/>
       </fieldset>
 
-      <fieldset>
-        <label>Email</label>
-        <input type="email"/>
-      </fieldset>
+
 
       <fieldset>
-      <h2>Dietary Details</h2>
+      <h4>Dietary Details</h4>
 
       <label>Dietary Requirements</label>
       <select name="exists" id="exists">
@@ -69,7 +77,13 @@ render(){
       <label>Details</label>
       <input type="text"/>
 
-      <h2>Medical Details</h2>
+      <h4>Medical Details</h4>
+
+      <label>Doctors Surgery</label>
+      <select name="doctorsSurgery" id="doctorsSurgery">
+        <option value="surgery1">Surgery1</option>
+        <option value="surgery2">Surgery2</option>
+      </select>
 
       <label>Medical Conditions</label>
       <select name="exists" id="exists">
@@ -83,7 +97,7 @@ render(){
       <label>Medications</label>
       <input type="text"/>
 
-      <h2>Allergy Details</h2>
+      <h4>Allergy Details</h4>
 
       <label>Allergies</label>
       <select name="exists" id="exists">
@@ -97,11 +111,7 @@ render(){
       <label>Other</label>
       <input type="text"/>
 
-      <label>Doctors Surgery</label>
-      <select name="doctorsSurgery" id="doctorsSurgery">
-        <option value="surgery1">Surgery1</option>
-        <option value="surgery2">Surgery2</option>
-      </select>
+
 
       </fieldset>
 
@@ -114,10 +124,7 @@ render(){
         <option value="Royston">Royston</option>
         <option value="Other">Other</option>
       </select>
-      </fieldset>
 
-      <fieldset>
-      <h2>School Details</h2>
       <label>School</label>
       <select name="name" id="name">
         <option value="school1">School1</option>
@@ -209,12 +216,6 @@ render(){
           <option value="true">Yes</option>
           </select>
 
-        <label>Name</label>
-        <input type="name"/>
-
-        <label>Relationship</label>
-        <input type="relationship"/>
-
         <label>Date</label>
         <input type="date"/>
 
@@ -239,11 +240,6 @@ render(){
           <input type="text"/>
 
       </fieldset>
-
-
-
-
-
       </>
 
   )
