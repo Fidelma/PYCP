@@ -78,8 +78,8 @@ Person.remove({}, function(err) {
      person1.signed.relationship = 'Wife'
      person1.signed.date = '2019/10/17'
      person1.timeOut.exists = true
-     person1.timeOut.reason = '1 week'
-     person1.timeOut.notes = 'ban for inappropriate behaviour'
+     person1.timeOut.reason = 'ban for inappropriate behaviour'
+     person1.timeOut.notes = '1 week'
 
      person1.save(function(err){
        if(err)throw err;
@@ -123,8 +123,8 @@ Person.remove({}, function(err) {
        person2.signed.relationship = 'Wife'
        person2.signed.date = '2019/10/17'
        person2.timeOut.exists = true
-       person2.timeOut.reason = '1 week'
-       person2.timeOut.notes = 'ban for inappropriate behaviour'
+       person2.timeOut.reason = 'ban for inappropriate behaviour'
+       person2.timeOut.notes = '1 week'
 
        person2.save(function(err){
          if(err)throw err;
