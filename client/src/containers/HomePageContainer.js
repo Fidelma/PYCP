@@ -73,7 +73,7 @@ class HomePageContainer extends Component {
           year: 'P3'
         },
         photographyPermission: true,
-        collection: {
+        pickUp: {
           toBeCollected: false,
           byWho: null
         },
@@ -95,9 +95,9 @@ class HomePageContainer extends Component {
             default: Date.now
           }
         },
-        restrictions: {
+        timeOut: {
           exists: false,
-          type: null,
+          reason: null,
           notes: ''
         }
 
@@ -142,7 +142,7 @@ class HomePageContainer extends Component {
           year: 'P3'
         },
         photographyPermission: true,
-        collection: {
+        pickUp: {
           toBeCollected: false,
           byWho: null
         },
@@ -164,10 +164,10 @@ class HomePageContainer extends Component {
             default: Date.now
           }
         },
-        restrictions: {
+        timeOut: {
           exists: false,
           type: null,
-          notes: ''
+          notes: 'none'
         }
 
       }]
