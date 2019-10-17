@@ -14,7 +14,13 @@ class ActivityForm extends Component {
       location: '',
       description: ''
     };
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange({ target: { value, name } }) {
+    this.setState({[name]: value});
+  }
+
 
 render(){
   return(
@@ -23,14 +29,15 @@ render(){
     <fieldset>
     <div>
       <label>Activity Title</label>
-      <input type="text"/>
+      <input type="text" id="title" name="title" value={this.state.title} onChange={this.handleChange} required/>
     </div>
     </fieldset>
 
     <fieldset>
     <div>
       <label>Day</label>
-      <select name="day" id="day">
+      <select name="day" id="day" value={this.state.day} onChange={this.handleChange} required>
+        <option value="" selected disabled hidden>Select Here</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
         <option value="Wednesday">Wednesday</option>
@@ -43,12 +50,12 @@ render(){
 
     <div>
       <label>Start Time</label>
-      <input type="time"/>
+      <input type="time" id="startTime" name="startTime" value={this.state.startTime} onChange={this.handleChange} required/>
     </div>
 
     <div>
       <label>End Time</label>
-      <input type="time" step="0:10:00"/>
+      <input type="time" id="endTime" name="endTime" value={this.state.endTime} onChange={this.handleChange} required/>
     </div>
     </fieldset>
 
@@ -70,7 +77,8 @@ render(){
 
     <div>
       <label>Gender</label>
-      <select name="gender" id="gender">
+      <select name="gender" id="gender" value={this.state.gender} onChange={this.handleChange} required>
+        <option value="" selected disabled hidden>Select Here</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Both">Both</option>
@@ -80,12 +88,13 @@ render(){
 
     <div>
       <label>Location</label>
-      <input type="text"/>
+      <input type="text" id="location" name="location" value={this.state.location} onChange={this.handleChange} required/>
     </div>
 
     <div>
       <label>Description</label>
-      <input type="textarea"/>
+      <textarea id="description" name="description" value={this.state.description} onChange={this.handleChange} required>
+      </textarea>
     </div>
 
     <div>
