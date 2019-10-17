@@ -76,6 +76,7 @@ Person.remove({}, function(err) {
      person1.signed.signed = true
      person1.signed.name = 'Amy Black'
      person1.signed.relationship = 'Wife'
+     person1.signed.date = '2019-08-17'
      person1.timeOut.exists = true
      person1.timeOut.reason = '1 week'
      person1.timeOut.notes = 'ban for inappropriate behaviour'

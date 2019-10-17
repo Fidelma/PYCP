@@ -52,7 +52,11 @@ const personSchema = mongoose.Schema({
  signed: {
    signed: Boolean,
    name: String,
-   relationship: String
+   relationship: String,
+   date: {
+    type: Date,
+    default: Date.now
+  }
  },
  timeOut: {
    exists: Boolean,
