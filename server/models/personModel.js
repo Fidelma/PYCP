@@ -66,6 +66,11 @@ const personSchema = mongoose.Schema({
    exists: Boolean,
    type: String,
    notes: String
+ },
+ test: {
+   exists: Boolean,
+   type: String,
+   notes: String
  }
  })
 

@@ -34,6 +34,7 @@ exports.index = function (req, res) {
 // Handle create contact actions
 exports.new = function (req, res) {
     var person = new Person();
+    console.log(req.body);
     person.name = req.body.name;
     person.name.firstName = req.body.name.firstName;
     person.name.lastName = req.body.name.lastName;
@@ -79,10 +80,11 @@ exports.new = function (req, res) {
     person.signed.name = req.body.signed.name;
     person.signed.relationship = req.body.signed.relationship;
     // person.signed.date = req.body.signed.date;
-    person.timeOut = req.body.timeOut;
+    person.banana = req.body.timeOut;
+    console.log(person);
     person.timeOut.exists = req.body.timeOut.exists;
-    person.timeOut.type = req.body.timeOut.type;
-    person.timeOut.notes = req.body.timeOut.notes;
+    person.test.type = req.body.test.type;
+    person.test.notes = req.body.test.notes;
 
 
 
