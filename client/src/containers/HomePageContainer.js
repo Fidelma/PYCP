@@ -13,6 +13,7 @@ class HomePageContainer extends Component {
     this.state = {
       activities: [],
       people: []
+
     }
 
     this.renderMain = this.renderMain.bind(this);
