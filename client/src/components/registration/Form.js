@@ -1,6 +1,87 @@
 import React, {Component} from 'react';
 
 class Form extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: {
+        firstName: '',
+        lastName: ''
+      },
+      gender: '',
+      dob: '',
+      address: {
+        address: '',
+        postcode: ''
+      },
+      email: '',
+      primaryContact: '',
+      secondaryContact: '',
+      emergencyContact: {
+        name: '',
+        relationship: '',
+        number: ''
+      },
+      dietaryRequirements: {
+        exists: false,
+        details: ''
+      },
+      medicalConditions: {
+        exists: false,
+        details: '',
+        medications: ''
+      },
+      allergies: {
+        exists: false,
+        allergens: [],
+        other: ''
+      },
+      doctorsSurgery: '',
+      community: '',
+      school: {
+        name: '',
+        year: ''
+      },
+      photographyPermission: true,
+      pickUp: {
+        toBeCollected: null,
+        byWho: ''
+      },
+    siblings: {
+      exists: false,
+      siblings: []
+      },
+      ethnicity: '',
+      volunteering: true,
+      signed: {
+        signed: false,
+        name: '',
+        relationship: '',
+        date:''
+      },
+      timeOut: {
+        exists: false,
+        reason: '',
+        notes: ''
+      }
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleNameUpdate = this.handleNameUpdate.bind(this);
+  }
+
+  handleNameUpdate({target: { value, name } }) {
+    this.setState(prevState => ({
+      name: {
+        ...prevState.name,
+        [name]: value
+      }
+  }))
+  }
+
+  handleChange({ target: { value, name } }) {
+    this.setState({[name]: value});
+  }
+
 
 render(){
   return(
@@ -10,20 +91,39 @@ render(){
       <fieldset>
 
       <div>
+      
         <label>First Name</label>
-        <input type="text"/>
+        <input
+        type="text" id="firstName" name="firstName"
+        value={this.state.firstName}
+        onChange={this.handleNameUpdate}/>
 
         <label>Last Name</label>
-        <input type="text"/>
+        <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        // primaryKey="name"
+        value={this.state.lastName}
+        onChange={this.handleNameUpdate}
+        />
 
           <label>Gender</label>
-          <select name="gender" id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+          <select name="gender" id="gender" onChange={this.handleChange}>
+          <option
+          disabled selected value> - select an option - </option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
           </select>
 
         <label>Date Of Birth</label>
-        <input type="text"/>
+        <input
+        type="text"
+        name="dob"
+        id="dob"
+        value={this.state.dob}
+        onChange={this.handleChange}/>
+
       </div>
 
       <div>
