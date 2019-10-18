@@ -176,6 +176,7 @@ class HomePageContainer extends Component {
     this.renderMain = this.renderMain.bind(this);
     this.renderContact = this.renderContact.bind(this);
     this.renderActivities = this.renderActivities.bind(this);
+    this.renderPeople = this.renderPeople.bind(this);
   }
 
   renderMain(props) {
@@ -196,6 +197,14 @@ class HomePageContainer extends Component {
     )
   }
 
+  renderPeople(props) {
+    return (
+      <PersonContainer people={this.state.people}/>
+    )
+  }
+
+
+
   render(){
     return(
       <Router>
@@ -204,6 +213,7 @@ class HomePageContainer extends Component {
         <Route exact path="/" render={this.renderMain} />
         <Route exact path="/registration" component={RegistrationContainer} />
         <Route exact path="/contact" render={this.renderContact} />
+        <Route exact path="/people" render={this.renderPeople} />
         <Route exact path="/activities" render={this.renderActivities} />
         </React.Fragment>
       </Router>
