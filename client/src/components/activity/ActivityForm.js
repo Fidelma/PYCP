@@ -38,7 +38,8 @@ class ActivityForm extends Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.addActivity({...this.state});
-    this.setState({title: '',
+    this.setState({
+    title: '',
     day: '',
     startTime: '',
     endTime: '',
@@ -63,6 +64,11 @@ class ActivityForm extends Component {
   onToggle(index, e){
   let newAges = this.state.age.slice();
   newAges[index].checked = !newAges[index].checked
+
+// })
+
+
+
   this.setState({
     age: newAges
   })
