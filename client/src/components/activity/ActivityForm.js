@@ -36,8 +36,28 @@ class ActivityForm extends Component {
   }
 
   handleSubmit(e){
-    e.preventDefult();
-    this.props.addActivity({...this.state})
+    e.preventDefault();
+    this.props.addActivity({...this.state});
+    this.setState({title: '',
+    day: '',
+    startTime: '',
+    endTime: '',
+    age: [
+    {year: 'P1', checked: false},
+    {year: 'P2', checked: false},
+    {year: 'P3', checked: false},
+    {year: 'P4', checked: false},
+    {year: 'P5', checked: false},
+    {year: 'P6', checked: false},
+    {year: 'P7', checked: false},
+    {year: 'S1', checked: false},
+    {year: 'S2', checked: false},
+    {year: 'S3', checked: false},
+    {year: 'S4', checked: false},
+  ],
+    gender: '',
+    location: '',
+    description: ''})
   }
 
   onToggle(index, e){
@@ -47,6 +67,7 @@ class ActivityForm extends Component {
     age: newAges
   })
 }
+
 
 
 
@@ -91,14 +112,14 @@ render(){
 
     <fieldset>
       <div>
-      <ul>
-                {this.state.age.map((age, i) =>
-                	<li key={i}>
-                    {age.year}
-                	  <input type="checkbox" onChange={this.onToggle.bind(this, i)} />
-                	</li>
-                )}
-          	  </ul>
+        <ul>
+          {this.state.age.map((age, i) =>
+          	<li key={i}>
+              {age.year}
+          	  <input type="checkbox" onChange={this.onToggle.bind(this, i)} />
+          	</li>
+          )}
+        </ul>
       </div>
 
     <div>
