@@ -69,19 +69,19 @@ class Form extends Component {
     this.handleNameUpdate = this.handleNameUpdate.bind(this);
   }
 
+
+  handleChange({ target: { value, name } }) {
+    this.setState({[name]: value});
+  }
+
   handleNameUpdate({target: { value, name } }) {
     this.setState(prevState => ({
       name: {
         ...prevState.name,
         [name]: value
       }
-  }))
+    }))
   }
-
-  handleChange({ target: { value, name } }) {
-    this.setState({[name]: value});
-  }
-
 
 render(){
   return(
@@ -91,7 +91,7 @@ render(){
       <fieldset>
 
       <div>
-      
+
         <label>First Name</label>
         <input
         type="text" id="firstName" name="firstName"
