@@ -114,7 +114,7 @@ class HomePageContainer extends Component {
           postcode: 'EH1 3JW'
         },
         primaryContact: '07777283647',
-        secondaryContact: null,
+        secondaryContact: '07999283647',
         emergencyContact: {
           name: 'Ben',
           relationship: 'Complicated',
