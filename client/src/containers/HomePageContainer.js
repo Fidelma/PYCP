@@ -21,12 +21,19 @@ class HomePageContainer extends Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8080/activities';
-
+    const url = 'http://localhost:8080/api/activities';
     fetch(url)
         .then(res => res.json())
         .then(activities => this.setState({
-            activities: activities
+            activities: activities.data
+        }))
+        .catch(err => console.error);
+
+    const url2 = 'http://localhost:8080/api/people';
+    fetch(url2)
+        .then(res => res.json())
+        .then(people => this.setState({
+            people: people.data
         }))
         .catch(err => console.error);
 }

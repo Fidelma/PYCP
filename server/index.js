@@ -6,6 +6,8 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 // Initialise the app
 let app = express();
+const cors = require('cors');
+app.use(cors());
 
 // Import routes
 let apiRoutes = require("./api-routes");
