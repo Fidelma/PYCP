@@ -27,11 +27,17 @@ class ActivityForm extends Component {
       description: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
   handleChange({ target: { value, name } }) {
     this.setState({[name]: value});
+  }
+
+  handleSubmit(e){
+    e.preventDefult();
+    this.props.addActivity({...this.state})
   }
 
   onToggle(index, e){
@@ -118,7 +124,7 @@ render(){
     </div>
 
     <div>
-      <button type="submit">SUBMIT!</button>
+      <button type="submit" onClick={this.handleSubmit}>Submit</button>
     </div>
 
     </fieldset>
