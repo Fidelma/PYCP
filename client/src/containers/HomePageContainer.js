@@ -177,6 +177,12 @@ class HomePageContainer extends Component {
     this.renderContact = this.renderContact.bind(this);
     this.renderActivities = this.renderActivities.bind(this);
     this.renderPeople = this.renderPeople.bind(this);
+    this.addActivity = this.addActivity.bind(this);
+  }
+
+  addActivity(activity){
+    const activities = [...this.state.activities, activity];
+    this.setState({activities});
   }
 
   renderMain(props) {
@@ -193,7 +199,10 @@ class HomePageContainer extends Component {
 
   renderActivities(props) {
     return (
-      <ActivityContainer activities={this.state.activities}/>
+      <ActivityContainer
+        activities={this.state.activities}
+        addActivity={this.addActivity}
+      />
     )
   }
 
@@ -202,6 +211,8 @@ class HomePageContainer extends Component {
       <PersonContainer people={this.state.people}/>
     )
   }
+
+
 
 
 
