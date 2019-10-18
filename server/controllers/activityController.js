@@ -1,6 +1,7 @@
-// contactController.js
-// Import contact model
+// activityController.js
+// Import activity model
 Activity = require('../models/activityModel');
+
 // Handle index actions
 exports.index = function (req, res) {
     Activity.get(function (err, activities) {
@@ -17,7 +18,8 @@ exports.index = function (req, res) {
         });
     });
 };
-// Handle create contact actions
+
+// Handle create activity actions
 exports.new = function (req, res) {
     var activity = new Activity();
     activity.title = req.body.title;
@@ -28,17 +30,19 @@ exports.new = function (req, res) {
     activity.gender = req.body.gender;
     activity.location = req.body.location;
     activity.description = req.body.description;
-// save the contact and check for errors
+
+// save the activity and check for errors
     activity.save(function (err) {
-        // if (err)
-        //     res.json(err);
-res.json({
+        if (err)
+            res.json(err);
+        res.json({
             message: 'New activity created!',
             data: activity
         });
     });
 };
-// Handle view contact info
+
+// Handle view activity info
 exports.view = function (req, res) {
     Activity.findById(req.params.activity_id, function (err, activity) {
         if (err)
@@ -49,20 +53,22 @@ exports.view = function (req, res) {
         });
     });
 };
-// Handle update contact info
+
+// Handle update activity info
 exports.update = function (req, res) {
 Activity.findById(req.params.activity_id, function (err, activity) {
         if (err)
             res.send(err);
-activity.title = req.body.title;
-activity.day = req.body.day;
-activity.startTime = req.body.startTime;
-activity.endTime = req.body.endTime;
-activity.age = req.body.age;
-activity.gender = req.body.gender;
-activity.location = req.body.location;
-activity.description = req.body.description;
-// save the contact and check for errors
+            activity.title = req.body.title;
+            activity.day = req.body.day;
+            activity.startTime = req.body.startTime;
+            activity.endTime = req.body.endTime;
+            activity.age = req.body.age;
+            activity.gender = req.body.gender;
+            activity.location = req.body.location;
+            activity.description = req.body.description;
+
+// save the activity and check for errors
         activity.save(function (err) {
             if (err)
                 res.json(err);
@@ -73,7 +79,7 @@ activity.description = req.body.description;
         });
     });
 };
-// Handle delete contact
+// Handle delete activity
 exports.delete = function (req, res) {
     Activity.remove({
         _id: req.params.activity_id

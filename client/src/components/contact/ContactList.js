@@ -11,7 +11,9 @@ const ContactList = ({people}) => {
   });
   return(
     <>
-    {personNodes}
+      <tr>
+        <td>{personNodes}</td>
+      </tr>
     </>
   )
 }
