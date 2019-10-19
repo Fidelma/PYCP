@@ -5,6 +5,7 @@ import ActivityContainer from './ActivityContainer';
 import RegistrationContainer from './RegistrationContainer';
 import NavBar from '../components/navigation/NavBar';
 import Header from '../components/home/Header';
+import Button from '../components/home/Button';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class HomePageContainer extends Component {
@@ -49,7 +50,10 @@ class HomePageContainer extends Component {
 
   renderMain(props) {
     return (
+      <>
       <h1>HomePageContainer</h1>
+      <Button/>
+      </>
     )
   }
 
@@ -70,7 +74,9 @@ class HomePageContainer extends Component {
 
   renderPeople(props) {
     return (
+    
       <PersonContainer people={this.state.people}/>
+
     )
   }
 
@@ -83,13 +89,15 @@ class HomePageContainer extends Component {
       <Router>
         <React.Fragment>
         <Header />
-        <NavBar />
+
         <Route exact path="/" render={this.renderMain} />
         <Route exact path="/registration" component={RegistrationContainer} />
         <Route exact path="/contact" render={this.renderContact} />
         <Route exact path="/people" render={this.renderPeople} />
         <Route exact path="/activities" render={this.renderActivities} />
+
         </React.Fragment>
+
       </Router>
 
 
