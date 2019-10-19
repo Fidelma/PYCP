@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/buttonStyles.css';
 
 const Button = () => (
-<container id='buttons'>
+<div id='buttons'>
 
 <Link to='/registration'>
 <button className='mainBtn'>
@@ -34,7 +34,7 @@ const Button = () => (
 </Link>
 
 
-</container>
+</div>
 );
 
 export default Button;
