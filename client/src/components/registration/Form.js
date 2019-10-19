@@ -67,6 +67,12 @@ class Form extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleNameUpdate = this.handleNameUpdate.bind(this);
+    this.handleAddressUpdate = this.handleAddressUpdate.bind(this);
+    this.handleEmergencyContactChange = this.handleEmergencyContactChange.bind(this);
+    this.handleSignedChange = this.handleSignedChange.bind(this);
+    this.handleDietaryChange = this.handleDietaryChange.bind(this);
+    this.handleDietaryChange = this.handleDietaryChange.bind(this);
+    this.toggleExtraDetails = this.toggleExtraDetails.bind(this);
   }
 
 
@@ -83,6 +89,52 @@ class Form extends Component {
     }))
   }
 
+  handleAddressUpdate({target: { value, name } }){
+    this.setState(prevState => ({
+      address: {
+        ...prevState.address,
+        [name]: value
+      }
+    }))
+  }
+
+  handleEmergencyContactChange({target: { value, name }}){
+    this.setState(prevState => ({
+      emergencyContact: {
+        ...prevState.emergencyContact,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSignedChange({target: {value, name}}){
+    this.setState(prevState => ({
+      signed: {
+        ...prevState.signed,
+        [name]: value
+      }
+    }))
+  }
+
+  handleDietaryChange({target: {name}}){
+    this.setState(prevState => ({
+      dietaryRequirements: {
+        ...prevState.dietaryRequirements,
+        exists: !this.state.dietaryRequirements.exists
+      }
+    }))
+    this.toggleExtraDetails(name)
+  }
+
+  toggleExtraDetails(name){
+    const x = document.getElementById(name);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 render(){
   return(
     <>
@@ -91,6 +143,8 @@ render(){
       <fieldset>
 
       <div>
+
+        <h4>Child or Youth's details</h4>
 
         <label>First Name</label>
         <input
@@ -108,17 +162,17 @@ render(){
         onChange={this.handleNameUpdate}
         />
 
-          <label>Gender</label>
-          <select name="gender" id="gender" onChange={this.handleChange}>
-          <option
-          disabled selected value> - select an option - </option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          </select>
+        <label>Gender</label>
+        <select name="gender" id="gender" onChange={this.handleChange}>
+        <option
+        disabled selected value> - select an option - </option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        </select>
 
         <label>Date Of Birth</label>
         <input
-        type="text"
+        type="date"
         name="dob"
         id="dob"
         value={this.state.dob}
@@ -126,41 +180,113 @@ render(){
 
       </div>
 
-      <div>
-        <h4>Address Details</h4>
-        <label>Address</label>
-        <input type="text"/>
-
-        <label>Postcode</label>
-        <input type="text"/>
-      </div>
-
-      <div>
-      <label>Email</label>
-      <input type="email"/>
-      </div>
-
       </fieldset>
 
+      <fieldset>
+
+      <h4>Guardian Contact Details</h4>
+
+      <label>Name</label>
+      <input
+      type="name"
+      name="name"
+      id="name"
+      value={this.state.signed.name}
+      onChange={this.handleSignedChange}
+      />
+
+      <label>Relationship</label>
+      <input
+      type="relationship"
+      name="relationship"
+      id="relationship"
+      value={this.state.signed.relationship}
+      onChange={this.handleSignedChange}
+      />
+
+        <label>Primary Contact Number</label>
+        <input
+        type="tel"
+        maxLength="11"
+        name="primaryContact"
+        id="primaryContact"
+        value={this.state.primaryContact}
+        onChange={this.handleChange}/>
+
+
+        <label>Secondary Contact Number</label>
+        <input
+        type="tel"
+        maxLength="11"
+        name="secondaryContact"
+        id="secondaryContact"
+        value={this.state.secondaryContact}
+        onChange={this.handleChange}/>
+
+        <div>
+          <label>Address</label>
+          <input
+          type="text"
+          name="address"
+          id="address"
+          value={this.state.address.address}
+          onChange={this.handleAddressUpdate}/>
+
+          <label>Postcode</label>
+          <input
+          type="text"
+          name="postcode"
+          id="postcode"
+          value={this.state.postcode}
+          onChange={this.handleAddressUpdate}
+          />
+        </div>
+
+        <div>
+        <label>Email</label>
+        <input
+        type="email"
+        name="email"
+        id="email"
+        value={this.state.email}
+        onChange={this.handleChange}/>
+        </div>
+
+
+      </fieldset>
 
       <fieldset>
 
       <h4>Emergency Contact Details</h4>
 
       <label>Name</label>
-      <input type="name"/>
+      <input
+      type="name"
+      name="name"
+      id="name"
+      value={this.state.emergencyContact.name}
+      onChange={this.handleEmergencyContactChange}
+      />
 
       <label>Relationship</label>
-      <input type="relationship"/>
+      <input
+      type="relationship"
+      name="relationship"
+      id="relationship"
+      value={this.state.emergencyContact.relationship}
+      onChange={this.handleEmergencyContactChange}
+      />
 
-        <label>Primary Contact Number</label>
-        <input type="text"/>
+        <label>Emergency Contact Number</label>
+        <input
+        type="tel"
+        maxLength="11"
+        name="number"
+        id="number"
+        value={this.state.emergencyContact.number}
+        onChange={this.handleEmergencyContactChange}/>
 
-        <label>Contact Number</label>
-        <input type="text"/>
 
-        <label>Secondary Contact Number</label>
-        <input type="text"/>
       </fieldset>
 
 
@@ -169,13 +295,16 @@ render(){
       <h4>Dietary Details</h4>
 
       <label>Dietary Requirements</label>
-      <select name="exists" id="exists">
-        <option value="false">No</option>
-        <option value="true">Yes</option>
-      </select>
+      <input
+      type="checkbox"
+      name="dietaryDetails"
+      value={this.state.dietaryRequirements.exists}
+      onChange={this.handleDietaryChange}/>
 
+      <div id="dietaryDetails" >
       <label>Details</label>
       <input type="text"/>
+      </div>
 
       <h4>Medical Details</h4>
 
@@ -210,8 +339,6 @@ render(){
 
       <label>Other</label>
       <input type="text"/>
-
-
 
       </fieldset>
 
@@ -269,7 +396,7 @@ render(){
       </fieldset>
 
       <fieldset>
-        <h2>Siblings</h2>
+        <h4>Siblings</h4>
         <label>Siblings Registered?</label>
         <select name="exists" id="exists">
           <option value="false">No</option>
