@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PersonList from '../components/person/PersonList';
+import NavBar from '../components/navigation/NavBar';
 
 
 class PersonContainer extends Component {
@@ -10,6 +11,7 @@ class PersonContainer extends Component {
   render(){
     return(
       <>
+      <NavBar/>
       <h2>Person Container</h2>
       <PersonList people={this.props.people}/>
       </>
