@@ -94,7 +94,7 @@ render(){
     <div>
       <label>Day</label>
       <select name="day" id="day" value={this.state.day} onChange={this.handleChange} required>
-        <option value="" selected disabled hidden>Select Here</option>
+        <option value="" defaultValue disabled hidden>Select Here</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
         <option value="Wednesday">Wednesday</option>
@@ -131,7 +131,7 @@ render(){
     <div>
       <label>Gender</label>
       <select name="gender" id="gender" value={this.state.gender} onChange={this.handleChange} required>
-        <option value="" selected disabled hidden>Select Here</option>
+        <option value="" defaultValue disabled hidden>Select Here</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Both">Both</option>
