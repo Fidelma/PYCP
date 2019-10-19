@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/navBarStyles.css';
 
 const NavBar = () => (
+  <div id='nav'>
   <ul>
     <li>
       <Link to='/'>Home</Link>
@@ -19,6 +21,7 @@ const NavBar = () => (
       <Link to='/people'>People</Link>
     </li>
   </ul>
+  </div>
 );
 
 export default NavBar;
