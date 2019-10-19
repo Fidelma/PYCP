@@ -4,6 +4,7 @@ import PersonContainer from './PersonContainer';
 import ActivityContainer from './ActivityContainer';
 import RegistrationContainer from './RegistrationContainer';
 import NavBar from '../components/navigation/NavBar';
+import Header from '../components/home/Header';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class HomePageContainer extends Component {
@@ -81,6 +82,7 @@ class HomePageContainer extends Component {
     return(
       <Router>
         <React.Fragment>
+        <Header />
         <NavBar />
         <Route exact path="/" render={this.renderMain} />
         <Route exact path="/registration" component={RegistrationContainer} />
