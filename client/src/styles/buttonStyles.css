@@ -13,3 +13,8 @@
   margin: 10px;
 
 }
+
+.mainBtn:hover {
+  font-size: 18px;
+  font-weight: bolder;
+}
