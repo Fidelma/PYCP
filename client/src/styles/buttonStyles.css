@@ -1,12 +1,12 @@
 .buttons {
   display: flex;
-  flex-direction: row;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mainBtn {
-  height:100px;
-  width: 100px;
+  height:250px;
+  width: 250px;
   padding: 20px;
   border-style: solid;
   border-radius: 5px;
