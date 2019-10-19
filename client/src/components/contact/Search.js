@@ -29,6 +29,7 @@ class Search extends Component {
         onChange={this.updateSearch}/>
         <div>
         <table className="contact-table">
+          <tbody>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -40,6 +41,7 @@ class Search extends Component {
             {filteredPeople.map((person, index) => {
               return<ContactListItem person={person} key={index}/>
             })}
+            </tbody>
           </table>
         </div>
       </div>

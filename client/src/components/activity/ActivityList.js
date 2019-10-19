@@ -11,6 +11,7 @@ const ActivityList = ({activities}) => {
   return(
     <>
     <table className="table">
+      <tbody>
         <tr>
           <th>Title</th>
           <th>Age Groups</th>
@@ -21,6 +22,7 @@ const ActivityList = ({activities}) => {
         </tr>
 
     {activityNodes}
+    </tbody>
 </table>
     </>
   )
