@@ -1,0 +1,19 @@
+#nav {
+  width: 100%;
+  text-align: center;
+
+}
+
+#nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+#nav li {
+  display: inline;
+  padding: 15px;
+  font-size: 30px;
+
+}
