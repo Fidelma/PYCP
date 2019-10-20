@@ -10,16 +10,9 @@ const PersonList = ({people}) => {
   });
   return(
     <>
-    <table className="people-table">
+    <table width="1400" className="people-table">
     <tbody>
-    <tr>
-     <th>First Name</th>
-     <th>Last Name</th>
-     <th>School Year</th>
-     <th>Information</th>
-     <th>Attendance</th>
-     <th>Details</th>
-    </tr>
+
     {personNodes}
     </tbody>
     </table>
@@ -28,3 +21,13 @@ const PersonList = ({people}) => {
 }
 
 export default PersonList;
+
+
+// <tr>
+//  <th>First Name</th>
+//  <th>Last Name</th>
+//  <th>School Year</th>
+//  <th>Information</th>
+//  <th>Attendance</th>
+//  <th>Options</th>
+// </tr>

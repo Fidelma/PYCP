@@ -3,9 +3,7 @@ import './ContactListItem.css'
 
 const ContactListItem = ({person}) => {
 
-  const handlClick = () => {
 
-  }
 
   return (
     <>
@@ -16,7 +14,10 @@ const ContactListItem = ({person}) => {
        <td>{person.primaryContact}</td>
        <td>{person.secondaryContact}</td>
        <td>{person.emergencyContact.name} {person.emergencyContact.number}</td>
-       <td><button >All Details...</button></td>
+       <td>
+       <button className="options">Details</button>
+       <button className="options">Edit</button>
+       </td>
       </tr>
     </>
   )

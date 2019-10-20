@@ -37,7 +37,7 @@ class Search extends Component {
             <th>Primary Contact</th>
             <th>Secondary Contact</th>
             <th>Emergency Contact</th>
-            <th>Details</th>
+            <th>Options</th>
           </tr>
             {filteredPeople.map((person, index) => {
               return<ContactListItem person={person} key={index}/>

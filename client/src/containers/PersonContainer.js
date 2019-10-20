@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PersonList from '../components/person/PersonList';
+import Filter from '../components/person/Filter';
 import NavBar from '../components/navigation/NavBar';
 
 
@@ -13,7 +14,7 @@ class PersonContainer extends Component {
       <>
       <NavBar/>
       <h2>Drop Downs</h2>
-      <PersonList people={this.props.people}/>
+      <Filter people={this.props.people}/>
       </>
     )
   }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from '../components/navigation/NavBar';
 import Search from '../components/contact/Search';
+import Collapsible from 'react-collapsible';
 
 
 class ContactContainer extends Component {

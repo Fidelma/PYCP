@@ -1,5 +1,7 @@
 import React from 'react';
 import './PersonListItem.css'
+import Collapsible from 'react-collapsible';
+import Modal from 'react-modal';
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
@@ -11,37 +13,45 @@ const PersonListItem = ({person}) => {
 
   const CameraIcon = (props) => {
     if(!props.person.photographyPermission) {
-      return <button><CameraSvg className="icon"/></button>
+      return <button className="icon"><CameraSvg/></button>
     }
-    return <button></button>
+    return <button className="icon"></button>
   }
 
   const MedicalIcon = (props) => {
     if(props.person.medicalConditions.exists) {
-      return <button><FirstAidSvg className="icon"/></button>
+      return <button className="icon"><FirstAidSvg/></button>
     }
-    return <button></button>
+    return <button className="icon"></button>
   }
 
   const AllergensIcon = (props) => {
     if(props.person.allergies.exists) {
       return <button className="icon"><SquirrelSvg /></button>
     }
-    return <button></button>
+    return <button className="icon"></button>
   }
 
   const PickUpIcon = (props) => {
     if(props.person.pickUp.toBeCollected) {
       return <button className="icon"><PickUpSvg /></button>
     }
-    return <button></button>
+    return <button className="icon"></button>
   }
 
   const BanIcon = (props) => {
     if(props.person.timeOut.exists) {
-      return <button className="icon"><BanSvg /></button>
+      return <button className="icon"><BanSvg/></button>
     }
-    return <button></button>
+    return <button className="icon"></button>
+  }
+
+  const handlClickEdit = () => {
+    console.log("handleClick event Edit:")
+  }
+
+  const handlClickDetails = () => {
+    console.log("handleClick event Details:")
   }
 
   return (
@@ -81,7 +91,8 @@ const PersonListItem = ({person}) => {
      </label>
    </td>
    <td>
-     <button>All Details...</button>
+     <button onClick={handlClickDetails} className="options">Details</button>
+     <button onClick={handlClickEdit} className="options">Edit</button>
    </td>
    </tr>
   </>
