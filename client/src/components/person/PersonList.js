@@ -18,6 +18,7 @@ const PersonList = ({people}) => {
      <th>School Year</th>
      <th>Information</th>
      <th>Attendance</th>
+     <th>Details</th>
     </tr>
     {personNodes}
     </tbody>

@@ -4,12 +4,13 @@ import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
 import {ReactComponent as SquirrelSvg} from '../../images/icons/squirrel.svg';
+import {ReactComponent as PickUpSvg} from '../../images/icons/useraltslash.svg';
 
 
 const PersonListItem = ({person}) => {
 
   const CameraIcon = (props) => {
-    if(props.person.photographyPermission) {
+    if(!props.person.photographyPermission) {
       return <button><CameraSvg className="icon"/></button>
     }
     return <button></button>
@@ -25,6 +26,13 @@ const PersonListItem = ({person}) => {
   const AllergensIcon = (props) => {
     if(props.person.allergies.exists) {
       return <button className="icon"><SquirrelSvg /></button>
+    }
+    return <button></button>
+  }
+
+  const PickUpIcon = (props) => {
+    if(props.person.pickUp.toBeCollected) {
+      return <button className="icon"><PickUpSvg /></button>
     }
     return <button></button>
   }
@@ -46,6 +54,7 @@ const PersonListItem = ({person}) => {
      <CameraIcon person={person}/>
      <MedicalIcon person={person}/>
      <AllergensIcon person={person}/>
+     <PickUpIcon person={person}/>
      <BanIcon person={person}/>
    </td>
    <td>
@@ -70,6 +79,9 @@ const PersonListItem = ({person}) => {
      <label className="container">Sun
        <input type="checkbox"/>
      </label>
+   </td>
+   <td>
+     <button>All Details...</button>
    </td>
    </tr>
   </>

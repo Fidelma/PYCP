@@ -12,7 +12,7 @@ class PersonContainer extends Component {
     return(
       <>
       <NavBar/>
-      <h2>Person Container</h2>
+      <h2>Drop Downs</h2>
       <PersonList people={this.props.people}/>
       </>
     )
