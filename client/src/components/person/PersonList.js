@@ -11,6 +11,7 @@ const PersonList = ({people}) => {
   return(
     <>
     <table className="people-table">
+    <tbody>
     <tr>
      <th>First Name</th>
      <th>Last Name</th>
@@ -19,6 +20,7 @@ const PersonList = ({people}) => {
      <th>Attendance</th>
     </tr>
     {personNodes}
+    </tbody>
     </table>
     </>
   )

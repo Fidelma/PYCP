@@ -2,29 +2,51 @@ import React from 'react';
 import './PersonListItem.css'
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
-import {ReactComponent as FirstaidSvg} from '../../images/icons/firstaid.svg';
+import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
 import {ReactComponent as SquirrelSvg} from '../../images/icons/squirrel.svg';
 
 
-const PersonListItem = ({person}) => (
+const PersonListItem = ({person}) => {
+
+  const CameraIcon = (props) => {
+    if(props.person.photographyPermission) {
+      return <button><CameraSvg className="icon"/></button>
+    }
+    return <button></button>
+  }
+
+  const MedicalIcon = (props) => {
+    if(props.person.medicalConditions.exists) {
+      return <button><FirstAidSvg className="icon"/></button>
+    }
+    return <button></button>
+  }
+
+  const AllergensIcon = (props) => {
+    if(props.person.allergies.exists) {
+      return <button className="icon"><SquirrelSvg /></button>
+    }
+    return <button></button>
+  }
+
+  const BanIcon = (props) => {
+    if(props.person.timeOut.exists) {
+      return <button className="icon"><BanSvg /></button>
+    }
+    return <button></button>
+  }
+
+  return (
   <>
   <tr>
    <td>{person.name.firstName}</td>
    <td>{person.name.lastName}</td>
    <td>{person.school.year}</td>
    <td>
-     <button>
-       <CameraSvg className="icon"/>
-     </button>
-     <button>
-       <BanSvg className="icon"/>
-     </button>
-     <button>
-       <FirstaidSvg className="icon"/>
-     </button>
-     <button>
-       <SquirrelSvg className="icon"/>
-     </button>
+     <CameraIcon person={person}/>
+     <MedicalIcon person={person}/>
+     <AllergensIcon person={person}/>
+     <BanIcon person={person}/>
    </td>
    <td>
      <label className="container">Mon
@@ -52,5 +74,6 @@ const PersonListItem = ({person}) => (
    </tr>
   </>
 )
+}
 
 export default PersonListItem
