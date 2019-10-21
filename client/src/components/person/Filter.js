@@ -14,7 +14,6 @@ class Filter extends Component {
     this.setState({filter: event.target.value.substr(0,20)});
   }
   render(){
-    
     let filteredPeople = this.props.people.filter((person) => {
       const fullName = person.name.firstName+" "+person.name.lastName;
       return (
@@ -28,15 +27,7 @@ class Filter extends Component {
         <label>Filter by Name or Year</label>
         <input type="text" value={this.state.filter} onChange={this.updateFilter}/><br/>
 
-        <div>
-          <input type="checkbox" name="yearGroup" value="P1" onClick={this.updateFilter}/>
-          <label for="P1">P1</label>
-        </div>
-
-        <div>
-          <input type="checkbox" name="yearGroup" value="P7" onClick={this.updateFilter}/>
-          <label for="P7">P7</label>
-        </div>
+        
 
         <div>
         <table className="contact-table">
