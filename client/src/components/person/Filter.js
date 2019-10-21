@@ -15,20 +15,25 @@ class Filter extends Component {
   }
   render(){
     let filteredPeople = this.props.people.filter((person) => {
+      const fullName = person.name.firstName+" "+person.name.lastName;
       return (
-        (person.school.year.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 || person.name.firstName.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 || person.name.lastName.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1)
+        (person.school.year.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 || fullName.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 )
       )
     })
 
     return(
       <div className="contact-form">
+      
         <label>Filter by Name or Year</label>
-        <input type="text" value={this.state.filter} onChange={this.updateFilter}/>
+        <input type="text" value={this.state.filter} onChange={this.updateFilter}/><br/>
+
+        
+
         <div>
         <table className="contact-table">
           <tbody>
           <tr>
-           <th>First Name</th>
+           <th>Full Name</th>
            <th>Last Name</th>
            <th>School Year</th>
            <th>Information</th>

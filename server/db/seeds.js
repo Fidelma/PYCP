@@ -131,4 +131,229 @@ Person.remove({}, function(err) {
          console.log("person saved");
        });
 
+       const person3 = new Person()
+       person3.name.firstName = 'Ben'
+       person3.name.lastName = 'Hutchison'
+       person3.gender = 'male'
+       person3.dob = '12/12/2001'
+       person3.address.address = 'black street'
+       person3.address.postcode = 'EH12 8GX'
+       person3.primaryContact = '07921809601'
+       person3.secondaryContact = '01334675849'
+       person3.emergencyContact.name = 'Shaz'
+       person3.emergencyContact.relationship = 'Wife'
+       person3.emergencyContact.number = '07921809605'
+       person3.email = 'ben@hotmail.com'
+       person3.dietaryRequirements.exists = false
+       person3.dietaryRequirements.details = ''
+       person3.medicalConditions.exists = false
+       person3.medicalConditions.details = ''
+       person3.medicalConditions.medications = ''
+       person3.allergies.exists = true
+       person3.allergies.alergens = ['eggs', 'nuts']
+       person3.allergies.other = 'allergic to the colour red'
+       person3.doctorsSurgery = 'Pilton GP'
+       person3.community = 'West Pilton'
+       person3.school.name = 'Pilton Junior School'
+       person3.school.year = 'P4'
+       person3.photographyPermission = true
+       person3.pickUp.toBeCollected = true
+       person3.pickUp.byWho = 'Shaz Black'
+       person3.siblings.exists = true
+       person3.siblings.siblings = [person1]
+       person3.ethnicity = 'white Scottish'
+       person3.volunteering = true
+       person3.signed.signed = true
+       person3.signed.name = 'Amy Black'
+       person3.signed.relationship = 'Wife'
+       person3.signed.date = '2019/10/17'
+       person3.timeOut.exists = true
+       person3.timeOut.reason = 'ban for inappropriate behaviour'
+       person3.timeOut.notes = '1 week'
+
+       person3.save(function(err){
+         if(err)throw err;
+         console.log("person saved");
+       });
+
+       const person4 = new Person()
+       person4.name.firstName = 'Mike'
+       person4.name.lastName = 'Fallon'
+       person4.gender = 'male'
+       person4.dob = '12/12/2001'
+       person4.address.address = 'black street'
+       person4.address.postcode = 'EH12 8GX'
+       person4.primaryContact = '07921809601'
+       person4.secondaryContact = '01334675849'
+       person4.emergencyContact.name = 'Amy'
+       person4.emergencyContact.relationship = 'Wife'
+       person4.emergencyContact.number = '07921809605'
+       person4.email = 'gav@hotmail.com'
+       person4.dietaryRequirements.exists = false
+       person4.dietaryRequirements.details = 'does not eat food'
+       person4.medicalConditions.exists = true
+       person4.medicalConditions.details = 'heart condition'
+       person4.medicalConditions.medications = 'medication 1'
+       person4.allergies.exists = false
+       person4.allergies.alergens = ['eggs', 'nuts']
+       person4.allergies.other = 'allergic to the colour red'
+       person4.doctorsSurgery = 'Pilton GP'
+       person4.community = 'West Pilton'
+       person4.school.name = 'Pilton Junior School'
+       person4.school.year = 's2'
+       person4.photographyPermission = false
+       person4.pickUp.toBeCollected = true
+       person4.pickUp.byWho = 'Amy Black'
+       person4.siblings.exists = true
+       person4.siblings.siblings = [person1]
+       person4.ethnicity = 'white Scottish'
+       person4.volunteering = true
+       person4.signed.signed = true
+       person4.signed.name = 'Amy Black'
+       person4.signed.relationship = 'Wife'
+       person4.signed.date = '2019/10/17'
+       person4.timeOut.exists = false
+       person4.timeOut.reason = 'ban for inappropriate behaviour'
+       person4.timeOut.notes = '1 week'
+
+       person4.save(function(err){
+         if(err)throw err;
+         console.log("person saved");
+       });
+
+       const person5 = new Person()
+       person5.name.firstName = 'Crawford'
+       person5.name.lastName = 'Brown'
+       person5.gender = 'male'
+       person5.dob = '09/12/2001'
+       person5.address.address = 'black street'
+       person5.address.postcode = 'EH12 8GX'
+       person5.primaryContact = '07921809601'
+       person5.secondaryContact = '01334675849'
+       person5.emergencyContact.name = 'Amy'
+       person5.emergencyContact.relationship = 'Wife'
+       person5.emergencyContact.number = '07921809605'
+       person5.email = 'gav@hotmail.com'
+       person5.dietaryRequirements.exists = true
+       person5.dietaryRequirements.details = 'does not eat food'
+       person5.medicalConditions.exists = false
+       person5.medicalConditions.details = 'heart condition'
+       person5.medicalConditions.medications = 'medication 1'
+       person5.allergies.exists = false
+       person5.allergies.alergens = ['eggs', 'nuts']
+       person5.allergies.other = 'allergic to the colour red'
+       person5.doctorsSurgery = 'Pilton GP'
+       person5.community = 'West Pilton'
+       person5.school.name = 'Pilton Junior School'
+       person5.school.year = 'P7'
+       person5.photographyPermission = false
+       person5.pickUp.toBeCollected = false
+       person5.pickUp.byWho = 'Amy Black'
+       person5.siblings.exists = false
+       person5.siblings.siblings = [person1]
+       person5.ethnicity = 'white Scottish'
+       person5.volunteering = false
+       person5.signed.signed = true
+       person5.signed.name = 'Amy Black'
+       person5.signed.relationship = 'Wife'
+       person5.signed.date = '2019/10/17'
+       person5.timeOut.exists = false
+       person5.timeOut.reason = 'ban for inappropriate behaviour'
+       person5.timeOut.notes = '1 week'
+
+       person5.save(function(err){
+         if(err)throw err;
+         console.log("person saved");
+       });
+
+       const person6 = new Person()
+       person6.name.firstName = 'Chris'
+       person6.name.lastName = 'Mcauley'
+       person6.gender = 'male'
+       person6.dob = '12/12/2001'
+       person6.address.address = 'black street'
+       person6.address.postcode = 'EH12 8GX'
+       person6.primaryContact = '07921809601'
+       person6.secondaryContact = '01334675849'
+       person6.emergencyContact.name = 'Amy'
+       person6.emergencyContact.relationship = 'Wife'
+       person6.emergencyContact.number = '07921809605'
+       person6.email = 'gav@hotmail.com'
+       person6.dietaryRequirements.exists = false
+       person6.dietaryRequirements.details = 'does not eat food'
+       person6.medicalConditions.exists = true
+       person6.medicalConditions.details = 'heart condition'
+       person6.medicalConditions.medications = 'medication 1'
+       person6.allergies.exists = false
+       person6.allergies.alergens = ['eggs', 'nuts']
+       person6.allergies.other = 'allergic to the colour red'
+       person6.doctorsSurgery = 'Pilton GP'
+       person6.community = 'West Pilton'
+       person6.school.name = 'Pilton Junior School'
+       person6.school.year = 'P1'
+       person6.photographyPermission = true
+       person6.pickUp.toBeCollected = false
+       person6.pickUp.byWho = 'Amy Black'
+       person6.siblings.exists = false
+       person6.siblings.siblings = [person1]
+       person6.ethnicity = 'white Scottish'
+       person6.volunteering = false
+       person6.signed.signed = true
+       person6.signed.name = 'Amy Black'
+       person6.signed.relationship = 'Wife'
+       person6.signed.date = '2019/10/17'
+       person6.timeOut.exists = true
+       person6.timeOut.reason = 'ban for inappropriate behaviour'
+       person6.timeOut.notes = '1 week'
+
+       person6.save(function(err){
+         if(err)throw err;
+         console.log("person saved");
+       });
+
+       const person7 = new Person()
+       person7.name.firstName = 'Chris'
+       person7.name.lastName = 'Mcintosh'
+       person7.gender = 'male'
+       person7.dob = '12/12/2001'
+       person7.address.address = 'black street'
+       person7.address.postcode = 'EH12 8GX'
+       person7.primaryContact = '07921809601'
+       person7.secondaryContact = '01334675849'
+       person7.emergencyContact.name = 'Amy'
+       person7.emergencyContact.relationship = 'Wife'
+       person7.emergencyContact.number = '07921809605'
+       person7.email = 'gav@hotmail.com'
+       person7.dietaryRequirements.exists = false
+       person7.dietaryRequirements.details = 'does not eat food'
+       person7.medicalConditions.exists = true
+       person7.medicalConditions.details = 'heart condition'
+       person7.medicalConditions.medications = 'medication 1'
+       person7.allergies.exists = false
+       person7.allergies.alergens = ['eggs', 'nuts']
+       person7.allergies.other = 'allergic to the colour red'
+       person7.doctorsSurgery = 'Pilton GP'
+       person7.community = 'West Pilton'
+       person7.school.name = 'Pilton Junior School'
+       person7.school.year = 'P1'
+       person7.photographyPermission = true
+       person7.pickUp.toBeCollected = false
+       person7.pickUp.byWho = 'Amy Black'
+       person7.siblings.exists = false
+       person7.siblings.siblings = [person1]
+       person7.ethnicity = 'white Scottish'
+       person7.volunteering = false
+       person7.signed.signed = true
+       person7.signed.name = 'Amy Black'
+       person7.signed.relationship = 'Wife'
+       person7.signed.date = '2019/10/17'
+       person7.timeOut.exists = true
+       person7.timeOut.reason = 'ban for inappropriate behaviour'
+       person7.timeOut.notes = '1 week'
+
+       person7.save(function(err){
+         if(err)throw err;
+         console.log("person saved");
+       });
+
 });
