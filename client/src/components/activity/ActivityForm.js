@@ -9,7 +9,8 @@ class ActivityForm extends Component {
       day: '',
       startTime: '',
       endTime: '',
-      age: [
+      age: [],
+      ageCheckboxes: [
       {year: 'P1', checked: false},
       {year: 'P2', checked: false},
       {year: 'P3', checked: false},
@@ -21,7 +22,7 @@ class ActivityForm extends Component {
       {year: 'S2', checked: false},
       {year: 'S3', checked: false},
       {year: 'S4', checked: false},
-    ],
+      ],
       gender: '',
       location: '',
       description: ''
@@ -37,7 +38,17 @@ class ActivityForm extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.addActivity({...this.state});
+    const newActivity = {
+      title: this.state.title,
+      day: this.state.day,
+      startTime: this.state.startTime,
+      endTime: this.state.endTime,
+      age: this.state.age,
+      gender: this.state.gender,
+      location: this.state.location,
+      description: this.state.description
+    }
+    this.props.addActivity(newActivity);
     this.setState({
     title: '',
     day: '',
@@ -62,20 +73,14 @@ class ActivityForm extends Component {
   }
 
   onToggle(index, e){
-  let newAges = this.state.age.slice();
+  let newAges = this.state.ageCheckboxes.slice();
   newAges[index].checked = !newAges[index].checked
-
-// })
-
-
-
+  const filtered = newAges.filter(entry => Object.values(entry).some(val => val === true ));
   this.setState({
-    age: newAges
+    age: filtered.map(({ year }) => year)
   })
-}
 
-
-
+  }
 
 
 
@@ -119,12 +124,13 @@ render(){
     <fieldset>
       <div>
         <ul>
-          {this.state.age.map((age, i) =>
+          {this.state.ageCheckboxes.map((age, i) => {
+            return(
           	<li key={i}>
               {age.year}
-          	  <input type="checkbox" onChange={this.onToggle.bind(this, i)} />
+          	  <input value={age.checked} checked={age.checked} type="checkbox" onChange={this.onToggle.bind(this, i)} />
           	</li>
-          )}
+          )})}
         </ul>
       </div>
 
