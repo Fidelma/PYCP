@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
 
-class RestrictionsForm extends Component {
+const RestrictionsForm = (props) => {
+  const options = props.people.map((person, index) => {
+    return <option value={index} key={index}>
+      {person.name.firstName} {person.name.lastName}
+    </option>
+  })
 
-  render(){
+  function handleChange(event) {
+    console.log("this has changed")
+    props.filterArray(event.target.value)
+  }
 
     return(
       <>
+        <select id="country-selector" defaultValue="default"     onChange={handleChange}>
+        <option disabled value="default">Choose a child...</option>
+        {options}
+        </select>
 
         <h2>Restrictions Input</h2>
         <fieldset>
@@ -33,7 +45,7 @@ class RestrictionsForm extends Component {
         </fieldset>
       </>
     )
-  }
+
 }
 
 export default RestrictionsForm;

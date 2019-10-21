@@ -15,6 +15,7 @@ class RestrictionsContainer extends Component {
 
   filterArray(selectedName) {
       this.setState({filteredPerson: selectedName})
+      console.log("this has changed on the container")
   }
 
 
@@ -24,7 +25,7 @@ class RestrictionsContainer extends Component {
       <NavBar />
       <h2> Restriction Container </h2>
       <RestrictionsSearch people={this.props.people} filterArray={this.filterArray}/>
-      <RestrictionsForm people={this.props.people}/>
+      <RestrictionsForm people={this.props.people} filterArray={this.filterArray}/>
       </>
     )
   }

@@ -10,7 +10,14 @@ class RestrictionsSearch extends Component {
     this.updateSearch = this.updateSearch.bind(this);
   }
 
-  updateSearch({target: {value}}){
+  // const options = this.props.people.map((person, index) => {
+  //   return <option value ={index} key={index}>
+  //     {person.name.firstName}
+  //   </option>
+  // })
+
+  updateSearch({target: {value}}) {
+    this.setState({search: value.substr(0,20)});
     this.props.filterArray(value);
   }
 
@@ -18,10 +25,16 @@ class RestrictionsSearch extends Component {
 
     return(
       <div>
-        <label >Search for child</label>
-        <input type="text"
-        value={this.state.search}
-        onChange={this.updateSearch}/>
+          <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"/>
+          </div>
+
+
+            <label>Search for child</label>
+            <input type="text"
+            value={this.state.search}
+            onChange={this.updateSearch}/>
+
       </div>
     )
   }
@@ -29,3 +42,9 @@ class RestrictionsSearch extends Component {
 }
 
 export default RestrictionsSearch;
+
+
+// <select>
+//   <option disabled value="default">Choose a Child</option>
+//   {options}
+// </select>
