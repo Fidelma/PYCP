@@ -1,0 +1,36 @@
+
+#nav {
+  width: 100%;
+  text-align: center;
+  background-color: #582D87;
+}
+
+#nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+#nav li {
+  display: inline;
+  padding: 15px;
+  font-size: 30px;
+
+}
+
+a {
+  color: #ffffff
+}
+
+a:hover {
+  background-color: #315F0F;
+  color: white;
+}
+
+
+
+.navBtns:hover {
+  background-color: #3e8e41;
+  color: white;
+}

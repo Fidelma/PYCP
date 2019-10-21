@@ -1,0 +1,10 @@
+.headerLogo{
+  background-color: #582D87;
+}
+
+.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}

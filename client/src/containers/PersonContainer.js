@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import PersonList from '../components/person/PersonList';
+import Filter from '../components/person/Filter';
+import NavBar from '../components/navigation/NavBar';
 
 
 class PersonContainer extends Component {
@@ -10,8 +12,9 @@ class PersonContainer extends Component {
   render(){
     return(
       <>
-      <h2>Person Container</h2>
-      <PersonList people={this.props.people}/>
+      <NavBar/>
+      <h2>Drop Downs</h2>
+      <Filter people={this.props.people}/>
       </>
     )
   }

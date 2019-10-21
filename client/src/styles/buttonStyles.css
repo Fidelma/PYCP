@@ -1,0 +1,30 @@
+#buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mainBtn {
+  height:250px;
+  width: 250px;
+  padding: 20px;
+  border: 5px solid #572D87;
+  border-radius: 25px;
+  margin: 10px;
+  background-color: rgba(123, 172, 74, 0.5);
+
+}
+
+.mainBtn:hover {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.BtnH2{
+  font-size: 24px;
+  color: #572D87;
+}
+
+.BtnP{
+  font-size: 16px;
+  color: #572D87;
+}

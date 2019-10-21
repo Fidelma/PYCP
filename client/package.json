@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint": "^6.5.1",
     "mongoose": "^5.7.4",
     "react": "^16.10.2",
+    "react-collapsible": "^2.6.0",
     "react-dom": "^16.10.2",
+    "react-modal": "^3.10.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
@@ -29,5 +32,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.6"
   }
 }

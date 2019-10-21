@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContactListItem from './ContactListItem';
+import './Search.css';
 
 class Search extends Component {
   constructor(props) {
@@ -21,17 +22,30 @@ class Search extends Component {
     })
 
     return(
-      <>
-      <label >Search the Database</label>
-      <input type="text"
-      value={this.state.search}
-      onChange={this.updateSearch}/>
-
-      {filteredPeople.map((person, index) => {
-        return<ContactListItem person={person} key={index}/>
-      })}
-
-      </>
+      <div className="contact-form">
+        <label >Search the Database</label>
+        <input type="text"
+        value={this.state.search}
+        onChange={this.updateSearch}/>
+        <div>
+        <table className="contact-table">
+          <tbody>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>School Year</th>
+            <th>Primary Contact</th>
+            <th>Secondary Contact</th>
+            <th>Emergency Contact</th>
+            <th>Options</th>
+          </tr>
+            {filteredPeople.map((person, index) => {
+              return<ContactListItem person={person} key={index}/>
+            })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     )
   }
 

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
+import NavBar from '../components/navigation/NavBar';
 import Search from '../components/contact/Search';
+
 
 class ContactContainer extends Component {
   constructor(props){
@@ -9,6 +11,7 @@ class ContactContainer extends Component {
   render(){
     return(
       <>
+      <NavBar />
       <h2> ContactContainer </h2>
       <Search people={this.props.people}/>
       </>

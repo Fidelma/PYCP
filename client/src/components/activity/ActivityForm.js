@@ -10,17 +10,77 @@ class ActivityForm extends Component {
       startTime: '',
       endTime: '',
       age: [],
+      ageCheckboxes: [
+      {year: 'P1', checked: false},
+      {year: 'P2', checked: false},
+      {year: 'P3', checked: false},
+      {year: 'P4', checked: false},
+      {year: 'P5', checked: false},
+      {year: 'P6', checked: false},
+      {year: 'P7', checked: false},
+      {year: 'S1', checked: false},
+      {year: 'S2', checked: false},
+      {year: 'S3', checked: false},
+      {year: 'S4', checked: false},
+      ],
       gender: '',
       location: '',
       description: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange({ target: { value, name } }) {
     this.setState({[name]: value});
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    const newActivity = {
+      title: this.state.title,
+      day: this.state.day,
+      startTime: this.state.startTime,
+      endTime: this.state.endTime,
+      age: this.state.age,
+      gender: this.state.gender,
+      location: this.state.location,
+      description: this.state.description
+    }
+    this.props.addActivity(newActivity);
+    this.setState({
+    title: '',
+    day: '',
+    startTime: '',
+    endTime: '',
+    age: [
+    {year: 'P1', checked: false},
+    {year: 'P2', checked: false},
+    {year: 'P3', checked: false},
+    {year: 'P4', checked: false},
+    {year: 'P5', checked: false},
+    {year: 'P6', checked: false},
+    {year: 'P7', checked: false},
+    {year: 'S1', checked: false},
+    {year: 'S2', checked: false},
+    {year: 'S3', checked: false},
+    {year: 'S4', checked: false},
+  ],
+    gender: '',
+    location: '',
+    description: ''})
+  }
+
+  onToggle(index, e){
+  let newAges = this.state.ageCheckboxes.slice();
+  newAges[index].checked = !newAges[index].checked
+  const filtered = newAges.filter(entry => Object.values(entry).some(val => val === true ));
+  this.setState({
+    age: filtered.map(({ year }) => year)
+  })
+
+  }
 
 
 
@@ -39,7 +99,7 @@ render(){
     <div>
       <label>Day</label>
       <select name="day" id="day" value={this.state.day} onChange={this.handleChange} required>
-        <option value="" selected disabled hidden>Select Here</option>
+        <option value="" defaultValue disabled hidden>Select Here</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
         <option value="Wednesday">Wednesday</option>
@@ -63,24 +123,21 @@ render(){
 
     <fieldset>
       <div>
-        <label>Age Group</label>
-        <input type="checkbox" name="" checked={this.state.age} onChange={this.handleCheckedBox} value="P1"/>P1
-        <input type="checkbox" name="" value="P2"/>P2
-        <input type="checkbox" name="" value="P3"/>P3
-        <input type="checkbox" name="" value="P4"/>P4
-        <input type="checkbox" name="" value="P5"/>P5
-        <input type="checkbox" name="" value="P6"/>P6
-        <input type="checkbox" name="" value="P7"/>P7
-        <input type="checkbox" name="" value="S1"/>S1
-        <input type="checkbox" name="" value="S2"/>S2
-        <input type="checkbox" name="" value="S3"/>S3
-        <input type="checkbox" name="" value="S4"/>S4
+        <ul>
+          {this.state.ageCheckboxes.map((age, i) => {
+            return(
+          	<li key={i}>
+              {age.year}
+          	  <input value={age.checked} checked={age.checked} type="checkbox" onChange={this.onToggle.bind(this, i)} />
+          	</li>
+          )})}
+        </ul>
       </div>
 
     <div>
       <label>Gender</label>
       <select name="gender" id="gender" value={this.state.gender} onChange={this.handleChange} required>
-        <option value="" selected disabled hidden>Select Here</option>
+        <option value="" defaultValue disabled hidden>Select Here</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Both">Both</option>
@@ -100,7 +157,7 @@ render(){
     </div>
 
     <div>
-      <button type="submit">SUBMIT!</button>
+      <button type="submit" onClick={this.handleSubmit}>Submit</button>
     </div>
 
     </fieldset>
