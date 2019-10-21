@@ -33,8 +33,7 @@ class Form extends Component {
       },
       allergies: {
         exists: false,
-        allergens: [],
-        other: ''
+        details: ''
       },
       doctorsSurgery: '',
       community: '',
@@ -73,6 +72,13 @@ class Form extends Component {
     this.handleDietaryChange = this.handleDietaryChange.bind(this);
     this.handleDietaryChange = this.handleDietaryChange.bind(this);
     this.toggleExtraDetails = this.toggleExtraDetails.bind(this);
+    this.handleDietaryDetailChange = this.handleDietaryDetailChange.bind(this);
+    this.handleMedicalConditionsChange = this.handleMedicalConditionsChange.bind(this);
+    this.handleMedicalDetailsChange = this.handleMedicalDetailsChange.bind(this);
+    this.handleAllergyUpdate = this.handleAllergyUpdate.bind(this);
+    this.handleAllergyDetailsChange = this.handleAllergyDetailsChange.bind(this);
+    this.handleSchoolChange = this.handleSchoolChange.bind(this);
+    this.handlePhotographyPermissionChange = this.handlePhotographyPermissionChange.bind(this);
   }
 
 
@@ -120,7 +126,8 @@ class Form extends Component {
     this.setState(prevState => ({
       dietaryRequirements: {
         ...prevState.dietaryRequirements,
-        exists: !this.state.dietaryRequirements.exists
+        exists: !this.state.dietaryRequirements.exists,
+        details: ''
       }
     }))
     this.toggleExtraDetails(name)
@@ -132,6 +139,73 @@ class Form extends Component {
       x.style.display = "block";
     } else {
       x.style.display = "none";
+    }
+  }
+
+  handleDietaryDetailChange({target: {value, name}}){
+    this.setState(prevState => ({
+      dietaryRequirements: {
+        ...prevState.dietaryRequirements,
+        [name]: value
+      }
+    }))
+  }
+
+  handleMedicalConditionsChange({target: {name}}){
+    this.setState(prevState => ({
+      medicalConditions: {
+        ...prevState.medicalConditions,
+        exists: !this.state.medicalConditions.exists,
+        details: '',
+        medications: ''
+      }
+    }))
+    this.toggleExtraDetails(name)
+  }
+
+  handleMedicalDetailsChange({target: {value, name}}){
+    this.setState(prevState => ({
+      medicalConditions: {
+        ...prevState.medicalConditions,
+        [name]: value
+      }
+    }))
+  }
+
+  handleAllergyUpdate({target: {name}}){
+    this.setState(prevState => ({
+      allergies: {
+        ...prevState.allergies,
+        exists: !this.state.allergies.exists,
+        details: ''
+      }
+    }))
+    this.toggleExtraDetails(name)
+  }
+
+  handleAllergyDetailsChange({target: {value, name}}){
+    this.setState(prevState => ({
+      allergies: {
+        ...prevState.allergies,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSchoolChange({target: {value, name}}){
+    this.setState(prevState => ({
+      school: {
+        ...prevState.school,
+        [name]: value
+      }
+    }))
+  }
+
+  handlePhotographyPermissionChange({target: {value}}){
+    if(value == "true"){
+      this.setState({photographyPermission: true})
+    } else {
+      this.setState({photographyPermission: false})
     }
   }
 
@@ -304,48 +378,78 @@ render(){
       <div id="dietaryDetails" style={{display: "none"}}>
       <label>Details</label>
       <input
-      type="text"/>
+      type="text"
+      name="details"
+      value={this.state.dietaryRequirements.details}
+      onChange={this.handleDietaryDetailChange}/>
       </div>
 
       <h4>Medical Details</h4>
 
       <label>Doctors Surgery</label>
-      <select name="doctorsSurgery" id="doctorsSurgery">
+      <select
+      name="doctorsSurgery"
+      id="doctorsSurgery"
+      onChange={this.handleChange}>
+      <option
+      disabled selected value> - select an option - </option>
         <option value="surgery1">Surgery1</option>
         <option value="surgery2">Surgery2</option>
       </select>
 
       <label>Medical Conditions</label>
-      <select name="exists" id="exists">
-        <option value="false">No</option>
-        <option value="true">Yes</option>
-      </select>
+      <input
+      type="checkbox"
+      name="medicalDetails"
+      value={this.state.medicalConditions.exists}
+      onChange={this.handleMedicalConditionsChange}/>
 
+      <div id="medicalDetails" style={{display: "none"}}>
       <label>Details</label>
-      <input type="text"/>
+      <input
+      type="text"
+      name="details"
+      value={this.state.medicalConditions.details}
+      onChange={this.handleMedicalDetailsChange}/>
 
       <label>Medications</label>
-      <input type="text"/>
+      <input
+      type="text"
+      name="medications"
+      value={this.state.medicalConditions.medications}
+      onChange={this.handleMedicalDetailsChange}/>
+      </div>
 
       <h4>Allergy Details</h4>
 
       <label>Allergies</label>
-      <select name="exists" id="exists">
-        <option value="false">No</option>
-        <option value="true">Yes</option>
-      </select>
+      <input
+      type="checkbox"
+      name="allergyDetails"
+      value={this.state.allergies.exists}
+      onChange={this.handleAllergyUpdate}/>
 
-      <label>Allergies</label>
-      <input type="text"/>
 
-      <label>Other</label>
-      <input type="text"/>
+      <div id="allergyDetails" style={{display: "none"}}>
+        <label>Details</label>
+        <input
+        type="text"
+        name="details"
+        value={this.state.allergies.details}
+        onChange={this.handleAllergyDetailsChange}
+        />
+      </div>
 
       </fieldset>
 
       <fieldset>
       <label>Community</label>
-      <select name="community" id="community">
+      <select
+      name="community"
+      id="community"
+      onChange={this.handleChange}>
+        <option
+        disabled selected value> - select an option - </option>
         <option value="West Pilton">West Pilton</option>
         <option value="Muirhouse">Muirhouse</option>
         <option value="West Granton">West Granton</option>
@@ -354,13 +458,23 @@ render(){
       </select>
 
       <label>School</label>
-      <select name="name" id="name">
+      <select
+      name="name"
+      id="name"
+      onChange={this.handleSchoolChange}>
+        <option
+        disabled selected value> - select an option - </option>
         <option value="school1">School1</option>
         <option value="school2">School2</option>
       </select>
 
       <label>Year</label>
-      <select name="year" id="year">
+      <select
+      name="year"
+      id="year"
+      onChange={this.handleSchoolChange}>
+        <option
+        disabled selected value> - select an option - </option>
         <option value="p1">P1</option>
         <option value="p2">P2</option>
         <option value="p3">P3</option>
@@ -378,11 +492,24 @@ render(){
       </fieldset>
 
       <fieldset>
-        <label>Photograph Permission</label>
-        <select name="photographPermission" id="photographPermission">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-        </select>
+        <label>Photograph Permission:</label>
+        <label>
+        <input
+        type="radio"
+        name="photographyPermission"
+        value="true"
+        checked={this.state.photographyPermission === true}
+        onChange={this.handlePhotographyPermissionChange}/>Yes
+        </label>
+        <label>
+        <input
+        type="radio"
+        name="photographyPermission"
+        value="false"
+        checked={this.state.photographyPermission === false}
+        onChange={this.handlePhotographyPermissionChange}/>No
+        </label>
+
       </fieldset>
 
       <fieldset>
@@ -447,27 +574,27 @@ render(){
         <label>Date</label>
         <input type="date"/>
 
-      </fieldset>
-
-      <fieldset>
-      <label>Restrictions</label>
-        <select name="restrictions" id="restrictions">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-          </select>
-
-      <label>Type</label>
-          <select name="type" id="type">
-            <option value="reason1">Reason1</option>
-            <option value="reason2">Reason2</option>
-            <option value="reason3">Reason3</option>
-            <option value="reason4">Reason4</option>
-          </select>
-
-          <label>Notes</label>
-          <input type="text"/>
-
-      </fieldset>
+      // </fieldset>
+      //
+      // <fieldset>
+      // <label>Restrictions</label>
+      //   <select name="restrictions" id="restrictions">
+      //     <option value="false">No</option>
+      //     <option value="true">Yes</option>
+      //     </select>
+      //
+      // <label>Type</label>
+      //     <select name="type" id="type">
+      //       <option value="reason1">Reason1</option>
+      //       <option value="reason2">Reason2</option>
+      //       <option value="reason3">Reason3</option>
+      //       <option value="reason4">Reason4</option>
+      //     </select>
+      //
+      //     <label>Notes</label>
+      //     <input type="text"/>
+      //
+      // </fieldset>
       </>
 
   )
