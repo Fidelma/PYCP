@@ -15,7 +15,9 @@ class HomePageContainer extends Component {
     super(props);
     this.state = {
       activities: [],
-      people: []
+      people: [],
+      displayActivityForm: false
+
     }
 
     this.renderMain = this.renderMain.bind(this);
@@ -26,9 +28,16 @@ class HomePageContainer extends Component {
     this.renderRestrictions = this.renderRestrictions.bind(this);
   }
 
+  toggleActivityForm = () => {
+    this.setState((prevState) => ({
+      displayActivityForm: !prevState.displayActivityForm
+    }));
+
+}
   addActivity(activity){
     const activities = [...this.state.activities, activity];
     this.setState({activities});
+    this.setState({displayActivityForm: false})
   }
 
   componentDidMount() {
@@ -69,12 +78,15 @@ class HomePageContainer extends Component {
       <ActivityContainer
         activities={this.state.activities}
         addActivity={this.addActivity}
+        displayActivityForm={this.state.displayActivityForm}
+        toggleActivityForm={this.toggleActivityForm}
       />
     )
   }
 
   renderPeople(props) {
     return (
+
       <PersonContainer people={this.state.people}/>
     )
   }

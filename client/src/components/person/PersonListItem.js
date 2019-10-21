@@ -44,6 +44,7 @@ const PersonListItem = ({person}) => {
     return <button className="icon"></button>
   }
 
+
   const handlClickEdit = () => {
     console.log("handleClick event Edit:")
   }
