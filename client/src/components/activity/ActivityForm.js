@@ -85,7 +85,15 @@ class ActivityForm extends Component {
 
 
 render(){
+  const isTrue = this.props.displayActivityForm;
+
+  if (!isTrue ){
+    return null;
+  }
   return(
+
+
+
   <form>
   <fieldset>
     <fieldset>
