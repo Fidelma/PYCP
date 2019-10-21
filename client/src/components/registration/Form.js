@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 class Form extends Component {
   constructor(props){
     super(props);
-    this.state = {
+    //allows state to be reset on form submission
+    this.initialState = {
       name: {
         firstName: '',
         lastName: ''
@@ -64,6 +65,9 @@ class Form extends Component {
         notes: ''
       }
     };
+
+    this.state = this.initialState;
+
     this.handleChange = this.handleChange.bind(this);
     this.handleNameUpdate = this.handleNameUpdate.bind(this);
     this.handleAddressUpdate = this.handleAddressUpdate.bind(this);
@@ -85,6 +89,7 @@ class Form extends Component {
     this.handleSiblingsAdded = this.handleSiblingsAdded.bind(this);
     this.handleEthinicityChange = this.handleEthinicityChange.bind(this);
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -283,6 +288,13 @@ class Form extends Component {
     }
   }
 
+  handleSubmit(event){
+    event.preventDefault()
+    const newPerson = this.state
+    this.props.addPerson(newPerson)
+    this.setState(this.initialState)
+  }
+
 render(){
   return(
     <>
@@ -298,7 +310,7 @@ render(){
         <label>First Name</label>
         <input
         type="text" id="firstName" name="firstName"
-        value={this.state.firstName}
+        value={this.state.name.firstName}
         onChange={this.handleNameUpdate}/>
 
         <label>Last Name</label>
@@ -307,7 +319,7 @@ render(){
         id="lastName"
         name="lastName"
         // primaryKey="name"
-        value={this.state.lastName}
+        value={this.state.name.lastName}
         onChange={this.handleNameUpdate}
         />
 
@@ -386,7 +398,7 @@ render(){
           type="text"
           name="postcode"
           id="postcode"
-          value={this.state.postcode}
+          value={this.state.address.postcode}
           onChange={this.handleAddressUpdate}
           />
         </div>
@@ -648,8 +660,8 @@ render(){
         <label>Other</label>
         <input
         type="text"
-        name="ethinicty"
-        value={this.state.ethinicty}
+        name="ethnicty"
+        value={this.state.ethnicty}
         onChange={this.handleChange}/>
         </div>
 
@@ -706,7 +718,7 @@ render(){
 
         <fieldset>
 
-        <button type="submit">Add new participant</button>
+        <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
 
         </fieldset>
         </form>

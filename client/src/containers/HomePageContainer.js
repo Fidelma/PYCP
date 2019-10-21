@@ -26,6 +26,8 @@ class HomePageContainer extends Component {
     this.renderPeople = this.renderPeople.bind(this);
     this.addActivity = this.addActivity.bind(this);
     this.renderRestrictions = this.renderRestrictions.bind(this);
+    this.renderRegistration = this.renderRegistration.bind(this);
+    this.addPerson = this.addPerson.bind(this);
   }
 
   toggleActivityForm = () => {
@@ -38,6 +40,11 @@ class HomePageContainer extends Component {
     const activities = [...this.state.activities, activity];
     this.setState({activities});
     this.setState({displayActivityForm: false})
+  }
+
+  addPerson(person){
+    const people = [...this.state.people, person];
+    this.setState({people});
   }
 
   componentDidMount() {
@@ -97,6 +104,12 @@ class HomePageContainer extends Component {
     )
   }
 
+  renderRegistration(props) {
+    return (
+      <RegistrationContainer addPerson={this.addPerson}/>
+    )
+  }
+
   render(){
     return(
       <Router>
@@ -104,7 +117,7 @@ class HomePageContainer extends Component {
         <Header />
 
         <Route exact path="/" render={this.renderMain} />
-        <Route exact path="/registration" component={RegistrationContainer} />
+        <Route exact path="/registration" render={this.renderRegistration} />
         <Route exact path="/restrictions" render={this.renderRestrictions} />
         <Route exact path="/contact" render={this.renderContact} />
         <Route exact path="/people" render={this.renderPeople} />
