@@ -128,7 +128,7 @@ class Form extends Component {
 
   toggleExtraDetails(name){
     const x = document.getElementById(name);
-    if (x.style.display === "none") {
+    if (x.style.display == "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
@@ -301,9 +301,10 @@ render(){
       value={this.state.dietaryRequirements.exists}
       onChange={this.handleDietaryChange}/>
 
-      <div id="dietaryDetails" >
+      <div id="dietaryDetails" style={{display: "none"}}>
       <label>Details</label>
-      <input type="text"/>
+      <input
+      type="text"/>
       </div>
 
       <h4>Medical Details</h4>
