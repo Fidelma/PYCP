@@ -3,6 +3,7 @@ import ContactContainer from './ContactContainer';
 import PersonContainer from './PersonContainer';
 import ActivityContainer from './ActivityContainer';
 import RegistrationContainer from './RegistrationContainer';
+import RestrictionsContainer from './RestrictionsContainer';
 import NavBar from '../components/navigation/NavBar';
 import Header from '../components/home/Header';
 import Button from '../components/home/Button';
@@ -74,15 +75,9 @@ class HomePageContainer extends Component {
 
   renderPeople(props) {
     return (
-    
       <PersonContainer people={this.state.people}/>
-
     )
   }
-
-
-
-
 
   render(){
     return(
@@ -92,6 +87,7 @@ class HomePageContainer extends Component {
 
         <Route exact path="/" render={this.renderMain} />
         <Route exact path="/registration" component={RegistrationContainer} />
+        <Route exact path="/restrictions" component={RestrictionsContainer} />
         <Route exact path="/contact" render={this.renderContact} />
         <Route exact path="/people" render={this.renderPeople} />
         <Route exact path="/activities" render={this.renderActivities} />

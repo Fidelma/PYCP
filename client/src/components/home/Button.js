@@ -33,6 +33,13 @@ const Button = () => (
 </button>
 </Link>
 
+<Link to='/restrictions'>
+<button className='mainBtn'>
+<h2 className='BtnH2'>Restrictions</h2>
+<p className='BtnP'>Add restriction</p>
+</button>
+</Link>
+
 
 </div>
 );

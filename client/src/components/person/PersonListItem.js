@@ -1,7 +1,5 @@
 import React from 'react';
 import './PersonListItem.css'
-import Collapsible from 'react-collapsible';
-import Modal from 'react-modal';
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
