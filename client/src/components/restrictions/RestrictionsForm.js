@@ -1,48 +1,45 @@
 import React, {Component} from 'react';
 
 const RestrictionsForm = (props) => {
-  const options = props.people.map((person, index) => {
-    return <option value={index} key={index}>
-      {person.name.firstName} {person.name.lastName}
-    </option>
-  })
 
-  function handleChange(event) {
-    console.log("this has changed")
-    props.filterArray(event.target.value)
-  }
+function handleSubmit(event){
+  event.preventDefault();
+   const timeOut = {
+     "exists": true,
+     "reason": event.target.reason.value,
+     "notes": event.target.notes.value
+   }
+   console.log(timeOut);
+   props.handleRestrictionPost(timeOut);
+}
 
     return(
       <>
-        <select id="country-selector" defaultValue="default"     onChange={handleChange}>
-        <option disabled value="default">Choose a child...</option>
-        {options}
-        </select>
-
         <h2>Restrictions Input</h2>
-        <fieldset>
+        <form onSubmit={handleSubmit}>
           <div>
             <h4>Child Name:</h4>
-            <label>Name</label>
-            <input type="text"/>
           </div>
           <div>
             <h4>Input restriction date range</h4>
-            <label>Start Date</label>
-            <input type="date"/>
+            <label>Start Date:</label>
+            <input type="date" name="startDate"/>
 
-            <label>End Date</label>
-            <input type="date"/>
+            <label>End Date:</label>
+            <input type="date" name="endDate"/>
           </div>
           <div>
             <h4>Input restriction details</h4>
-            <label>Reason</label>
-            <input type="text" size="100"/>
+            <label>Reason:</label>
+            <input type="text" size="100" name="reason"/>
             <br/>
-            <label>Notes</label>
-            <input type="text" size="100"/>
+            <label>Notes:</label>
+            <input type="text" size="100" name="notes"/>
           </div>
-        </fieldset>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </>
     )
 

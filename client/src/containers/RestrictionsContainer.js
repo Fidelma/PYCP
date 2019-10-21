@@ -9,13 +9,19 @@ class RestrictionsContainer extends Component {
 
     this.state = {
       filteredPerson: [],
+      timeOut: [],
     }
     this.filterArray = this.filterArray.bind(this);
+    this.handleRestrictionPost = this.handleRestrictionPost.bind(this);
   }
 
   filterArray(selectedName) {
       this.setState({filteredPerson: selectedName})
       console.log("this has changed on the container")
+  }
+
+  handleRestrictionPost(timeOut) {
+    this.setState({timeOut:timeOut})
   }
 
 
@@ -25,7 +31,7 @@ class RestrictionsContainer extends Component {
       <NavBar />
       <h2> Restriction Container </h2>
       <RestrictionsSearch people={this.props.people} filterArray={this.filterArray}/>
-      <RestrictionsForm people={this.props.people} filterArray={this.filterArray}/>
+      <RestrictionsForm person={this.state.filteredPerson} handleRestrictionPost={this.handleRestrictionPost} />
       </>
     )
   }
