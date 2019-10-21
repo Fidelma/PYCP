@@ -16,7 +16,6 @@ class HomePageContainer extends Component {
     this.state = {
       activities: [],
       people: []
-
     }
 
     this.renderMain = this.renderMain.bind(this);
@@ -24,6 +23,7 @@ class HomePageContainer extends Component {
     this.renderActivities = this.renderActivities.bind(this);
     this.renderPeople = this.renderPeople.bind(this);
     this.addActivity = this.addActivity.bind(this);
+    this.renderRestrictions = this.renderRestrictions.bind(this);
   }
 
   addActivity(activity){
@@ -79,6 +79,12 @@ class HomePageContainer extends Component {
     )
   }
 
+  renderRestrictions(props) {
+    return (
+      <RestrictionsContainer people={this.state.people}/>
+    )
+  }
+
   render(){
     return(
       <Router>
@@ -87,7 +93,7 @@ class HomePageContainer extends Component {
 
         <Route exact path="/" render={this.renderMain} />
         <Route exact path="/registration" component={RegistrationContainer} />
-        <Route exact path="/restrictions" component={RestrictionsContainer} />
+        <Route exact path="/restrictions" render={this.renderRestrictions} />
         <Route exact path="/contact" render={this.renderContact} />
         <Route exact path="/people" render={this.renderPeople} />
         <Route exact path="/activities" render={this.renderActivities} />
