@@ -43,7 +43,7 @@ class Form extends Component {
       },
       photographyPermission: true,
       pickUp: {
-        toBeCollected: null,
+        toBeCollected: false,
         byWho: ''
       },
     siblings: {
@@ -78,7 +78,13 @@ class Form extends Component {
     this.handleAllergyUpdate = this.handleAllergyUpdate.bind(this);
     this.handleAllergyDetailsChange = this.handleAllergyDetailsChange.bind(this);
     this.handleSchoolChange = this.handleSchoolChange.bind(this);
-    this.handlePhotographyPermissionChange = this.handlePhotographyPermissionChange.bind(this);
+    this.handleRadioButtonChange = this.handleRadioButtonChange.bind(this);
+    this.handlePickUpChange = this.handlePickUpChange.bind(this);
+    this.handlePickUpDetailsChange = this.handlePickUpDetailsChange.bind(this);
+    this.handleSiblingsChange = this.handleSiblingsChange.bind(this);
+    this.handleSiblingsAdded = this.handleSiblingsAdded.bind(this);
+    this.handleEthinicityChange = this.handleEthinicityChange.bind(this);
+    this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
   }
 
 
@@ -201,17 +207,86 @@ class Form extends Component {
     }))
   }
 
-  handlePhotographyPermissionChange({target: {value}}){
+  handleRadioButtonChange({target: {value, name}}){
     if(value == "true"){
-      this.setState({photographyPermission: true})
+      this.setState({[name]: true})
     } else {
-      this.setState({photographyPermission: false})
+      this.setState({[name]: false})
+    }
+  }
+
+  handlePickUpChange({target: {name}}){
+    this.setState(prevState => ({
+      pickUp: {
+        ...prevState.pickUp,
+        toBeCollected: !this.state.pickUp.toBeCollected,
+        byWho: ''
+      }
+    }))
+    this.toggleExtraDetails(name)
+  }
+
+  handlePickUpDetailsChange({target: {value, name}}){
+    this.setState(prevState => ({
+      pickUp: {
+        ...prevState.pickUp,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSiblingsChange({target: {name}}){
+    this.setState(prevState => ({
+      siblings: {
+        ...prevState.siblings,
+        exists: !this.state.siblings.exists,
+        siblings: []
+      }
+    }))
+    this.toggleExtraDetails(name)
+  }
+
+  handleSiblingsAdded({target: {value, name}}){
+    const siblingsToAdd = value.split(",")
+    this.setState(prevState => ({
+      siblings: {
+        ...prevState.siblings,
+        siblings: siblingsToAdd
+      }
+    }))
+  }
+
+  handleEthinicityChange({target: {value, name}}){
+    if(value === "Other"){
+      this.setState({ethinicty: ''})
+      this.toggleExtraDetails(name)
+    } else {
+      this.setState({ethnicity: value})
+    }
+  }
+
+  handleSignatureRadioButtonChange({target: {value, name}}){
+    if(value == "true"){
+      this.setState(prevState => ({
+        signed: {
+          ...prevState.signed,
+          signed: true
+        }
+      }))
+    } else {
+      this.setState(prevState => ({
+        signed: {
+          ...prevState.signed,
+          signed: false
+        }
+      }))
     }
   }
 
 render(){
   return(
     <>
+    <form>
       <h2>Registration Form</h2>
 
       <fieldset>
@@ -499,7 +574,7 @@ render(){
         name="photographyPermission"
         value="true"
         checked={this.state.photographyPermission === true}
-        onChange={this.handlePhotographyPermissionChange}/>Yes
+        onChange={this.handleRadioButtonChange}/>Yes
         </label>
         <label>
         <input
@@ -507,42 +582,59 @@ render(){
         name="photographyPermission"
         value="false"
         checked={this.state.photographyPermission === false}
-        onChange={this.handlePhotographyPermissionChange}/>No
+        onChange={this.handleRadioButtonChange}/>No
         </label>
 
       </fieldset>
 
       <fieldset>
-        <label>Pickup</label>
-        <select name="tobeCollected" id="tobeCollected">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-        </select>
+        <label>To be collected ? </label>
+        <input
+        type="checkbox"
+        name="collectionDetails"
+        value={this.state.pickUp.toBeCollected}
+        onChange={this.handlePickUpChange}/>
 
+        <div id="collectionDetails" style={{display: "none"}}>
         <label>Collected By</label>
-        <input type="text"/>
+        <input
+        type="text"
+        name="byWho"
+        value={this.state.pickUp.byWho}
+        onChange={this.handlePickUpDetailsChange}
+        />
+        </div>
+
       </fieldset>
 
       <fieldset>
         <h4>Siblings</h4>
         <label>Siblings Registered?</label>
-        <select name="exists" id="exists">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-        </select>
+        <input
+        type="checkbox"
+        name="siblingdetails"
+        value={this.state.siblings.exists}
+        onChange={this.handleSiblingsChange}/>
 
+        <div id="siblingdetails" style={{display: "none"}}>
         <label>Name</label>
-        <select name="siblings" id="siblings">
-          <option value="name">Child 1</option>
-          <option value="name">Child 2</option>
-          <option value="name">Child 3</option>
-        </select>
+        <input
+        type="text"
+        name="siblings"
+        value={this.state.siblings.siblings}
+        onChange={this.handleSiblingsAdded}/>
+        </div>
 
       </fieldset>
 
       <fieldset>
         <label>Ethnicity</label>
-        <select name="ethnicity" id="ethnicity">
+        <select
+        name="ethnicityOther"
+        id="ethnicity"
+        onChange={this.handleEthinicityChange}>
+          <option
+          disabled selected value> - select an option - </option>
           <option value="White Scottish">White Scottish</option>
           <option value="White British">White British</option>
           <option value="Black">Black</option>
@@ -551,50 +643,74 @@ render(){
           <option value="Prefer not to say">Prefer not to say</option>
           <option value="Other">Other</option>
         </select>
+
+        <div id="ethnicityOther" style={{display: "none"}}>
         <label>Other</label>
-        <input type="text"/>
+        <input
+        type="text"
+        name="ethinicty"
+        value={this.state.ethinicty}
+        onChange={this.handleChange}/>
+        </div>
 
       </fieldset>
 
       <fieldset>
-      <label>Volunteer?</label>
-      <select name="volunteering" id="volunteering">
-        <option value="false">No</option>
-        <option value="true">Yes</option>
-      </select>
+      <label>Volunteer:</label>
+      <label>
+      <input
+      type="radio"
+      name="volunteering"
+      value="true"
+      checked={this.state.volunteering === true}
+      onChange={this.handleRadioButtonChange}/>Yes
+      </label>
+      <label>
+      <input
+      type="radio"
+      name="volunteering"
+      value="false"
+      checked={this.state.volunteering === false}
+      onChange={this.handleRadioButtonChange}/>No
+      </label>
       </fieldset>
 
       <fieldset>
-      <label>Signed</label>
-        <select name="signed" id="signed">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-          </select>
+
+          <label>Signed:</label>
+          <label>
+          <input
+          type="radio"
+          name="signed"
+          value="true"
+          checked={this.state.signed.signed === true}
+          onChange={this.handleSignatureRadioButtonChange}/>Yes
+          </label>
+          <label>
+          <input
+          type="radio"
+          name="signed"
+          value="false"
+          checked={this.state.signed.signed === false}
+          onChange={this.handleSignatureRadioButtonChange}/>No
+          </label>
 
         <label>Date</label>
-        <input type="date"/>
+        <input
+        type="date"
+        name="date"
+        value={this.state.signed.date}
+        onChange={this.handleSignedChange}/>
 
-      // </fieldset>
-      //
-      // <fieldset>
-      // <label>Restrictions</label>
-      //   <select name="restrictions" id="restrictions">
-      //     <option value="false">No</option>
-      //     <option value="true">Yes</option>
-      //     </select>
-      //
-      // <label>Type</label>
-      //     <select name="type" id="type">
-      //       <option value="reason1">Reason1</option>
-      //       <option value="reason2">Reason2</option>
-      //       <option value="reason3">Reason3</option>
-      //       <option value="reason4">Reason4</option>
-      //     </select>
-      //
-      //     <label>Notes</label>
-      //     <input type="text"/>
-      //
-      // </fieldset>
+        </fieldset>
+
+        <fieldset>
+
+        <button type="submit">Add new participant</button>
+
+        </fieldset>
+        </form>
+
       </>
 
   )
