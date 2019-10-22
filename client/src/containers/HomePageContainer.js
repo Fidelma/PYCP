@@ -48,8 +48,8 @@ class HomePageContainer extends Component {
     this.setState({people});
   }
 
-  updateRestriction(){
-    console.log("Homepage: called from container on submission");
+  updateRestriction(person){
+    console.log("Homepage: called from container on submission", person);
   }
 
   componentDidMount() {

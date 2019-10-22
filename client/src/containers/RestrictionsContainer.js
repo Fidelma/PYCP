@@ -9,7 +9,7 @@ class RestrictionsContainer extends Component {
 
     this.state = {
       filteredPerson: '',
-      timeOut: [],
+      personWithRestriction: ''
     }
     this.filterArray = this.filterArray.bind(this);
     this.handleRestrictionPost = this.handleRestrictionPost.bind(this);
@@ -22,8 +22,10 @@ class RestrictionsContainer extends Component {
 
 //handleRestrcitionPost must update filteredPerson timeOut parameters and then pass to homePage to update database
   handleRestrictionPost(timeOut) {
-    this.setState({timeOut:timeOut});
-    this.props.updateRestriction();
+    const updatedPerson = this.state.filteredPerson
+    updatedPerson.timeOut = timeOut
+    this.setState({personWithRestriction: updatedPerson})
+    this.props.updateRestriction(updatedPerson);
   }
 
   render(){
