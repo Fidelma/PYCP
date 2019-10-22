@@ -7,7 +7,20 @@ class Filter extends Component {
     super(props);
     this.state = {
       filteredPeople:[],
-      filter: ''
+      filter: '',
+      checkboxes: {
+        P1: false,
+        P2: false,
+        P3: false,
+        P4: false,
+        P5: false,
+        P6: false,
+        P7: false,
+        S1: false,
+        S2: false,
+        S3: false,
+        S4: false,
+      }
     };
     this.updateFilter = this.updateFilter.bind(this);
   }
@@ -15,16 +28,7 @@ class Filter extends Component {
     this.setState({filter: event.target.value.substr(0,20)});
   }
 
-  checkboxFilter(event){
-
-  }
-
-  uncheckAll2() {
-    var inputs = document.querySelectorAll('.check2');
-    for(var i = 0; i < inputs.length; i++) {
-      inputs[i].checked = false;
-    }
-  }
+  
 
   
 
@@ -32,8 +36,7 @@ class Filter extends Component {
     let filteredPeople = this.props.people.filter((person) => {
       const fullName = person.name.firstName+" "+person.name.lastName;
       return (
-        (person.school.year.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 || fullName.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 )
-      )
+        fullName.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 )
     })
 
     return(
