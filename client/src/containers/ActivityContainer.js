@@ -30,7 +30,8 @@ class ActivityContainer extends Component {
         ],
         gender: '',
         location: '',
-        description: ''
+        description: '',
+        id: null
       }
     }
 
@@ -38,6 +39,7 @@ class ActivityContainer extends Component {
     this.handleActivityChange = this.handleActivityChange.bind(this);
     this.handleActivitySubmit = this.handleActivitySubmit.bind(this);
     this.onToggle = this.onToggle.bind(this);
+    this.handleActivityEdit = this.handleActivityEdit.bind(this);
 
   }
 
@@ -88,23 +90,95 @@ class ActivityContainer extends Component {
       )
   }
 
-editActivity(activity){
- this.setState({activityToEdit: activity, edit: !this.state.edit})
- this.props.toggleActivityForm();
-}
+  editActivity(activity){
+    const ages = activity.age
+    const ageCheckboxes = [
+    {year: 'P1', checked: false},
+    {year: 'P2', checked: false},
+    {year: 'P3', checked: false},
+    {year: 'P4', checked: false},
+    {year: 'P5', checked: false},
+    {year: 'P6', checked: false},
+    {year: 'P7', checked: false},
+    {year: 'S1', checked: false},
+    {year: 'S2', checked: false},
+    {year: 'S3', checked: false},
+    {year: 'S4', checked: false},
+    ]
+    ageCheckboxes.forEach((obj)=> {
+      if(ages.indexOf(obj.year) != -1){
+        obj.checked = true
+      }
+    })
+    this.setState(prevState => ({
+       activity: {
+       ...prevState.activity,
+       title: activity.title,
+       day: activity.day,
+       startTime: activity.startTime,
+       endTime: activity.endTime,
+       gender: activity.gender,
+       location: activity.location,
+       description: activity.description,
+       ageCheckboxes: ageCheckboxes,
+       id: activity._id
+     },
+     edit: !this.state.edit}))
+     this.props.toggleActivityForm();
+  }
 
-onToggle(index, e){
-let newAges = this.state.activity.ageCheckboxes.slice();
-newAges[index].checked = !newAges[index].checked
-const filtered = newAges.filter(entry => Object.values(entry).some(val => val === true ));
-this.setState(prevState => ({
-  activity: {
-    ...prevState.activity,
-    age: filtered.map(({ year }) => year)
-}})
-)
+   handleActivityEdit(){
+    const id = this.state.activity.id
+    const updatedActivity = {
+      title: this.state.activity.title,
+      day: this.state.activity.day,
+      startTime: this.state.activity.startTime,
+      endTime: this.state.activity.endTime,
+      age: this.state.activity.age,
+      gender: this.state.activity.gender,
+      location: this.state.activity.location,
+      description: this.state.activity.description
+    }
+    this.props.updateActivity(id, updatedActivity);
+    this.setState(prevState => ({
+      activity: {
+        ...prevState.activity,
+        title: '',
+        day: '',
+        startTime: '',
+        endTime: '',
+        age: [
+        {year: 'P1', checked: false},
+        {year: 'P2', checked: false},
+        {year: 'P3', checked: false},
+        {year: 'P4', checked: false},
+        {year: 'P5', checked: false},
+        {year: 'P6', checked: false},
+        {year: 'P7', checked: false},
+        {year: 'S1', checked: false},
+        {year: 'S2', checked: false},
+        {year: 'S3', checked: false},
+        {year: 'S4', checked: false},
+        ],
+        gender: '',
+        location: '',
+        description: ''}})
+      )
+   this.props.toggleActivityForm();
+  }
 
-}
+  onToggle(index, e){
+  let newAges = this.state.activity.ageCheckboxes.slice();
+  newAges[index].checked = !newAges[index].checked
+  const filtered = newAges.filter(entry => Object.values(entry).some(val => val === true ));
+  this.setState(prevState => ({
+    activity: {
+      ...prevState.activity,
+      age: filtered.map(({ year }) => year)
+  }})
+  )
+
+  }
 
   render(){
     return(
@@ -122,7 +196,8 @@ this.setState(prevState => ({
       edit={this.state.edit}
       handleActivityChange={this.handleActivityChange}
       activity={this.state.activity}
-      onToggle={this.onToggle}/>
+      onToggle={this.onToggle}
+      handleActivityEdit={this.handleActivityEdit}/>
       </>
     )
   }

@@ -8,6 +8,7 @@ class ActivityForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   }
 
@@ -20,9 +21,10 @@ class ActivityForm extends Component {
     this.props.handleActivitySubmit();
   }
 
-
-
-
+  handleEdit(e){
+    e.preventDefault();
+    this.props.handleActivityEdit();
+  }
 
 render(){
   const isTrue = this.props.displayActivityForm;
@@ -39,7 +41,7 @@ render(){
     <fieldset>
     <div>
       <label>Activity Title</label>
-      <input type="text" id="title" name="title" value={this.props.title} onChange={this.handleChange} required/>
+      <input type="text" id="title" name="title" value={this.props.activity.title} onChange={this.handleChange} required/>
     </div>
     </fieldset>
 
