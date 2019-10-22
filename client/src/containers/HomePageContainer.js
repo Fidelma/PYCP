@@ -83,7 +83,6 @@ class HomePageContainer extends Component {
   renderMain(props) {
     return (
       <>
-      <h1>HomePageContainer</h1>
       <Button/>
       </>
     )
