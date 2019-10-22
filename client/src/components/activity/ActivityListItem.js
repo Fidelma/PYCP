@@ -1,19 +1,28 @@
 import React from 'react'
 
-const ActivityListItem = ({activity}) => (
+const ActivityListItem = (props) => {
+
+  function handleDelete(){
+    props.deleteActivity(props.activity._id)
+  }
+
+
+
+  return(
   <>
 
     <tr>
-     <td>{activity.title}</td>
-     <td>{activity.age.join(', ')}</td>
-     <td>{activity.startTime} - {activity.endTime}</td>
-     <td>{activity.day}</td>
+     <td>{props.activity.title}</td>
+     <td>{props.activity.age.join(', ')}</td>
+     <td>{props.activity.startTime} - {props.activity.endTime}</td>
+     <td>{props.activity.day}</td>
      <td><button>Edit Activity</button></td>
-     <td><button>Delete Activity</button></td>
+     <td><button onClick={handleDelete}>Delete Activity</button></td>
     </tr>
 
   </>
 
 )
 
+}
 export default ActivityListItem
