@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import RestrictionsForm from '../components/restrictions/RestrictionsForm';
 import RestrictionsSearch from '../components/restrictions/RestrictionsSearch';
+import RestrictionsList from '../components/restrictions/RestrictionsList';
 import NavBar from '../components/navigation/NavBar';
 
 class RestrictionsContainer extends Component {
@@ -32,7 +33,22 @@ class RestrictionsContainer extends Component {
     return(
       <>
       <NavBar />
-      <h2> Restriction Container </h2>
+      <h2> Restriction Table </h2>
+        <table>
+          <tbody>
+            <tr>
+              <th>first name</th>
+              <th>last name</th>
+              <th>startDate</th>
+              <th>endDate</th>
+              <th>reason</th>
+            </tr>
+            {this.props.people.map((person, index) => {
+              return<RestrictionsList person={person} key={index}/>
+            })}
+          </tbody>
+        </table>
+        <br/>
       <RestrictionsSearch people={this.props.people} filterArray={this.filterArray}/>
       <RestrictionsForm handleRestrictionPost={this.handleRestrictionPost} />
       </>
@@ -41,3 +57,13 @@ class RestrictionsContainer extends Component {
 }
 
 export default RestrictionsContainer;
+
+
+
+//   restrictionsList() {
+//   const list = this.props.people.map((person, index) => {
+//     return <li value={index} key={index}>
+//       {person.name.firstName} {person.name.lastName}
+//     </li>
+//   })
+// }

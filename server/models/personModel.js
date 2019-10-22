@@ -30,8 +30,7 @@ const personSchema = mongoose.Schema({
    },
    allergies: {
      exists: Boolean,
-     allergens: [String],
-     other: String
+     details: String
    },
    doctorsSurgery: String,
    community: String,
@@ -61,6 +60,8 @@ const personSchema = mongoose.Schema({
  },
  timeOut: {
    exists: Boolean,
+   startDate: Date,
+   endDate: Date,
    reason: String,
    notes: String
  }
