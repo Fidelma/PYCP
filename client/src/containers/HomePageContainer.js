@@ -7,6 +7,7 @@ import RestrictionsContainer from './RestrictionsContainer';
 import NavBar from '../components/navigation/NavBar';
 import Header from '../components/home/Header';
 import Button from '../components/home/Button';
+import ActivityRequest from '../services/ActivityServices.js'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class HomePageContainer extends Component {
@@ -37,12 +38,15 @@ class HomePageContainer extends Component {
 
 }
   addActivity(activity){
+    const request = new ActivityRequest
+    request.post(activity)
     const activities = [...this.state.activities, activity];
     this.setState({activities});
     this.setState({displayActivityForm: false})
   }
 
   addPerson(person){
+
     const people = [...this.state.people, person];
     this.setState({people});
   }
