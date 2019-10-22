@@ -7,9 +7,9 @@ const RestrictionsSearch = (props) => {
     </option>
   })
 
+//calls the filterArray function from the restrictionsContainer and passes selected person object
   function handleChange(event) {
-    console.log("this has changed")
-    props.filterArray(event.target.value)
+    props.filterArray(props.people[event.target.value])
   }
 
     return(
@@ -20,7 +20,7 @@ const RestrictionsSearch = (props) => {
         </select>
       </>
     )
-
 }
+
 
 export default RestrictionsSearch;

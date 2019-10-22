@@ -28,6 +28,7 @@ class HomePageContainer extends Component {
     this.renderRestrictions = this.renderRestrictions.bind(this);
     this.renderRegistration = this.renderRegistration.bind(this);
     this.addPerson = this.addPerson.bind(this);
+    this.updateRestriction = this.updateRestriction.bind(this);
   }
 
   toggleActivityForm = () => {
@@ -45,6 +46,10 @@ class HomePageContainer extends Component {
   addPerson(person){
     const people = [...this.state.people, person];
     this.setState({people});
+  }
+
+  updateRestriction(){
+    console.log("Homepage: called from container on submission");
   }
 
   componentDidMount() {
@@ -99,7 +104,9 @@ class HomePageContainer extends Component {
 
   renderRestrictions(props) {
     return (
-      <RestrictionsContainer people={this.state.people}/>
+      <RestrictionsContainer
+      people={this.state.people}
+      updateRestriction={this.updateRestriction}/>
     )
   }
 
