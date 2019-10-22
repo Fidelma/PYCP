@@ -5,7 +5,9 @@ import '../../styles/tables.css';
 const ActivityList = (props) => {
   const activityNodes = props.activities.map((activity, index)=> {
     return (
-      <ActivityListItem deleteActivity={props.deleteActivity} activity={activity} key={index}/>
+      <ActivityListItem
+      deleteActivity={props.deleteActivity} editActivity={props.editActivity} 
+      activity={activity} key={index}/>
 
     )
   });
