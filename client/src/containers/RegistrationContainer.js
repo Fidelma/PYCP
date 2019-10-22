@@ -12,7 +12,7 @@ class RegistrationContainer extends Component {
       <>
       <NavBar />
       <h2> Registration Container </h2>
-      <Form/>
+      <Form addPerson={this.props.addPerson}/>
       </>
     )
   }

@@ -3,6 +3,7 @@ import ContactContainer from './ContactContainer';
 import PersonContainer from './PersonContainer';
 import ActivityContainer from './ActivityContainer';
 import RegistrationContainer from './RegistrationContainer';
+import RestrictionsContainer from './RestrictionsContainer';
 import NavBar from '../components/navigation/NavBar';
 import Header from '../components/home/Header';
 import Button from '../components/home/Button';
@@ -14,7 +15,8 @@ class HomePageContainer extends Component {
     super(props);
     this.state = {
       activities: [],
-      people: []
+      people: [],
+      displayActivityForm: false
 
     }
 
@@ -23,11 +25,26 @@ class HomePageContainer extends Component {
     this.renderActivities = this.renderActivities.bind(this);
     this.renderPeople = this.renderPeople.bind(this);
     this.addActivity = this.addActivity.bind(this);
+    this.renderRestrictions = this.renderRestrictions.bind(this);
+    this.renderRegistration = this.renderRegistration.bind(this);
+    this.addPerson = this.addPerson.bind(this);
   }
 
+  toggleActivityForm = () => {
+    this.setState((prevState) => ({
+      displayActivityForm: !prevState.displayActivityForm
+    }));
+
+}
   addActivity(activity){
     const activities = [...this.state.activities, activity];
     this.setState({activities});
+    this.setState({displayActivityForm: false})
+  }
+
+  addPerson(person){
+    const people = [...this.state.people, person];
+    this.setState({people});
   }
 
   componentDidMount() {
@@ -51,7 +68,6 @@ class HomePageContainer extends Component {
   renderMain(props) {
     return (
       <>
-      <h1>HomePageContainer</h1>
       <Button/>
       </>
     )
@@ -68,21 +84,30 @@ class HomePageContainer extends Component {
       <ActivityContainer
         activities={this.state.activities}
         addActivity={this.addActivity}
+        displayActivityForm={this.state.displayActivityForm}
+        toggleActivityForm={this.toggleActivityForm}
       />
     )
   }
 
   renderPeople(props) {
     return (
-    
-      <PersonContainer people={this.state.people}/>
 
+      <PersonContainer people={this.state.people}/>
     )
   }
 
+  renderRestrictions(props) {
+    return (
+      <RestrictionsContainer people={this.state.people}/>
+    )
+  }
 
-
-
+  renderRegistration(props) {
+    return (
+      <RegistrationContainer addPerson={this.addPerson}/>
+    )
+  }
 
   render(){
     return(
@@ -91,7 +116,8 @@ class HomePageContainer extends Component {
         <Header />
 
         <Route exact path="/" render={this.renderMain} />
-        <Route exact path="/registration" component={RegistrationContainer} />
+        <Route exact path="/registration" render={this.renderRegistration} />
+        <Route exact path="/restrictions" render={this.renderRestrictions} />
         <Route exact path="/contact" render={this.renderContact} />
         <Route exact path="/people" render={this.renderPeople} />
         <Route exact path="/activities" render={this.renderActivities} />
