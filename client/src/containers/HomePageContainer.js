@@ -29,6 +29,7 @@ class HomePageContainer extends Component {
     this.renderRestrictions = this.renderRestrictions.bind(this);
     this.renderRegistration = this.renderRegistration.bind(this);
     this.addPerson = this.addPerson.bind(this);
+    this.deleteActivity = this.deleteActivity.bind(this);
   }
 
   toggleActivityForm = () => {
@@ -43,6 +44,16 @@ class HomePageContainer extends Component {
     const activities = [...this.state.activities, activity];
     this.setState({activities});
     this.setState({displayActivityForm: false})
+  }
+
+  deleteActivity(id){
+    const request = new ActivityRequest
+    request.delete(id)
+    const tempActivities = this.state.activities
+    const index = tempActivities.indexOf(id);
+    tempActivities.splice(index, 1);
+    this.setState({activities: tempActivities})
+
   }
 
   addPerson(person){
@@ -91,6 +102,7 @@ class HomePageContainer extends Component {
         addActivity={this.addActivity}
         displayActivityForm={this.state.displayActivityForm}
         toggleActivityForm={this.toggleActivityForm}
+        deleteActivity={this.deleteActivity}
       />
     )
   }
