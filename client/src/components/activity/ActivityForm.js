@@ -164,9 +164,18 @@ render(){
       </textarea>
     </div>
 
-    <div>
-      <button type="submit" onClick={this.handleSubmit}>Submit</button>
+
+    <div style={{ display: this.props.edit ? 'block' : 'none'}
+    }>
+      <button type="submit" onClick={this.handleEdit}>Update Activity</button>
     </div>
+
+    <div style={{ display: this.props.edit ? 'none' : 'block'}
+  }>
+      <button type="submit" onClick={this.handleSubmit}>Save Activity</button>
+    </div>
+
+
 
     </fieldset>
     </fieldset>
