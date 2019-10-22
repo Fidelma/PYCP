@@ -16,7 +16,7 @@ class ActivityContainer extends Component {
       <>
       <NavBar/>
       <h2>Activity Container</h2>
-      <ActivityList activities={this.props.activities}/>
+      <ActivityList activities={this.props.activities} deleteActivity={this.props.deleteActivity}/>
       <NewActivityButton  toggleActivityForm={this.props.toggleActivityForm}/>
       <ActivityForm addActivity={this.props.addActivity}
       displayActivityForm={this.props.displayActivityForm}/>
