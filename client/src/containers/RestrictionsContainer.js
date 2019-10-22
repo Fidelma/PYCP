@@ -25,7 +25,7 @@ class RestrictionsContainer extends Component {
     const updatedPerson = this.state.filteredPerson
     updatedPerson.timeOut = timeOut
     this.setState({personWithRestriction: updatedPerson})
-    this.props.updateRestriction(updatedPerson);
+    this.props.updatePerson(updatedPerson);
   }
 
   render(){
