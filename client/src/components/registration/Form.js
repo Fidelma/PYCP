@@ -146,7 +146,7 @@ class Form extends Component {
 
   toggleExtraDetails(name){
     const x = document.getElementById(name);
-    if (x.style.display == "none") {
+    if (x.style.display === "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
@@ -213,7 +213,7 @@ class Form extends Component {
   }
 
   handleRadioButtonChange({target: {value, name}}){
-    if(value == "true"){
+    if(value === "true"){
       this.setState({[name]: true})
     } else {
       this.setState({[name]: false})
@@ -271,7 +271,7 @@ class Form extends Component {
   }
 
   handleSignatureRadioButtonChange({target: {value, name}}){
-    if(value == "true"){
+    if(value === "true"){
       this.setState(prevState => ({
         signed: {
           ...prevState.signed,
