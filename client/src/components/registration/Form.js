@@ -4,69 +4,6 @@ class Form extends Component {
   constructor(props){
     super(props);
     //allows state to be reset on form submission
-    this.initialState = {
-      name: {
-        firstName: '',
-        lastName: ''
-      },
-      gender: '',
-      dob: '',
-      address: {
-        address: '',
-        postcode: ''
-      },
-      email: '',
-      primaryContact: '',
-      secondaryContact: '',
-      emergencyContact: {
-        name: '',
-        relationship: '',
-        number: ''
-      },
-      dietaryRequirements: {
-        exists: false,
-        details: ''
-      },
-      medicalConditions: {
-        exists: false,
-        details: '',
-        medications: ''
-      },
-      allergies: {
-        exists: false,
-        details: ''
-      },
-      doctorsSurgery: '',
-      community: '',
-      school: {
-        name: '',
-        year: ''
-      },
-      photographyPermission: true,
-      pickUp: {
-        toBeCollected: false,
-        byWho: ''
-      },
-    siblings: {
-      exists: false,
-      siblings: []
-      },
-      ethnicity: '',
-      volunteering: true,
-      signed: {
-        signed: false,
-        name: '',
-        relationship: '',
-        date:''
-      },
-      timeOut: {
-        exists: false,
-        reason: '',
-        notes: ''
-      }
-    };
-
-    this.state = this.initialState;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleNameUpdate = this.handleNameUpdate.bind(this);
@@ -87,60 +24,36 @@ class Form extends Component {
     this.handlePickUpDetailsChange = this.handlePickUpDetailsChange.bind(this);
     this.handleSiblingsChange = this.handleSiblingsChange.bind(this);
     this.handleSiblingsAdded = this.handleSiblingsAdded.bind(this);
-    this.handleEthinicityChange = this.handleEthinicityChange.bind(this);
+    this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNewFormSubmit = this.handleNewFormSubmit.bind(this);
+
   }
 
 
   handleChange({ target: { value, name } }) {
-    this.setState({[name]: value});
+    this.props.handleChange(value, name)
   }
 
   handleNameUpdate({target: { value, name } }) {
-    this.setState(prevState => ({
-      name: {
-        ...prevState.name,
-        [name]: value
-      }
-    }))
+    this.props.handleNameUpdate(value, name)
   }
 
   handleAddressUpdate({target: { value, name } }){
-    this.setState(prevState => ({
-      address: {
-        ...prevState.address,
-        [name]: value
-      }
-    }))
+   this.props.handleAddressUpdate(value, name)
   }
 
   handleEmergencyContactChange({target: { value, name }}){
-    this.setState(prevState => ({
-      emergencyContact: {
-        ...prevState.emergencyContact,
-        [name]: value
-      }
-    }))
+    this.props.handleEmergencyContactChange(value, name)
   }
 
   handleSignedChange({target: {value, name}}){
-    this.setState(prevState => ({
-      signed: {
-        ...prevState.signed,
-        [name]: value
-      }
-    }))
+    this.props.handleSignedChange(value, name)
   }
 
   handleDietaryChange({target: {name}}){
-    this.setState(prevState => ({
-      dietaryRequirements: {
-        ...prevState.dietaryRequirements,
-        exists: !this.state.dietaryRequirements.exists,
-        details: ''
-      }
-    }))
+    this.props.handleDietaryChange()
     this.toggleExtraDetails(name)
   }
 
@@ -154,138 +67,62 @@ class Form extends Component {
   }
 
   handleDietaryDetailChange({target: {value, name}}){
-    this.setState(prevState => ({
-      dietaryRequirements: {
-        ...prevState.dietaryRequirements,
-        [name]: value
-      }
-    }))
+    this.props.handleDietaryDetailChange(value, name)
   }
 
   handleMedicalConditionsChange({target: {name}}){
-    this.setState(prevState => ({
-      medicalConditions: {
-        ...prevState.medicalConditions,
-        exists: !this.state.medicalConditions.exists,
-        details: '',
-        medications: ''
-      }
-    }))
+    this.props.handleMedicalConditionsChange()
     this.toggleExtraDetails(name)
   }
 
   handleMedicalDetailsChange({target: {value, name}}){
-    this.setState(prevState => ({
-      medicalConditions: {
-        ...prevState.medicalConditions,
-        [name]: value
-      }
-    }))
+    this.props.handleMedicalDetailsChange(value, name)
   }
 
   handleAllergyUpdate({target: {name}}){
-    this.setState(prevState => ({
-      allergies: {
-        ...prevState.allergies,
-        exists: !this.state.allergies.exists,
-        details: ''
-      }
-    }))
+    this.props.handleAllergyUpdate()
     this.toggleExtraDetails(name)
   }
 
   handleAllergyDetailsChange({target: {value, name}}){
-    this.setState(prevState => ({
-      allergies: {
-        ...prevState.allergies,
-        [name]: value
-      }
-    }))
+    this.props.handleAllergyDetailsChange(value, name)
   }
 
   handleSchoolChange({target: {value, name}}){
-    this.setState(prevState => ({
-      school: {
-        ...prevState.school,
-        [name]: value
-      }
-    }))
+    this.props.handleSchoolChange(value, name)
   }
 
   handleRadioButtonChange({target: {value, name}}){
-    if(value === "true"){
-      this.setState({[name]: true})
-    } else {
-      this.setState({[name]: false})
-    }
+    this.props.handleRadioButtonChange(value, name)
   }
 
   handlePickUpChange({target: {name}}){
-    this.setState(prevState => ({
-      pickUp: {
-        ...prevState.pickUp,
-        toBeCollected: !this.state.pickUp.toBeCollected,
-        byWho: ''
-      }
-    }))
+    this.props.handlePickUpChange()
     this.toggleExtraDetails(name)
   }
 
   handlePickUpDetailsChange({target: {value, name}}){
-    this.setState(prevState => ({
-      pickUp: {
-        ...prevState.pickUp,
-        [name]: value
-      }
-    }))
+    this.props.handlePickUpDetailsChange(value, name)
   }
 
   handleSiblingsChange({target: {name}}){
-    this.setState(prevState => ({
-      siblings: {
-        ...prevState.siblings,
-        exists: !this.state.siblings.exists,
-        siblings: []
-      }
-    }))
+    this.props.handleSiblingsChange()
     this.toggleExtraDetails(name)
   }
 
   handleSiblingsAdded({target: {value, name}}){
-    const siblingsToAdd = value.split(",")
-    this.setState(prevState => ({
-      siblings: {
-        ...prevState.siblings,
-        siblings: siblingsToAdd
-      }
-    }))
+    this.props.handleSiblingsAdded(value, name)
   }
 
-  handleEthinicityChange({target: {value, name}}){
+  handleEthnicityChange({target: {value, name}}){
+    this.props.handleEthnicityChange(value, name)
     if(value === "Other"){
-      this.setState({ethinicty: ''})
       this.toggleExtraDetails(name)
-    } else {
-      this.setState({ethnicity: value})
     }
   }
 
   handleSignatureRadioButtonChange({target: {value, name}}){
-    if(value === "true"){
-      this.setState(prevState => ({
-        signed: {
-          ...prevState.signed,
-          signed: true
-        }
-      }))
-    } else {
-      this.setState(prevState => ({
-        signed: {
-          ...prevState.signed,
-          signed: false
-        }
-      }))
-    }
+     this.props.handleSignatureRadioButtonChange(value, name)
   }
 
   handleSubmit(event){
@@ -294,6 +131,8 @@ class Form extends Component {
     this.props.addPerson(newPerson)
     this.setState(this.initialState)
   }
+
+
 
 render(){
   return(
@@ -310,7 +149,7 @@ render(){
         <label>First Name</label>
         <input
         type="text" id="firstName" name="firstName"
-        value={this.state.name.firstName}
+        value={this.props.person.name.firstName}
         onChange={this.handleNameUpdate}/>
 
         <label>Last Name</label>
@@ -319,7 +158,7 @@ render(){
         id="lastName"
         name="lastName"
         // primaryKey="name"
-        value={this.state.name.lastName}
+        value={this.props.person.name.lastName}
         onChange={this.handleNameUpdate}
         />
 
@@ -336,7 +175,7 @@ render(){
         type="date"
         name="dob"
         id="dob"
-        value={this.state.dob}
+        value={this.props.person.dob}
         onChange={this.handleChange}/>
 
       </div>
@@ -352,7 +191,7 @@ render(){
       type="name"
       name="name"
       id="name"
-      value={this.state.signed.name}
+      value={this.props.person.signed.name}
       onChange={this.handleSignedChange}
       />
 
@@ -361,7 +200,7 @@ render(){
       type="relationship"
       name="relationship"
       id="relationship"
-      value={this.state.signed.relationship}
+      value={this.props.person.signed.relationship}
       onChange={this.handleSignedChange}
       />
 
@@ -371,7 +210,7 @@ render(){
         maxLength="11"
         name="primaryContact"
         id="primaryContact"
-        value={this.state.primaryContact}
+        value={this.props.person.primaryContact}
         onChange={this.handleChange}/>
 
 
@@ -381,7 +220,7 @@ render(){
         maxLength="11"
         name="secondaryContact"
         id="secondaryContact"
-        value={this.state.secondaryContact}
+        value={this.props.person.secondaryContact}
         onChange={this.handleChange}/>
 
         <div>
@@ -390,7 +229,7 @@ render(){
           type="text"
           name="address"
           id="address"
-          value={this.state.address.address}
+          value={this.props.person.address.address}
           onChange={this.handleAddressUpdate}/>
 
           <label>Postcode</label>
@@ -398,7 +237,7 @@ render(){
           type="text"
           name="postcode"
           id="postcode"
-          value={this.state.address.postcode}
+          value={this.props.person.address.postcode}
           onChange={this.handleAddressUpdate}
           />
         </div>
@@ -409,7 +248,7 @@ render(){
         type="email"
         name="email"
         id="email"
-        value={this.state.email}
+        value={this.props.person.email}
         onChange={this.handleChange}/>
         </div>
 
@@ -425,7 +264,7 @@ render(){
       type="name"
       name="name"
       id="name"
-      value={this.state.emergencyContact.name}
+      value={this.props.person.emergencyContact.name}
       onChange={this.handleEmergencyContactChange}
       />
 
@@ -434,7 +273,7 @@ render(){
       type="relationship"
       name="relationship"
       id="relationship"
-      value={this.state.emergencyContact.relationship}
+      value={this.props.person.emergencyContact.relationship}
       onChange={this.handleEmergencyContactChange}
       />
 
@@ -444,7 +283,7 @@ render(){
         maxLength="11"
         name="number"
         id="number"
-        value={this.state.emergencyContact.number}
+        value={this.props.person.emergencyContact.number}
         onChange={this.handleEmergencyContactChange}/>
 
 
@@ -459,7 +298,7 @@ render(){
       <input
       type="checkbox"
       name="dietaryDetails"
-      value={this.state.dietaryRequirements.exists}
+      value={this.props.person.dietaryRequirements.exists}
       onChange={this.handleDietaryChange}/>
 
       <div id="dietaryDetails" style={{display: "none"}}>
@@ -467,7 +306,7 @@ render(){
       <input
       type="text"
       name="details"
-      value={this.state.dietaryRequirements.details}
+      value={this.props.person.dietaryRequirements.details}
       onChange={this.handleDietaryDetailChange}/>
       </div>
 
@@ -488,7 +327,7 @@ render(){
       <input
       type="checkbox"
       name="medicalDetails"
-      value={this.state.medicalConditions.exists}
+      value={this.props.person.medicalConditions.exists}
       onChange={this.handleMedicalConditionsChange}/>
 
       <div id="medicalDetails" style={{display: "none"}}>
@@ -496,14 +335,14 @@ render(){
       <input
       type="text"
       name="details"
-      value={this.state.medicalConditions.details}
+      value={this.props.person.medicalConditions.details}
       onChange={this.handleMedicalDetailsChange}/>
 
       <label>Medications</label>
       <input
       type="text"
       name="medications"
-      value={this.state.medicalConditions.medications}
+      value={this.props.person.medicalConditions.medications}
       onChange={this.handleMedicalDetailsChange}/>
       </div>
 
@@ -513,7 +352,7 @@ render(){
       <input
       type="checkbox"
       name="allergyDetails"
-      value={this.state.allergies.exists}
+      value={this.props.person.allergies.exists}
       onChange={this.handleAllergyUpdate}/>
 
 
@@ -522,7 +361,7 @@ render(){
         <input
         type="text"
         name="details"
-        value={this.state.allergies.details}
+        value={this.props.person.allergies.details}
         onChange={this.handleAllergyDetailsChange}
         />
       </div>
@@ -585,7 +424,7 @@ render(){
         type="radio"
         name="photographyPermission"
         value="true"
-        checked={this.state.photographyPermission === true}
+        checked={this.props.person.photographyPermission === true}
         onChange={this.handleRadioButtonChange}/>Yes
         </label>
         <label>
@@ -593,7 +432,7 @@ render(){
         type="radio"
         name="photographyPermission"
         value="false"
-        checked={this.state.photographyPermission === false}
+        checked={this.props.person.photographyPermission === false}
         onChange={this.handleRadioButtonChange}/>No
         </label>
 
@@ -604,7 +443,7 @@ render(){
         <input
         type="checkbox"
         name="collectionDetails"
-        value={this.state.pickUp.toBeCollected}
+        value={this.props.person.pickUp.toBeCollected}
         onChange={this.handlePickUpChange}/>
 
         <div id="collectionDetails" style={{display: "none"}}>
@@ -612,7 +451,7 @@ render(){
         <input
         type="text"
         name="byWho"
-        value={this.state.pickUp.byWho}
+        value={this.props.person.pickUp.byWho}
         onChange={this.handlePickUpDetailsChange}
         />
         </div>
@@ -625,7 +464,7 @@ render(){
         <input
         type="checkbox"
         name="siblingdetails"
-        value={this.state.siblings.exists}
+        value={this.props.person.siblings.exists}
         onChange={this.handleSiblingsChange}/>
 
         <div id="siblingdetails" style={{display: "none"}}>
@@ -633,7 +472,7 @@ render(){
         <input
         type="text"
         name="siblings"
-        value={this.state.siblings.siblings}
+        value={this.props.person.siblings.siblings}
         onChange={this.handleSiblingsAdded}/>
         </div>
 
@@ -644,7 +483,7 @@ render(){
         <select
         name="ethnicityOther"
         id="ethnicity"
-        onChange={this.handleEthinicityChange}>
+        onChange={this.handleEthnicityChange}>
           <option
           disabled selected value> - select an option - </option>
           <option value="White Scottish">White Scottish</option>
@@ -660,8 +499,8 @@ render(){
         <label>Other</label>
         <input
         type="text"
-        name="ethnicty"
-        value={this.state.ethnicty}
+        name="ethnicity"
+        value={this.props.person.ethnicity}
         onChange={this.handleChange}/>
         </div>
 
@@ -674,7 +513,7 @@ render(){
       type="radio"
       name="volunteering"
       value="true"
-      checked={this.state.volunteering === true}
+      checked={this.props.person.volunteering === true}
       onChange={this.handleRadioButtonChange}/>Yes
       </label>
       <label>
@@ -682,7 +521,7 @@ render(){
       type="radio"
       name="volunteering"
       value="false"
-      checked={this.state.volunteering === false}
+      checked={this.props.person.volunteering === false}
       onChange={this.handleRadioButtonChange}/>No
       </label>
       </fieldset>
@@ -695,7 +534,7 @@ render(){
           type="radio"
           name="signed"
           value="true"
-          checked={this.state.signed.signed === true}
+          checked={this.props.person.signed.signed === true}
           onChange={this.handleSignatureRadioButtonChange}/>Yes
           </label>
           <label>
@@ -703,7 +542,7 @@ render(){
           type="radio"
           name="signed"
           value="false"
-          checked={this.state.signed.signed === false}
+          checked={this.props.person.signed.signed === false}
           onChange={this.handleSignatureRadioButtonChange}/>No
           </label>
 
@@ -711,14 +550,14 @@ render(){
         <input
         type="date"
         name="date"
-        value={this.state.signed.date}
+        value={this.props.person.signed.date}
         onChange={this.handleSignedChange}/>
 
         </fieldset>
 
         <fieldset>
 
-        <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
+        <button type="submit" >Add new participant</button>
 
         </fieldset>
         </form>
