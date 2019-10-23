@@ -5,6 +5,7 @@
 }
 
 .mainBtn {
+  font-family: 'Lato', sans-serif;
   height: 200px;
   width: 200px;
   padding: 20px;
@@ -12,7 +13,6 @@
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(123, 172, 74, 0.5);
-
 }
 
 .mainBtn:hover {
