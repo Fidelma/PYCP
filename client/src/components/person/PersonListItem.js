@@ -56,8 +56,8 @@ const PersonListItem = ({person}) => {
   return (
   <>
   <tr>
-   <td>{person.name.firstName}</td>
-   <td>{person.name.lastName}</td>
+   <td className="left-align">{person.name.firstName}</td>
+   <td className="left-align">{person.name.lastName}</td>
    <td>{person.school.year}</td>
    <td>
      <CameraIcon person={person}/>

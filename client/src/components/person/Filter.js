@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PersonListItem from './PersonListItem';
+import '../../styles/tables.css';
 
 class Filter extends Component {
   constructor(props) {
@@ -23,14 +24,14 @@ class Filter extends Component {
 
     return(
       <div className="contact-form">
-      
+
         <label>Filter by Name or Year</label>
         <input type="text" value={this.state.filter} onChange={this.updateFilter}/><br/>
 
-        
+
 
         <div>
-        <table className="contact-table">
+        <table align="center">
           <tbody>
           <tr>
            <th>Full Name</th>

@@ -1,28 +1,29 @@
+
 table {
   border-collapse: collapse;
-  width: 100%;
   line-height: 30px;
-  margin: 0px auto;
-  white-space: nowrap
+  max-width: 100%;
 }
 
-.table tr th {
+tr th {
   padding: 0px 30px;
 }
 
-.table th.left-align {
+ th.left-align {
   background-color: red;
+  text-align: left;
 }
 
-.table th {
+ th {
   background-color: #7bac4a;
   color: #FFFFFF;
 }
 
-.table td.left-align {
+td.left-align {
   text-align: left;
+  padding: 0px 0px 0px 30px ;
 }
 
-.table td {
+td {
   text-align: center;
 }
