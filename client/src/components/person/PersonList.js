@@ -1,6 +1,6 @@
 import React from 'react'
 import PersonListItem from './PersonListItem';
-import './PersonList.css'
+import '../../styles/PersonList.css'
 
 const PersonList = ({people}) => {
   const personNodes = people.map((person, index)=> {
