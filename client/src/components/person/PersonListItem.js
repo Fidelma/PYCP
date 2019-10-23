@@ -90,8 +90,8 @@ const PersonListItem = ({person}) => {
      </label>
    </td>
    <td>
-     <button onClick={handlClickDetails} className="options">Details</button>
-     <button onClick={handlClickEdit} className="options">Edit</button>
+     <button className="details-button" onClick={handlClickDetails} >Details</button>
+     <button className="edit-button" onClick={handlClickEdit} >Edit</button>
    </td>
    </tr>
   </>

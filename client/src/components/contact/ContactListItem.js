@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../styles/ContactListItem.css'
 import '../../styles/tables.css';
+import '../../styles/buttons.css';
 
 const ContactListItem = ({person}) => {
 
@@ -16,8 +17,8 @@ const ContactListItem = ({person}) => {
        <td>{person.secondaryContact}</td>
        <td>{person.emergencyContact.name} {person.emergencyContact.number}</td>
        <td>
-       <button className="options">Details</button>
-       <button className="options">Edit</button>
+       <button className="details-button">Details</button>
+       <button className="edit-button">Edit</button>
        </td>
       </tr>
     </>

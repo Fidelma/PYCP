@@ -20,8 +20,8 @@ const ActivityList = (props) => {
           <th>Age Groups</th>
           <th>Times</th>
           <th>Day</th>
-          <th>Edit Activity</th>
-          <th>Delete Activity</th>
+          <th></th>
+          <th></th>
         </tr>
 
     {activityNodes}
