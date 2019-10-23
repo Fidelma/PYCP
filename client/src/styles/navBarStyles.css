@@ -1,5 +1,6 @@
 
 #nav {
+  font-family: 'Lato', sans-serif;
   width: 100%;
   text-align: center;
   background-color: #582D87;
@@ -10,20 +11,23 @@
   display: flex;
   justify-content: space-around;
   margin: 0;
+  padding: 15px;
 }
 
 #nav li {
   display: inline;
-  padding: 15px;
-  font-size: 30px;
+  font-size: 20px;
+  padding: 0px 5px;
+  border-bottom: 2px solid #7bac4a;
+}
 
+#nav li:hover {
+  border-bottom: 2px solid #7bac4a;
+  background-color: #7bac4a;
+  transition: background-color .3s;
 }
 
 a {
-  color: #ffffff
-}
-
-.navBtns:hover {
-  background-color: #3e8e41;
-  color: white;
+  color: #ffffff;
+  text-decoration: none;
 }

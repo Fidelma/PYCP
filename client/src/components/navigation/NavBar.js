@@ -6,22 +6,22 @@ const NavBar = () => (
   <div id='nav'>
   <ul>
     <li>
-      <Link to='/'>Home</Link>
+      <Link to='/'>HOME</Link>
     </li>
     <li>
-      <Link to='/registration'>Registration</Link>
+      <Link to='/registration'>REGISTRATION</Link>
     </li>
     <li>
-      <Link to='/contact'>Contact</Link>
+      <Link to='/contact'>CONTACT</Link>
     </li>
     <li>
-      <Link to='/activities'>Activities</Link>
+      <Link to='/activities'>ACTIVITIES</Link>
     </li>
     <li>
-      <Link to='/people'>People</Link>
+      <Link to='/people'>PEOPLE</Link>
     </li>
     <li>
-      <Link to='/restrictions'>Restrictions</Link>
+      <Link to='/restrictions'>RESTRICTIONS</Link>
     </li>
   </ul>
   </div>
