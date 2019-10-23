@@ -12,7 +12,6 @@ class ContactContainer extends Component {
     return(
       <>
       <NavBar />
-      <h2> ContactContainer </h2>
       <Search people={this.props.people}/>
       </>
     )

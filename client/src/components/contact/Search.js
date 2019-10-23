@@ -23,28 +23,30 @@ class Search extends Component {
     })
 
     return(
-      <div className="contact-form">
-        <label >Search the Database</label>
-        <input type="text"
-        value={this.state.search}
-        onChange={this.updateSearch}/>
-        <div>
-        <table className="table">
-          <tbody>
-          <tr>
-            <th className="left-align">First Name</th>
-            <th className="left-align">Last Name</th>
-            <th>School Year</th>
-            <th>Primary Contact</th>
-            <th>Secondary Contact</th>
-            <th>Emergency Contact</th>
-            <th>Options</th>
-          </tr>
-            {filteredPeople.map((person, index) => {
-              return<ContactListItem person={person} key={index}/>
-            })}
-            </tbody>
-          </table>
+      <div className="search-container">
+        <div className="contact-form">
+          <label >Search the Database</label>
+          <input type="text"
+          value={this.state.search}
+          onChange={this.updateSearch}/>
+          <div>
+          <table className="table">
+            <tbody>
+            <tr>
+              <th className="left-align">First Name</th>
+              <th className="left-align">Last Name</th>
+              <th>School Year</th>
+              <th>Primary Contact</th>
+              <th>Secondary Contact</th>
+              <th>Emergency Contact</th>
+              <th>Options</th>
+            </tr>
+              {filteredPeople.map((person, index) => {
+                return<ContactListItem person={person} key={index}/>
+              })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     )
