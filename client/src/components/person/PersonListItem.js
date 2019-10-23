@@ -5,9 +5,10 @@ import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
 import {ReactComponent as SquirrelSvg} from '../../images/icons/squirrel.svg';
 import {ReactComponent as PickUpSvg} from '../../images/icons/useraltslash.svg';
+import { Link } from 'react-router-dom';
 
 
-const PersonListItem = ({person}) => {
+const PersonListItem = (props) => {
 
   const CameraIcon = (props) => {
     if(!props.person.photographyPermission) {
@@ -46,7 +47,7 @@ const PersonListItem = ({person}) => {
 
 
   const handlClickEdit = () => {
-    console.log("handleClick event Edit:")
+    props.editPersonDetails(props.person)
   }
 
   const handlClickDetails = () => {
@@ -56,15 +57,15 @@ const PersonListItem = ({person}) => {
   return (
   <>
   <tr>
-   <td>{person.name.firstName}</td>
-   <td>{person.name.lastName}</td>
-   <td>{person.school.year}</td>
+   <td>{props.person.name.firstName}</td>
+   <td>{props.person.name.lastName}</td>
+   <td>{props.person.school.year}</td>
    <td>
-     <CameraIcon person={person}/>
-     <MedicalIcon person={person}/>
-     <AllergensIcon person={person}/>
-     <PickUpIcon person={person}/>
-     <BanIcon person={person}/>
+     <CameraIcon person={props.person}/>
+     <MedicalIcon person={props.person}/>
+     <AllergensIcon person={props.person}/>
+     <PickUpIcon person={props.person}/>
+     <BanIcon person={props.person}/>
    </td>
    <td>
      <label className="container">Mon
@@ -91,7 +92,12 @@ const PersonListItem = ({person}) => {
    </td>
    <td>
      <button onClick={handlClickDetails} className="options">Details</button>
-     <button onClick={handlClickEdit} className="options">Edit</button>
+
+     <Link to='/registration'>
+     <button onClick={handlClickEdit}
+      className="options">Edit</button>
+    </Link>
+
    </td>
    </tr>
   </>

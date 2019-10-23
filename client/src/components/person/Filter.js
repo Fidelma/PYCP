@@ -23,11 +23,11 @@ class Filter extends Component {
 
     return(
       <div className="contact-form">
-      
+
         <label>Filter by Name or Year</label>
         <input type="text" value={this.state.filter} onChange={this.updateFilter}/><br/>
 
-        
+
 
         <div>
         <table className="contact-table">
@@ -41,7 +41,9 @@ class Filter extends Component {
            <th>Options</th>
           </tr>
             {filteredPeople.map((person, index) => {
-              return<PersonListItem person={person} key={index}/>
+              return<PersonListItem person={person}
+              key={index}
+              editPersonDetails={this.props.editPersonDetails}/>
             })}
             </tbody>
           </table>

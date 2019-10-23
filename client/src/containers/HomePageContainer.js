@@ -19,6 +19,7 @@ class HomePageContainer extends Component {
       activities: [],
       people: [],
       displayActivityForm: false,
+      edit: true,
       person: {
         name: {
           firstName: '',
@@ -113,6 +114,7 @@ class HomePageContainer extends Component {
     this.handleSiblingsChange = this.handleSiblingsChange.bind(this);
     this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
+    this.editPersonDetails = this.editPersonDetails.bind(this);
   }
 
   handleNewFormData(data){
@@ -479,6 +481,10 @@ class HomePageContainer extends Component {
     this.setState({person: resetPerson})
   }
 
+  editPersonDetails(person){
+    this.setState({person: person})
+  }
+
   updatePerson(person){
     const request = new PeopleRequest
     request.edit(person._id, person)
@@ -537,7 +543,9 @@ class HomePageContainer extends Component {
   renderPeople(props) {
     return (
 
-      <PersonContainer people={this.state.people}/>
+      <PersonContainer
+      people={this.state.people}
+      editPersonDetails={this.editPersonDetails}/>
     )
   }
 
@@ -572,6 +580,7 @@ class HomePageContainer extends Component {
       handleSiblingsChange={this.handleSiblingsChange}
       handleEthnicityChange={this.handleEthnicityChange}
       handleSignatureRadioButtonChange={this.handleSignatureRadioButtonChange}
+      edit={this.state.edit}
       person={this.state.person}/>
     )
   }

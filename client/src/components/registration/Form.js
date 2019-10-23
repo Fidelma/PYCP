@@ -554,7 +554,19 @@ render(){
 
         <fieldset>
 
-        <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
+
+
+        <div style={{ display: this.props.edit ? 'block' : 'none'}}>
+
+          <button type="submit" onClick={this.handleEdit}>Update Person</button>
+        </div>
+
+        <div style={{ display: this.props.edit ? 'none' : 'block'}}>
+
+          <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
+
+          </div>
+
 
         </fieldset>
         </form>

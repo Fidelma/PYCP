@@ -34,6 +34,7 @@ class RegistrationContainer extends Component {
       handleSiblingsChange={this.props.handleSiblingsChange}
       handleEthnicityChange={this.props.handleEthnicityChange}
       handleSignatureRadioButtonChange={this.props.handleSignatureRadioButtonChange}
+      edit={this.props.edit}
       person={this.props.person}
       />
       </>
