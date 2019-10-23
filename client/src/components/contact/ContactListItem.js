@@ -1,5 +1,5 @@
 import React from 'react'
-import './ContactListItem.css'
+import '../../styles/ContactListItem.css'
 
 const ContactListItem = ({person}) => {
 

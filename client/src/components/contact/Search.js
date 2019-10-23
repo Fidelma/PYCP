@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContactListItem from './ContactListItem';
-import './Search.css';
+import '../../styles/Search.css';
 
 class Search extends Component {
   constructor(props) {
