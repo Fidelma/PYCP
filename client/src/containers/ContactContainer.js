@@ -11,7 +11,8 @@ class ContactContainer extends Component {
   render(){
     return(
       <>
-      <NavBar />
+      <NavBar displayRegistrationForm={this.props.displayRegistrationForm}
+      displayRegisterList={this.props.displayRegisterList}/>
       <h2> ContactContainer </h2>
       <Search people={this.props.people}/>
       </>

@@ -188,7 +188,8 @@ class ActivityContainer extends Component {
   render(){
     return(
       <>
-      <NavBar/>
+      <NavBar displayRegistrationForm={this.props.displayRegistrationForm}
+      displayRegisterList={this.props.displayRegisterList}/>
       <h2>Activity Container</h2>
       <ActivityList
       activities={this.props.activities} deleteActivity={this.props.deleteActivity}
