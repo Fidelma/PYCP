@@ -2,10 +2,13 @@ import React from 'react'
 import ActivityListItem from './ActivityListItem';
 import '../../styles/tables.css';
 
-const ActivityList = ({activities}) => {
-  const activityNodes = activities.map((activity, index)=> {
+const ActivityList = (props) => {
+  const activityNodes = props.activities.map((activity, index)=> {
     return (
-      <ActivityListItem activity={activity} key={index}/>
+      <ActivityListItem
+      deleteActivity={props.deleteActivity} editActivity={props.editActivity} 
+      activity={activity} key={index}/>
+
     )
   });
   return(

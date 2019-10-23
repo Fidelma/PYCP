@@ -11,10 +11,9 @@ const PersonList = ({people}) => {
   return(
     <>
     <table width="1400" className="people-table">
-    <tbody>
-
-    {personNodes}
-    </tbody>
+      <tbody>
+      {personNodes}
+      </tbody>
     </table>
     </>
   )

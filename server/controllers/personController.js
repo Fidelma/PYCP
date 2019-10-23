@@ -46,8 +46,7 @@ exports.new = function (req, res) {
     person.medicalConditions.medications = req.body.medicalConditions.medications;
     person.allergies = req.body.allergies;
     person.allergies.exists = req.body.allergies.exists;
-    person.allergies.allergens = req.body.allergies.allergens;
-    person.allergies.other = req.body.allergies.other;
+    person.allergies.details = req.body.allergies.details;
     person.doctorsSurgery = req.body.doctorsSurgery;
     person.community = req.body.community;
     person.school = req.body.school;
@@ -123,8 +122,7 @@ Person.findById(req.params.person_id, function (err, person) {
             person.medicalConditions.medications = req.body.medicalConditions.medications;
             person.allergies = req.body.allergies;
             person.allergies.exists = req.body.allergies.exists;
-            person.allergies.allergens = req.body.allergies.allergens;
-            person.allergies.other = req.body.allergies.other;
+            person.allergies.details = req.body.allergies.details;
             person.doctorsSurgery = req.body.doctorsSurgery;
             person.community = req.body.community;
             person.school = req.body.school;
@@ -146,6 +144,8 @@ Person.findById(req.params.person_id, function (err, person) {
             person.signed.date = req.body.signed.date;
             person.timeOut = req.body.timeOut;
             person.timeOut.exists = req.body.timeOut.exists;
+            person.timeOut.startDate = req.body.timeOut.startDate;
+            person.timeOut.endDate = req.body.timeOut.endDate;
             person.timeOut.reason = req.body.timeOut.reason;
             person.timeOut.notes = req.body.timeOut.notes;
 
