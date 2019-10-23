@@ -1,0 +1,12 @@
+.icon {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+  border: none;
+  background: transparent;
+}
+
+button .icon {
+  border: none;
+  background: transparent;
+}

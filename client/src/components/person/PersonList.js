@@ -1,10 +1,6 @@
 import React from 'react'
 import PersonListItem from './PersonListItem';
-<<<<<<< HEAD
 import '../../styles/tables.css';
-=======
-import '../../styles/PersonList.css'
->>>>>>> develop
 
 const PersonList = ({people}) => {
   const personNodes = people.map((person, index)=> {

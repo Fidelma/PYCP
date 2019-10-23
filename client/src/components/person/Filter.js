@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import PersonListItem from './PersonListItem';
-<<<<<<< HEAD
 import '../../styles/tables.css';
-=======
-import '../../styles/Filter.css'
->>>>>>> develop
 
 class Filter extends Component {
   constructor(props) {
@@ -71,15 +67,11 @@ class Filter extends Component {
           </ul>
         </div>
 
-<<<<<<< HEAD
-
-=======
         <div>
 
           <button type="Reset">Clear Filters</button>
 
         </div>
->>>>>>> develop
 
         <div>
         <table align="center">
