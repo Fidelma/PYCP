@@ -1,8 +1,23 @@
+table {
+  border-collapse: collapse;
+}
+
 .table tr th {
-  padding-right: 30px;
+  padding: 0px 30px;
   line-height: 30px;
-  background-color: lightgrey;
-  text-align: center;
+}
+
+.table th.left-align {
+  background-color: red;
+}
+
+.table th {
+  background-color: #7bac4a;
+  color: #FFFFFF;
+}
+
+.table td.left-align {
+  text-align: left;
 }
 
 .table td {

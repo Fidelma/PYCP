@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContactListItem from './ContactListItem';
 import '../../styles/Search.css';
+import '../../styles/tables.css';
 
 class Search extends Component {
   constructor(props) {
@@ -28,11 +29,11 @@ class Search extends Component {
         value={this.state.search}
         onChange={this.updateSearch}/>
         <div>
-        <table className="contact-table">
+        <table className="table">
           <tbody>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th className="left-align">First Name</th>
+            <th className="left-align">Last Name</th>
             <th>School Year</th>
             <th>Primary Contact</th>
             <th>Secondary Contact</th>
