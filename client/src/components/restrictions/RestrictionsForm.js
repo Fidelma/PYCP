@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 const RestrictionsForm = (props) => {
 
+//calls the handleRestrcitionPost on the restricitonsContainer and passes the updated restriction object
 function handleSubmit(event){
   event.preventDefault();
    const timeOut = {
@@ -9,7 +10,6 @@ function handleSubmit(event){
      "reason": event.target.reason.value,
      "notes": event.target.notes.value
    }
-   console.log(timeOut);
    props.handleRestrictionPost(timeOut);
 }
 

@@ -8,6 +8,7 @@ import NavBar from '../components/navigation/NavBar';
 import Header from '../components/home/Header';
 import Button from '../components/home/Button';
 import ActivityRequest from '../services/ActivityServices.js'
+import PeopleRequest from '../services/PeopleServices.js'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class HomePageContainer extends Component {
@@ -29,6 +30,7 @@ class HomePageContainer extends Component {
     this.renderRestrictions = this.renderRestrictions.bind(this);
     this.renderRegistration = this.renderRegistration.bind(this);
     this.addPerson = this.addPerson.bind(this);
+    this.updatePerson = this.updatePerson.bind(this);
     this.deleteActivity = this.deleteActivity.bind(this);
     this.updateActivity = this.updateActivity.bind(this);
   }
@@ -67,9 +69,18 @@ class HomePageContainer extends Component {
   }
 
   addPerson(person){
-
     const people = [...this.state.people, person];
     this.setState({people});
+  }
+
+  updatePerson(person){
+    const request = new PeopleRequest
+    request.edit(person._id, person)
+
+    const tempPeople = this.state.people
+    const index = tempPeople.indexOf(person._id);
+    tempPeople.splice(index, 1, person);
+    this.setState({people: tempPeople})
   }
 
   componentDidMount() {
@@ -126,7 +137,9 @@ class HomePageContainer extends Component {
 
   renderRestrictions(props) {
     return (
-      <RestrictionsContainer people={this.state.people}/>
+      <RestrictionsContainer
+      people={this.state.people}
+      updatePerson={this.updatePerson}/>
     )
   }
 

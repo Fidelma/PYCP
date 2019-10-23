@@ -8,22 +8,25 @@ class RestrictionsContainer extends Component {
     super(props);
 
     this.state = {
-      filteredPerson: [],
-      timeOut: [],
+      filteredPerson: '',
+      personWithRestriction: ''
     }
     this.filterArray = this.filterArray.bind(this);
     this.handleRestrictionPost = this.handleRestrictionPost.bind(this);
   }
 
-  filterArray(selectedName) {
-      this.setState({filteredPerson: selectedName})
-      console.log("this has changed on the container")
+//sets filteredPerson state to the object of the selected person from the dropdown
+  filterArray(selectedPerson) {
+      this.setState({filteredPerson: selectedPerson})
   }
 
+//handleRestrcitionPost must update filteredPerson timeOut parameters and then pass to homePage to update database
   handleRestrictionPost(timeOut) {
-    this.setState({timeOut:timeOut})
+    const updatedPerson = this.state.filteredPerson
+    updatedPerson.timeOut = timeOut
+    this.setState({personWithRestriction: updatedPerson})
+    this.props.updatePerson(updatedPerson);
   }
-
 
   render(){
     return(
@@ -31,7 +34,7 @@ class RestrictionsContainer extends Component {
       <NavBar />
       <h2> Restriction Container </h2>
       <RestrictionsSearch people={this.props.people} filterArray={this.filterArray}/>
-      <RestrictionsForm person={this.state.filteredPerson} handleRestrictionPost={this.handleRestrictionPost} />
+      <RestrictionsForm handleRestrictionPost={this.handleRestrictionPost} />
       </>
     )
   }
