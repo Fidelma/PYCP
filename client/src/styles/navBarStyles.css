@@ -18,16 +18,18 @@
   display: inline;
   font-size: 20px;
   padding: 0px 5px;
-  border-bottom: 2px solid #7bac4a;
 }
 
 #nav li:hover {
-  border-bottom: 2px solid #7bac4a;
-  background-color: #7bac4a;
-  transition: background-color .3s;
+  font-weight: bold;
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+.current {
+  font-weight: bold;
+  border-bottom: 2px solid #7bac4a;
 }
