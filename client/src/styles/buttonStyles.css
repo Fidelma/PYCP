@@ -15,8 +15,7 @@
 }
 
 .mainBtn:hover {
-  font-size: 18px;
-  font-weight: bolder;
+  background-color: rgba(123, 172, 74, 0.75);
 }
 
 .BtnH2{
