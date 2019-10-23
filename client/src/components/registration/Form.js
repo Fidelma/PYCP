@@ -27,7 +27,6 @@ class Form extends Component {
     this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleNewFormSubmit = this.handleNewFormSubmit.bind(this);
 
   }
 
@@ -127,9 +126,7 @@ class Form extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    const newPerson = this.state
-    this.props.addPerson(newPerson)
-    this.setState(this.initialState)
+    this.props.addPerson()
   }
 
 
@@ -557,7 +554,7 @@ render(){
 
         <fieldset>
 
-        <button type="submit" >Add new participant</button>
+        <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
 
         </fieldset>
         </form>

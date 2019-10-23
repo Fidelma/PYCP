@@ -409,9 +409,74 @@ class HomePageContainer extends Component {
 
   }
 
-  addPerson(person){
+  addPerson(){
+    const person = this.state.person
+    const request = new PeopleRequest
+    request.post(person)
     const people = [...this.state.people, person];
     this.setState({people});
+    const resetPerson = {
+      name: {
+        firstName: '',
+        lastName: ''
+      },
+      gender: '',
+      dob: '',
+      address: {
+        address: '',
+        postcode: ''
+      },
+      email: '',
+      primaryContact: '',
+      secondaryContact: '',
+      emergencyContact: {
+        name: '',
+        relationship: '',
+        number: ''
+      },
+      dietaryRequirements: {
+        exists: false,
+        details: ''
+      },
+      medicalConditions: {
+        exists: false,
+        details: '',
+        medications: ''
+      },
+      allergies: {
+        exists: false,
+        details: ''
+      },
+      doctorsSurgery: '',
+      community: '',
+      school: {
+        name: '',
+        year: ''
+      },
+      photographyPermission: true,
+      pickUp: {
+        toBeCollected: false,
+        byWho: ''
+      },
+    siblings: {
+      exists: false,
+      siblings: []
+      },
+      ethnicity: '',
+      volunteering: true,
+      signed: {
+        signed: false,
+        name: '',
+        relationship: '',
+        date:''
+      },
+      timeOut: {
+        exists: false,
+        reason: '',
+        notes: ''
+      }
+    }
+    this.setState({person: resetPerson})
   }
 
   updatePerson(person){
