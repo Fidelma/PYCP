@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/navBarStyles.css';
 
-const NavBar = (props) => (
+const NavBar = () => (
   <div id='nav'>
   <ul>
     <li>
       <Link to='/'>Home</Link>
     </li>
     <li>
-      <Link to='/people' onClick={props.displayRegistrationForm}>Registration</Link>
+      <Link to='/registration'>Registration</Link>
     </li>
     <li>
       <Link to='/contact'>Contact</Link>
@@ -18,7 +18,7 @@ const NavBar = (props) => (
       <Link to='/activities'>Activities</Link>
     </li>
     <li>
-      <Link to='/people' onClick={props.displayRegisterList}>People</Link>
+      <Link to='/people'>People</Link>
     </li>
     <li>
       <Link to='/restrictions'>Restrictions</Link>

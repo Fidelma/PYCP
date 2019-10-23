@@ -32,8 +32,7 @@ class RestrictionsContainer extends Component {
   render(){
     return(
       <>
-      <NavBar displayRegistrationForm={this.props.displayRegistrationForm}
-      displayRegisterList={this.props.displayRegisterList}/>
+      <NavBar />
       <h2> Restriction Table </h2>
         <table>
           <tbody>

@@ -18,8 +18,7 @@ class HomePageContainer extends Component {
     this.state = {
       activities: [],
       people: [],
-      displayActivityForm: false,
-      displayForm: false
+      displayActivityForm: false
 
     }
 
@@ -34,24 +33,14 @@ class HomePageContainer extends Component {
     this.updatePerson = this.updatePerson.bind(this);
     this.deleteActivity = this.deleteActivity.bind(this);
     this.updateActivity = this.updateActivity.bind(this);
-    this.displayRegistrationForm = this.displayRegistrationForm.bind(this);
-    this.displayRegisterList = this.displayRegisterList.bind(this);
   }
 
   toggleActivityForm = () => {
     this.setState((prevState) => ({
       displayActivityForm: !prevState.displayActivityForm
     }));
+
 }
-
-  displayRegistrationForm(){
-    this.setState({displayForm: true})
-  }
-
-  displayRegisterList(){
-    this.setState({displayForm: false})
-  }
-
   addActivity(activity){
     const request = new ActivityRequest
     request.post(activity)
@@ -115,19 +104,14 @@ class HomePageContainer extends Component {
   renderMain(props) {
     return (
       <>
-      <Button
-      displayRegistrationForm={this.displayRegistrationForm}
-      displayRegisterList={this.displayRegisterList}/>
+      <Button/>
       </>
     )
   }
 
   renderContact(props) {
     return (
-      <ContactContainer
-      people = {this.state.people}
-      displayRegistrationForm={this.displayRegistrationForm}
-      displayRegisterList={this.displayRegisterList}/>
+      <ContactContainer people = {this.state.people}/>
     )
   }
 
@@ -140,8 +124,6 @@ class HomePageContainer extends Component {
         toggleActivityForm={this.toggleActivityForm}
         deleteActivity={this.deleteActivity}
         updateActivity={this.updateActivity}
-        displayRegistrationForm={this.displayRegistrationForm}
-        displayRegisterList={this.displayRegisterList}
       />
     )
   }
@@ -149,11 +131,7 @@ class HomePageContainer extends Component {
   renderPeople(props) {
     return (
 
-      <PersonContainer
-      people={this.state.people}
-      displayForm={this.state.displayForm}
-      displayRegistrationForm={this.displayRegistrationForm}
-      displayRegisterList={this.displayRegisterList}/>
+      <PersonContainer people={this.state.people}/>
     )
   }
 
@@ -161,17 +139,13 @@ class HomePageContainer extends Component {
     return (
       <RestrictionsContainer
       people={this.state.people}
-      updatePerson={this.updatePerson}
-      displayRegistrationForm={this.displayRegistrationForm}
-      displayRegisterList={this.displayRegisterList}/>
+      updatePerson={this.updatePerson}/>
     )
   }
 
   renderRegistration(props) {
     return (
-      <RegistrationContainer addPerson={this.addPerson}
-      displayRegistrationForm={this.displayRegistrationForm}
-      displayRegisterList={this.displayRegisterList}/>
+      <RegistrationContainer addPerson={this.addPerson}/>
     )
   }
 
