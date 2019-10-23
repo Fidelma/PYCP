@@ -7,7 +7,7 @@ import NavBar from '../components/navigation/NavBar';
 class ActivityContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {
+    this.initialState = {
       edit: false,
       activity: {
         title: '',
@@ -34,13 +34,18 @@ class ActivityContainer extends Component {
         id: null
       }
     }
+    this.state = this.initialState
 
     this.editActivity = this.editActivity.bind(this);
     this.handleActivityChange = this.handleActivityChange.bind(this);
     this.handleActivitySubmit = this.handleActivitySubmit.bind(this);
     this.onToggle = this.onToggle.bind(this);
     this.handleActivityEdit = this.handleActivityEdit.bind(this);
+    this.resetForm = this.resetForm.bind(this);
+  }
 
+  resetForm(){
+    this.setState(this.initialState)
   }
 
   handleActivityChange(value, name){
@@ -189,7 +194,8 @@ class ActivityContainer extends Component {
       activities={this.props.activities} deleteActivity={this.props.deleteActivity}
       editActivity={this.editActivity}
       />
-      <NewActivityButton  toggleActivityForm={this.props.toggleActivityForm}/>
+      <NewActivityButton  toggleActivityForm={this.props.toggleActivityForm}
+      resetForm={this.resetForm}/>
       <ActivityForm
       handleActivitySubmit={this.handleActivitySubmit}
       displayActivityForm={this.props.displayActivityForm}
