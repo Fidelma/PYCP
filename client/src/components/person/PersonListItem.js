@@ -47,6 +47,7 @@ const PersonListItem = (props) => {
 
 
   const handlClickEdit = () => {
+    console.log(props.person);
     props.editPersonDetails(props.person)
   }
 

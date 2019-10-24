@@ -12,7 +12,6 @@ class Form extends Component {
     this.handleSignedChange = this.handleSignedChange.bind(this);
     this.handleDietaryChange = this.handleDietaryChange.bind(this);
     this.handleDietaryChange = this.handleDietaryChange.bind(this);
-    this.toggleExtraDetails = this.toggleExtraDetails.bind(this);
     this.handleDietaryDetailChange = this.handleDietaryDetailChange.bind(this);
     this.handleMedicalConditionsChange = this.handleMedicalConditionsChange.bind(this);
     this.handleMedicalDetailsChange = this.handleMedicalDetailsChange.bind(this);
@@ -27,6 +26,7 @@ class Form extends Component {
     this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   }
 
@@ -53,16 +53,6 @@ class Form extends Component {
 
   handleDietaryChange({target: {name}}){
     this.props.handleDietaryChange()
-    this.toggleExtraDetails(name)
-  }
-
-  toggleExtraDetails(name){
-    const x = document.getElementById(name);
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
   }
 
   handleDietaryDetailChange({target: {value, name}}){
@@ -71,7 +61,6 @@ class Form extends Component {
 
   handleMedicalConditionsChange({target: {name}}){
     this.props.handleMedicalConditionsChange()
-    this.toggleExtraDetails(name)
   }
 
   handleMedicalDetailsChange({target: {value, name}}){
@@ -80,7 +69,6 @@ class Form extends Component {
 
   handleAllergyUpdate({target: {name}}){
     this.props.handleAllergyUpdate()
-    this.toggleExtraDetails(name)
   }
 
   handleAllergyDetailsChange({target: {value, name}}){
@@ -97,7 +85,6 @@ class Form extends Component {
 
   handlePickUpChange({target: {name}}){
     this.props.handlePickUpChange()
-    this.toggleExtraDetails(name)
   }
 
   handlePickUpDetailsChange({target: {value, name}}){
@@ -106,7 +93,6 @@ class Form extends Component {
 
   handleSiblingsChange({target: {name}}){
     this.props.handleSiblingsChange()
-    this.toggleExtraDetails(name)
   }
 
   handleSiblingsAdded({target: {value, name}}){
@@ -115,9 +101,6 @@ class Form extends Component {
 
   handleEthnicityChange({target: {value, name}}){
     this.props.handleEthnicityChange(value, name)
-    if(value === "Other"){
-      this.toggleExtraDetails(name)
-    }
   }
 
   handleSignatureRadioButtonChange({target: {value, name}}){
@@ -127,6 +110,11 @@ class Form extends Component {
   handleSubmit(event){
     event.preventDefault()
     this.props.addPerson()
+  }
+
+  handleEdit(event){
+    event.preventDefault()
+    this.props.handleEditPersonSubmit()
   }
 
 
@@ -160,7 +148,11 @@ render(){
         />
 
         <label>Gender</label>
-        <select name="gender" id="gender" onChange={this.handleChange}>
+        <select
+        name="gender"
+        id="gender"
+        value={this.props.person.gender}
+        onChange={this.handleChange}>
         <option
         disabled selected value> - select an option - </option>
         <option value="Male">Male</option>
@@ -295,10 +287,11 @@ render(){
       <input
       type="checkbox"
       name="dietaryDetails"
+      checked={this.props.person.dietaryRequirements.exists === true}
       value={this.props.person.dietaryRequirements.exists}
       onChange={this.handleDietaryChange}/>
 
-      <div id="dietaryDetails" style={{display: "none"}}>
+      <div id="dietaryDetails"  style={{ display: this.props.person.dietaryRequirements.exists ? 'block' : 'none'}}>
       <label>Details</label>
       <input
       type="text"
@@ -313,6 +306,7 @@ render(){
       <select
       name="doctorsSurgery"
       id="doctorsSurgery"
+      value={this.props.person.doctorsSurgery}
       onChange={this.handleChange}>
       <option
       disabled selected value> - select an option - </option>
@@ -324,10 +318,11 @@ render(){
       <input
       type="checkbox"
       name="medicalDetails"
+      checked={this.props.person.medicalConditions.exists === true}
       value={this.props.person.medicalConditions.exists}
       onChange={this.handleMedicalConditionsChange}/>
 
-      <div id="medicalDetails" style={{display: "none"}}>
+      <div id="medicalDetails" style={{ display: this.props.person.medicalConditions.exists ? 'block' : 'none'}}>
       <label>Details</label>
       <input
       type="text"
@@ -349,11 +344,12 @@ render(){
       <input
       type="checkbox"
       name="allergyDetails"
+      checked={this.props.person.allergies.exists === true}
       value={this.props.person.allergies.exists}
       onChange={this.handleAllergyUpdate}/>
 
 
-      <div id="allergyDetails" style={{display: "none"}}>
+      <div id="allergyDetails" style={{ display: this.props.person.allergies.exists ? 'block' : 'none'}}>
         <label>Details</label>
         <input
         type="text"
@@ -370,6 +366,7 @@ render(){
       <select
       name="community"
       id="community"
+      value={this.props.person.community}
       onChange={this.handleChange}>
         <option
         disabled selected value> - select an option - </option>
@@ -384,6 +381,7 @@ render(){
       <select
       name="name"
       id="name"
+      value={this.props.person.school.name}
       onChange={this.handleSchoolChange}>
         <option
         disabled selected value> - select an option - </option>
@@ -395,6 +393,7 @@ render(){
       <select
       name="year"
       id="year"
+      value={this.props.person.school.year}
       onChange={this.handleSchoolChange}>
         <option
         disabled selected value> - select an option - </option>
@@ -440,10 +439,11 @@ render(){
         <input
         type="checkbox"
         name="collectionDetails"
+        checked={this.props.person.pickUp.toBeCollected === true}
         value={this.props.person.pickUp.toBeCollected}
         onChange={this.handlePickUpChange}/>
 
-        <div id="collectionDetails" style={{display: "none"}}>
+        <div id="collectionDetails" style={{ display: this.props.person.pickUp.toBeCollected ? 'block' : 'none'}}>
         <label>Collected By</label>
         <input
         type="text"
@@ -461,10 +461,11 @@ render(){
         <input
         type="checkbox"
         name="siblingdetails"
+        checked={this.props.person.siblings.exists === true}
         value={this.props.person.siblings.exists}
         onChange={this.handleSiblingsChange}/>
 
-        <div id="siblingdetails" style={{display: "none"}}>
+        <div id="siblingdetails" style={{ display: this.props.person.siblings.exists ? 'block' : 'none'}}>
         <label>Name</label>
         <input
         type="text"
@@ -480,6 +481,7 @@ render(){
         <select
         name="ethnicityOther"
         id="ethnicity"
+        value={this.props.person.ethnicity}
         onChange={this.handleEthnicityChange}>
           <option
           disabled selected value> - select an option - </option>
@@ -492,7 +494,7 @@ render(){
           <option value="Other">Other</option>
         </select>
 
-        <div id="ethnicityOther" style={{display: "none"}}>
+        <div id="ethnicityOther" style={{ display: this.props.person.ethnicity === "Other" ? 'block' : 'none'}}>
         <label>Other</label>
         <input
         type="text"
@@ -566,8 +568,6 @@ render(){
           <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
 
           </div>
-
-
         </fieldset>
         </form>
 

@@ -115,6 +115,7 @@ class HomePageContainer extends Component {
     this.handleEthnicityChange = this.handleEthnicityChange.bind(this);
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
     this.editPersonDetails = this.editPersonDetails.bind(this);
+    this.handleEditPersonSubmit = this.handleEditPersonSubmit.bind(this);
   }
 
   handleNewFormData(data){
@@ -481,19 +482,85 @@ class HomePageContainer extends Component {
     this.setState({person: resetPerson})
   }
 
-  editPersonDetails(person){
-    this.setState({person: person})
+  editPersonDetails(personToEdit){
+    this.setState({person: personToEdit})
   }
 
-  updatePerson(person){
+  handleEditPersonSubmit(){
+    const updatedPerson = this.state.person
+    this.updatePerson(updatedPerson)
+    const resetPerson = {
+      name: {
+        firstName: '',
+        lastName: ''
+      },
+      gender: '',
+      dob: '',
+      address: {
+        address: '',
+        postcode: ''
+      },
+      email: '',
+      primaryContact: '',
+      secondaryContact: '',
+      emergencyContact: {
+        name: '',
+        relationship: '',
+        number: ''
+      },
+      dietaryRequirements: {
+        exists: false,
+        details: ''
+      },
+      medicalConditions: {
+        exists: false,
+        details: '',
+        medications: ''
+      },
+      allergies: {
+        exists: false,
+        details: ''
+      },
+      doctorsSurgery: '',
+      community: '',
+      school: {
+        name: '',
+        year: ''
+      },
+      photographyPermission: true,
+      pickUp: {
+        toBeCollected: false,
+        byWho: ''
+      },
+    siblings: {
+      exists: false,
+      siblings: []
+      },
+      ethnicity: '',
+      volunteering: true,
+      signed: {
+        signed: false,
+        name: '',
+        relationship: '',
+        date:''
+      },
+      timeOut: {
+        exists: false,
+        reason: '',
+        notes: ''
+      }
+    }
+    this.setState({person: resetPerson})
+  }
+
+  updatePerson(updatedPerson){
     const request = new PeopleRequest
-    request.edit(person._id, person)
-
-    const tempPeople = this.state.people
-    const index = tempPeople.indexOf(person._id);
-    tempPeople.splice(index, 1, person);
-    this.setState({people: tempPeople})
-  }
+    request.edit(updatedPerson._id, updatedPerson)
+    // const tempPeople = this.state.people
+    // const index = this.state.people.indexOf(updatedPerson._id);
+    // tempPeople.splice(index, 1, updatedPerson);
+    // this.setState({people: tempPeople})
+    }
 
   componentDidMount() {
     const url = 'http://localhost:8080/api/activities';
@@ -580,6 +647,7 @@ class HomePageContainer extends Component {
       handleSiblingsChange={this.handleSiblingsChange}
       handleEthnicityChange={this.handleEthnicityChange}
       handleSignatureRadioButtonChange={this.handleSignatureRadioButtonChange}
+      handleEditPersonSubmit={this.handleEditPersonSubmit}
       edit={this.state.edit}
       person={this.state.person}/>
     )
