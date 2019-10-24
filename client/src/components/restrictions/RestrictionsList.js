@@ -17,7 +17,7 @@ const RestrictionsList = (props) => {
       endDateReduced = endDate.slice(0,10);
       }
 
-      return <tr><td>{props.person.name.firstName}</td><td>{props.person.name.lastName}</td><td>{startDateReduced}</td><td>{endDateReduced}</td><td>{props.person.timeOut.reason}</td><td><button onClick={handleClick} value={props.person._id}>Remove</button></td></tr>
+      return <tr><td>{props.person.name.firstName}</td><td>{props.person.name.lastName}</td><td>{startDateReduced}</td><td>{endDateReduced}</td><td>{props.person.timeOut.reason}</td><td>{props.person.timeOut.notes}</td><td><button onClick={handleClick} value={props.person._id}>Remove</button></td></tr>
       }
     return null
   }

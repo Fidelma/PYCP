@@ -53,6 +53,7 @@ class RestrictionsContainer extends Component {
               <th>StartDate</th>
               <th>EndDate</th>
               <th>Reason</th>
+              <th>Notes</th>
               <th>Remove</th>
             </tr>
             {this.props.people.map((person, index) => {
