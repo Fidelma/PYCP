@@ -31,3 +31,7 @@ td {
 tr:nth-child(odd){
 		background: #f0f3f8;
 	}
+
+.person-checkboxes{
+    display: inline-block;
+   }

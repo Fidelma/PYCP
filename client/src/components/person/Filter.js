@@ -55,11 +55,11 @@ class Filter extends Component {
         <label>Filter by Name or Year</label>
         <input type="text" value={this.state.filterList} onChange={this.updateFilter}/><br/>
 
-        <div>
-          <ul>
+        <div >
+          <ul >
             {this.state.checkboxes.map((age, i) => {
               return(
-              <li key={i}>
+              <li className="person-checkboxes" key={i} >
                 {age.year}
                 <input value={age.checked} checked={age.checked} type="checkbox" onChange={this.toggleChange.bind(this, i)} />
               </li>
