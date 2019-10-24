@@ -19,4 +19,14 @@ button .icon {
   border-width: 1px;
   border-radius: 10px;
   margin-right: 5px;
+  margin-top: 6px;
+}
+
+#detailsbtn {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+#editbtn {
+  margin-right: 10px;
 }

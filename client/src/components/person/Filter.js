@@ -82,8 +82,6 @@ class Filter extends Component {
 </div>
         <div>
 
-          // <button type="Reset">Clear Filters</button>
-
         </div>
 
         <div>

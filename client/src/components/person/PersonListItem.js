@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/PersonListItem.css'
+import '../../styles/buttons.css'
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
@@ -77,11 +78,11 @@ const PersonListItem = (props) => {
    </td>
    <td>
 
-   <button onClick={handlClickDetails} className="options">Details</button>
+   <button onClick={handlClickDetails} className="details-button" id="detailsbtn">Details</button>
 
      <Link to='/registration'>
      <button onClick={handlClickEdit}
-      className="options">Edit</button>
+      className="edit-button" id="editbtn">Edit</button>
     </Link>
 
 
@@ -94,24 +95,3 @@ const PersonListItem = (props) => {
 export default PersonListItem
 
 
-   /* <label className="container">Mon
-       <input type="checkbox"/>
-     </label>
-     <label className="container">Tue
-       <input type="checkbox"/>
-     </label>
-     <label className="container">Wed
-       <input type="checkbox"/>
-     </label>
-     <label className="container">Thu
-       <input type="checkbox"/>
-     </label>
-     <label className="container">Fri
-       <input type="checkbox"/>
-     </label>
-     <label className="container">Sat
-       <input type="checkbox"/>
-     </label>
-     <label className="container">Sun
-       <input type="checkbox"/>
-     </label> */
