@@ -33,7 +33,7 @@ class RestrictionsContainer extends Component {
   //handleRestrictionPost must update filteredPerson timeOut parameters and then pass to homePage to update database
   handleRestrictionPostRemoval(timeOut, value) {
     console.log("this is in the container:", value)
-    const updatedPerson =  this.props.people.filter(x => x._id === value)
+    const updatedPerson =  this.props.people.filter(x => x._id === value)[0]
     console.log(updatedPerson)
     updatedPerson.timeOut = timeOut
     this.setState({personWithRestriction: updatedPerson})
@@ -61,6 +61,7 @@ class RestrictionsContainer extends Component {
           </tbody>
         </table>
         <br/>
+        <h2> Restriction Input </h2>
       <RestrictionsSearch people={this.props.people} filterArray={this.filterArray}/>
       <RestrictionsForm handleRestrictionPost={this.handleRestrictionPost} />
       </>

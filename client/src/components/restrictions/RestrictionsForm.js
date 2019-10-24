@@ -14,20 +14,9 @@ function handleSubmit(event){
    props.handleRestrictionPost(timeOut);
 }
 
-function handleClick(){
-  const timeOut = {
-    "exists": false,
-    "startDate": null,
-    "endDate": null,
-    "reason": null,
-    "notes": null
-  }
-  props.handleRestrictionPost(timeOut);
-}
-
 return(
   <>
-    <h2>Restrictions Input</h2>
+  <fieldset>
     <form onSubmit={handleSubmit}>
       <div>
         <h4>Input restriction date range</h4>
@@ -48,10 +37,8 @@ return(
       <div>
         <button type="submit">Submit</button>
       </div>
-      <div>
-        <button onClick={handleClick}>Remove Restriction</button>
-      </div>
     </form>
+    </fieldset>
   </>
 )
 
