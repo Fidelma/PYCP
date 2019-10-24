@@ -4,7 +4,7 @@ import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
 import {ReactComponent as SquirrelSvg} from '../../images/icons/squirrel.svg';
-import {ReactComponent as PickUpSvg} from '../../images/icons/useraltslash.svg';
+import {ReactComponent as PickUpSvg} from '../../images/icons/user-friends.svg';
 
 
 const PersonListItem = ({person}) => {
