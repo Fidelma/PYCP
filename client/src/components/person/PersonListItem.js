@@ -3,14 +3,9 @@ import '../../styles/PersonListItem.css'
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
-import {ReactComponent as SquirrelSvg} from '../../images/icons/squirrel.svg';
-<<<<<<< HEAD
-import {ReactComponent as PickUpSvg} from '../../images/icons/useraltslash.svg';
-import { Link } from 'react-router-dom';
-=======
+import {ReactComponent as SquirrelSvg} from '../../images/icons//squirrel.svg';
 import {ReactComponent as PickUpSvg} from '../../images/icons/user-friends.svg';
->>>>>>> develop
-
+import { Link } from 'react-router-dom';
 
 const PersonListItem = (props) => {
 
@@ -61,16 +56,11 @@ const PersonListItem = (props) => {
 
   return (
   <>
-  <tr>
-<<<<<<< HEAD
+<tr>
    <td>{props.person.name.firstName}</td>
    <td>{props.person.name.lastName}</td>
    <td>{props.person.school.year}</td>
-=======
-   <td className="left-align">{person.name.firstName}</td>
-   <td className="left-align">{person.name.lastName}</td>
-   <td>{person.school.year}</td>
->>>>>>> develop
+
    <td>
      <CameraIcon person={props.person}/>
      <MedicalIcon person={props.person}/>
@@ -102,18 +92,15 @@ const PersonListItem = (props) => {
      </label>
    </td>
    <td>
-<<<<<<< HEAD
-     <button onClick={handlClickDetails} className="options">Details</button>
+
+   <button onClick={handlClickDetails} className="options">Details</button>
 
      <Link to='/registration'>
      <button onClick={handlClickEdit}
       className="options">Edit</button>
     </Link>
 
-=======
-     <button className="details-button" onClick={handlClickDetails} >Details</button>
-     <button className="edit-button" onClick={handlClickEdit} >Edit</button>
->>>>>>> develop
+
    </td>
    </tr>
   </>

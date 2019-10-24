@@ -52,7 +52,7 @@ class Filter extends Component {
       if (this.state.checkboxUpdate.length > 0) {
         filteredPeople = filteredPeople.filter((person) => {
         return this.state.checkboxUpdate.includes(person.school.year)
-      })  
+      })
     }
 
     return(
@@ -61,9 +61,6 @@ class Filter extends Component {
         <label>Filter by Name or Year</label>
         <input type="text" value={this.state.filterList} onChange={this.updateFilter}/><br/>
 
-<<<<<<< HEAD
-
-=======
         <div >
           <ul >
             {this.state.checkboxes.map((age, i) => {
@@ -75,8 +72,7 @@ class Filter extends Component {
             )})}
           </ul>
         </div>
->>>>>>> develop
-
+        
         <div>
 
           <button type="Reset">Clear Filters</button>
