@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/generalStyles.css';
 
 const NewActivityButton = (props) => {
 
@@ -9,7 +10,9 @@ const NewActivityButton = (props) => {
 
 return(
   <>
-    <button onClick={handleToggleActivityForm}>No Chance This Works</button>
+  <div className='btn-container'>
+    <button className='newActivityBtn' onClick={handleToggleActivityForm}>Add New Activity</button>
+  </div>
   </>
  )
 
