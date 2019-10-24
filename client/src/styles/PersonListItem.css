@@ -10,3 +10,23 @@ button .icon {
   border: none;
   background: transparent;
 }
+
+.attendance {
+  display: inline-block;
+  height: 20px;
+  width: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-top: 6px;
+}
+
+#detailsbtn {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+#editbtn {
+  margin-right: 10px;
+}

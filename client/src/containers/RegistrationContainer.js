@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Form from '../components/registration/Form';
 import NavBar from '../components/navigation/NavBar';
 
+
+
 class RegistrationContainer extends Component {
   constructor(props){
     super(props);
@@ -11,7 +13,6 @@ class RegistrationContainer extends Component {
     return(
       <>
       <NavBar resetEditToFalse={this.props.resetEditToFalse}/>
-      <h2> Registration Container </h2>
       <Form
       addPerson={this.props.addPerson}
       handleNewFormData={this.props.handleNewFormData}

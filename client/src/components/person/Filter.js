@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PersonListItem from './PersonListItem';
 import '../../styles/tables.css';
+import '../../styles/generalStyles.css';
 
 class Filter extends Component {
   constructor(props) {
@@ -58,13 +59,19 @@ class Filter extends Component {
     return(
       <div className="contact-form">
 
-        <label>Filter by Name or Year</label>
-        <input type="text" value={this.state.filterList} onChange={this.updateFilter}/><br/>
+      <div className='filterPeople'>
+      <h2>Register Filter</h2>
+        <form className='filterPeople'>
+          <h3>Filter by Name</h3>
+          <input type="text" value={this.state.filterList} onChange={this.updateFilter}/><br/>
+        </form>
 
         <div >
-          <ul >
+          <h3>Add Year Groups</h3>
+          <ul>
             {this.state.checkboxes.map((age, i) => {
               return(
+
               <li className="person-checkboxes" key={i} >
                 {age.year}
                 <input value={age.checked} checked={age.checked} type="checkbox" onChange={this.toggleChange.bind(this, i)} />
@@ -72,10 +79,8 @@ class Filter extends Component {
             )})}
           </ul>
         </div>
-        
+</div>
         <div>
-
-          <button type="Reset">Clear Filters</button>
 
         </div>
 

@@ -4,6 +4,7 @@
   width: 100%;
   text-align: center;
   background-color: #582D87;
+  position: sticky;
 }
 
 #nav ul {
@@ -32,4 +33,16 @@ a {
 .current {
   font-weight: bold;
   border-bottom: 2px solid #7bac4a;
+}
+
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }

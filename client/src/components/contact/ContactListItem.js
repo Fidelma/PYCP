@@ -18,6 +18,8 @@ const ContactListItem = ({person}) => {
        <td>{person.emergencyContact.name} {person.emergencyContact.number}</td>
        <td>
        <button className="details-button">Details</button>
+       </td>
+       <td>
        <button className="edit-button">Edit</button>
        </td>
       </tr>
