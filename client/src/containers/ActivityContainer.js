@@ -188,8 +188,8 @@ class ActivityContainer extends Component {
   render(){
     return(
       <>
-      <NavBar/>
-      
+      <NavBar resetEditToFalse={this.props.resetEditToFalse}/>
+
       <ActivityList
       activities={this.props.activities} deleteActivity={this.props.deleteActivity}
       editActivity={this.editActivity}

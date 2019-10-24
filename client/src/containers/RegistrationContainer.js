@@ -10,7 +10,7 @@ class RegistrationContainer extends Component {
   render(){
     return(
       <>
-      <NavBar />
+      <NavBar resetEditToFalse={this.props.resetEditToFalse}/>
       <h2> Registration Container </h2>
       <Form
       addPerson={this.props.addPerson}

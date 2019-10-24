@@ -12,7 +12,7 @@ class PersonContainer extends Component {
   render(){
     return(
       <>
-      <NavBar/>
+      <NavBar resetEditToFalse={this.props.resetEditToFalse}/>
       <h2>Drop Downs</h2>
       <Filter people={this.props.people}
       editPersonDetails={this.props.editPersonDetails}/>

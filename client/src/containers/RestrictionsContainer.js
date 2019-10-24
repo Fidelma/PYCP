@@ -32,7 +32,7 @@ class RestrictionsContainer extends Component {
   render(){
     return(
       <>
-      <NavBar />
+      <NavBar resetEditToFalse={this.props.resetEditToFalse}/>
       <h2> Restriction Table </h2>
         <table align="center">
           <tbody>

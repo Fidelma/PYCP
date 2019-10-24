@@ -11,7 +11,7 @@ class ContactContainer extends Component {
   render(){
     return(
       <>
-      <NavBar />
+      <NavBar resetEditToFalse={this.props.resetEditToFalse}/>
       <Search people={this.props.people}/>
       </>
     )
