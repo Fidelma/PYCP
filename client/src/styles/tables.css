@@ -36,3 +36,11 @@ tr:nth-child(odd){
 .person-checkboxes{
     display: inline-block;
    }
+
+.rowHover:hover {
+  background-color: #7bac4a;
+  font-weight: bold;
+  font-size: 22px;
+  opacity: 0.9;
+  color: #582d87;
+}

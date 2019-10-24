@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/PersonListItem.css'
 import '../../styles/buttons.css'
+import '../../styles/tables.css'
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
@@ -57,7 +58,7 @@ const PersonListItem = (props) => {
 
   return (
   <>
-<tr>
+<tr className="rowHover">
    <td>{props.person.name.firstName}</td>
    <td>{props.person.name.lastName}</td>
    <td>{props.person.school.year}</td>
