@@ -36,11 +36,14 @@
 
 .saveForm {
   font-family: 'Lato', sans-serif;
-  background: #f6aa04;
+  font-size: 20px;
+  background: #62883b;
   border-radius: 14px;
   border: none;
   color: #FFFFFF;
   padding: 4px 12px;
+  padding: 10px;
+  margin: 10px;
 }
 .saveForm:hover {
   background: #dd9904;
