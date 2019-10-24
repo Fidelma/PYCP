@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../styles/activityForm.css';
+import '../../styles/buttons.css'
 
 class ActivityForm extends Component {
 
@@ -115,12 +116,12 @@ render(){
 
     <p style={{ display: this.props.edit ? 'block' : 'none'}
     }>
-      <button type="submit" onClick={this.handleEdit}>Update Activity</button>
+      <button className="edit-button" type="submit" onClick={this.handleEdit}>Update Activity</button>
     </p>
 
     <p style={{ display: this.props.edit ? 'none' : 'block'}
   }>
-      <button type="submit" onClick={this.handleSubmit}>Save Activity</button>
+      <button className="details-button" type="submit" onClick={this.handleSubmit}>Save Activity</button>
     </p>
 
 
