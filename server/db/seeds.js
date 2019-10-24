@@ -80,6 +80,8 @@ Person.remove({}, function(err) {
      person1.timeOut.exists = true
      person1.timeOut.reason = 'ban for inappropriate behaviour'
      person1.timeOut.notes = '1 week'
+     person1.timeOut.startDate = '2019/10/24'
+     person1.timeOut.endDate = '2019/10/28'
 
      person1.save(function(err){
        if(err)throw err;
@@ -125,6 +127,8 @@ Person.remove({}, function(err) {
        person2.timeOut.exists = true
        person2.timeOut.reason = 'ban for inappropriate behaviour'
        person2.timeOut.notes = '1 week'
+       person2.timeOut.startDate = '2019/10/24'
+       person2.timeOut.endDate = '2019/10/28'
 
        person2.save(function(err){
          if(err)throw err;
@@ -170,6 +174,9 @@ Person.remove({}, function(err) {
        person3.timeOut.exists = true
        person3.timeOut.reason = 'ban for inappropriate behaviour'
        person3.timeOut.notes = '1 week'
+       person3.timeOut.startDate = '2019/10/24'
+       person3.timeOut.endDate = '2019/10/28'
+
 
        person3.save(function(err){
          if(err)throw err;
@@ -215,6 +222,8 @@ Person.remove({}, function(err) {
        person4.timeOut.exists = false
        person4.timeOut.reason = 'ban for inappropriate behaviour'
        person4.timeOut.notes = '1 week'
+       person4.timeOut.startDate = '2019/10/24'
+       person4.timeOut.endDate = '2019/10/28'
 
        person4.save(function(err){
          if(err)throw err;
@@ -260,6 +269,8 @@ Person.remove({}, function(err) {
        person5.timeOut.exists = false
        person5.timeOut.reason = 'ban for inappropriate behaviour'
        person5.timeOut.notes = '1 week'
+       person5.timeOut.startDate = '2019/10/24'
+       person5.timeOut.endDate = '2019/10/28'
 
        person5.save(function(err){
          if(err)throw err;
@@ -305,6 +316,8 @@ Person.remove({}, function(err) {
        person6.timeOut.exists = true
        person6.timeOut.reason = 'ban for inappropriate behaviour'
        person6.timeOut.notes = '1 week'
+       person6.timeOut.startDate = '2019/10/24'
+       person6.timeOut.endDate = '2019/10/28'
 
        person6.save(function(err){
          if(err)throw err;
@@ -350,6 +363,8 @@ Person.remove({}, function(err) {
        person7.timeOut.exists = true
        person7.timeOut.reason = 'ban for inappropriate behaviour'
        person7.timeOut.notes = '1 week'
+       person7.timeOut.startDate = '2019/10/24'
+       person7.timeOut.endDate = '2019/10/28'
 
        person7.save(function(err){
          if(err)throw err;
