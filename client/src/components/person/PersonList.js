@@ -1,6 +1,6 @@
 import React from 'react'
 import PersonListItem from './PersonListItem';
-import './PersonList.css'
+import '../../styles/tables.css';
 
 const PersonList = ({people}) => {
   const personNodes = people.map((person, index)=> {
@@ -10,7 +10,7 @@ const PersonList = ({people}) => {
   });
   return(
     <>
-    <table width="1400" className="people-table">
+    <table>
       <tbody>
       {personNodes}
       </tbody>

@@ -1,27 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../../styles/navBarStyles.css';
 
 const NavBar = () => (
   <div id='nav'>
   <ul>
     <li>
-      <Link to='/'>Home</Link>
+      <Link to='/'>HOME</Link>
     </li>
     <li>
-      <Link to='/registration'>Registration</Link>
+      <NavLink to='/registration' activeClassName="current">REGISTRATION</NavLink>
     </li>
     <li>
-      <Link to='/contact'>Contact</Link>
+      <NavLink to='/contact' activeClassName="current">CONTACT</NavLink>
     </li>
     <li>
-      <Link to='/activities'>Activities</Link>
+      <NavLink to='/activities' activeClassName="current">ACTIVITIES</NavLink>
     </li>
     <li>
-      <Link to='/people'>People</Link>
+      <NavLink to='/people' activeClassName="current">PEOPLE</NavLink>
     </li>
     <li>
-      <Link to='/restrictions'>Restrictions</Link>
+      <NavLink to='/restrictions' activeClassName="current">RESTRICTIONS</NavLink>
     </li>
   </ul>
   </div>

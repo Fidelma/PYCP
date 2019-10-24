@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/buttons.css';
 
 const ActivityListItem = (props) => {
 
@@ -19,8 +20,8 @@ const ActivityListItem = (props) => {
      <td>{props.activity.age.join(', ')}</td>
      <td>{props.activity.startTime} - {props.activity.endTime}</td>
      <td>{props.activity.day}</td>
-     <td><button onClick={handleEdit}>Edit Activity</button></td>
-     <td><button onClick={handleDelete}>Delete Activity</button></td>
+     <td><button className="edit-button" onClick={handleEdit}>Edit Activity</button></td>
+     <td><button className="delete-button" onClick={handleDelete}>Delete Activity</button></td>
     </tr>
   </>
 

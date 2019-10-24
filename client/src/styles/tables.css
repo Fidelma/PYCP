@@ -1,10 +1,37 @@
-.table tr th {
-  padding-right: 30px;
+
+table {
+  font-family: 'Lato', sans-serif;
+  border-collapse: collapse;
   line-height: 30px;
-  background-color: lightgrey;
+  max-width: 100%;
+}
+
+tr th {
+  padding: 0px 30px;
+}
+
+ th.left-align {
+  text-align: left;
+}
+
+ th {
+  background-color: #7bac4a;
+  color: #FFFFFF;
+}
+
+td.left-align {
+  text-align: left;
+  padding: 0px 0px 0px 30px ;
+}
+
+td {
   text-align: center;
 }
 
-.table td {
-  text-align: center;
-}
+tr:nth-child(odd){
+		background: #f0f3f8;
+	}
+
+.person-checkboxes{
+    display: inline-block;
+   }

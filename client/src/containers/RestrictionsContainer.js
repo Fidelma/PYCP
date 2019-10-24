@@ -34,7 +34,7 @@ class RestrictionsContainer extends Component {
       <>
       <NavBar />
       <h2> Restriction Table </h2>
-        <table>
+        <table align="center">
           <tbody>
             <tr>
               <th>first name</th>

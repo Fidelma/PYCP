@@ -1,5 +1,6 @@
 
 #nav {
+  font-family: 'Lato', sans-serif;
   width: 100%;
   text-align: center;
   background-color: #582D87;
@@ -10,27 +11,25 @@
   display: flex;
   justify-content: space-around;
   margin: 0;
+  padding: 15px;
 }
 
 #nav li {
   display: inline;
-  padding: 15px;
-  font-size: 30px;
+  font-size: 20px;
+  padding: 0px 5px;
+}
 
+#nav li:hover {
+  font-weight: bold;
 }
 
 a {
-  color: #ffffff
+  color: #ffffff;
+  text-decoration: none;
 }
 
-a:hover {
-  background-color: #315F0F;
-  color: white;
-}
-
-
-
-.navBtns:hover {
-  background-color: #3e8e41;
-  color: white;
+.current {
+  font-weight: bold;
+  border-bottom: 2px solid #7bac4a;
 }
