@@ -3,11 +3,11 @@ import '../../styles/PersonListItem.css'
 import {ReactComponent as CameraSvg} from '../../images/icons/camera.svg';
 import {ReactComponent as BanSvg} from '../../images/icons/ban.svg';
 import {ReactComponent as FirstAidSvg} from '../../images/icons/firstaid.svg';
-import {ReactComponent as SquirrelSvg} from '../../images/icons/squirrel.svg';
+import {ReactComponent as SquirrelSvg} from '../../images/icons//squirrel.svg';
 import {ReactComponent as PickUpSvg} from '../../images/icons/user-friends.svg';
+import { Link } from 'react-router-dom';
 
-
-const PersonListItem = ({person}) => {
+const PersonListItem = (props) => {
 
   const CameraIcon = (props) => {
     if(!props.person.photographyPermission) {
@@ -46,7 +46,8 @@ const PersonListItem = ({person}) => {
 
 
   const handlClickEdit = () => {
-    console.log("handleClick event Edit:")
+    console.log(props.person);
+    props.editPersonDetails(props.person)
   }
 
   const handlClickDetails = () => {
@@ -55,16 +56,17 @@ const PersonListItem = ({person}) => {
 
   return (
   <>
-  <tr>
-   <td className="left-align">{person.name.firstName}</td>
-   <td className="left-align">{person.name.lastName}</td>
-   <td>{person.school.year}</td>
+<tr>
+   <td>{props.person.name.firstName}</td>
+   <td>{props.person.name.lastName}</td>
+   <td>{props.person.school.year}</td>
+
    <td>
-     <CameraIcon person={person}/>
-     <MedicalIcon person={person}/>
-     <AllergensIcon person={person}/>
-     <PickUpIcon person={person}/>
-     <BanIcon person={person}/>
+     <CameraIcon person={props.person}/>
+     <MedicalIcon person={props.person}/>
+     <AllergensIcon person={props.person}/>
+     <PickUpIcon person={props.person}/>
+     <BanIcon person={props.person}/>
    </td>
    <td>
      <label className="container">Mon
@@ -90,8 +92,15 @@ const PersonListItem = ({person}) => {
      </label>
    </td>
    <td>
-     <button className="details-button" onClick={handlClickDetails} >Details</button>
-     <button className="edit-button" onClick={handlClickEdit} >Edit</button>
+
+   <button onClick={handlClickDetails} className="options">Details</button>
+
+     <Link to='/registration'>
+     <button onClick={handlClickEdit}
+      className="options">Edit</button>
+    </Link>
+
+
    </td>
    </tr>
   </>

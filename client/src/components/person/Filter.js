@@ -52,7 +52,7 @@ class Filter extends Component {
       if (this.state.checkboxUpdate.length > 0) {
         filteredPeople = filteredPeople.filter((person) => {
         return this.state.checkboxUpdate.includes(person.school.year)
-      })  
+      })
     }
 
     return(
@@ -72,7 +72,7 @@ class Filter extends Component {
             )})}
           </ul>
         </div>
-
+        
         <div>
 
           <button type="Reset">Clear Filters</button>
@@ -91,7 +91,9 @@ class Filter extends Component {
            <th>Options</th>
           </tr>
             {filteredPeople.map((person, index) => {
-              return<PersonListItem person={person} key={index}/>
+              return<PersonListItem person={person}
+              key={index}
+              editPersonDetails={this.props.editPersonDetails}/>
             })}
             </tbody>
           </table>

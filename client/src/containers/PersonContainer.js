@@ -14,7 +14,8 @@ class PersonContainer extends Component {
       <>
       <NavBar/>
       <h2>Drop Downs</h2>
-      <Filter people={this.props.people}/>
+      <Filter people={this.props.people}
+      editPersonDetails={this.props.editPersonDetails}/>
       </>
     )
   }
