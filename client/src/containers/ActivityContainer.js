@@ -189,7 +189,7 @@ class ActivityContainer extends Component {
     return(
       <>
       <NavBar/>
-      <h2>Activity Container</h2>
+      
       <ActivityList
       activities={this.props.activities} deleteActivity={this.props.deleteActivity}
       editActivity={this.editActivity}
