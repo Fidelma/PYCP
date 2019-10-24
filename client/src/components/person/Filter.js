@@ -46,8 +46,14 @@ class Filter extends Component {
     let filteredPeople = this.props.people.filter((person) => {
       const fullName = person.name.firstName+" "+person.name.lastName;
       return (
-        fullName.toLowerCase().indexOf(this.state.filterList.toLowerCase()) !== -1 )
-    })
+        fullName.toLowerCase().indexOf(this.state.filterList.toLowerCase()) !== -1
+        )
+      })
+      if (this.state.checkboxUpdate.length > 0) {
+        filteredPeople = filteredPeople.filter((person) => {
+        return this.state.checkboxUpdate.includes(person.school.year)
+      })  
+    }
 
     return(
       <div className="contact-form">
