@@ -44,3 +44,17 @@ tr:nth-child(odd){
   opacity: 0.9;
   color: #582d87;
 }
+
+.rowHover2:hover {
+  background-color: #7bac4a;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0.9;
+  color: #582d87;
+  text-align: start
+}
+
+.activity-list-table {
+  width: 60%;
+  margin-bottom: 50px;
+}
