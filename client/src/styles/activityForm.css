@@ -1,12 +1,13 @@
 .new-activity-form {
-  /* font-size: 1.2em;
+  font-size: 1.2em;
   display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 
 .checks{
   display: inline-block;
+  margin-left: 5px;
 
 }
 
@@ -20,6 +21,10 @@ activity-table-labels {
   margin-right: 10px;
 }
 
-input {
+label {
+  margin: 5px;
+}
 
+input {
+  margin: 5px;
 }
