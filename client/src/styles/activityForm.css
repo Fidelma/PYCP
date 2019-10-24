@@ -1,8 +1,8 @@
 .new-activity-form {
-  font-size: 1.2em;
+  /* font-size: 1.2em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .checks{
@@ -10,10 +10,16 @@
 
 }
 
-activity-table {
+activity-table-labels {
+
   display: inline-block;
+  float: left;
   width: 200px;
   text-align: right;
   vertical-align: top;
   margin-right: 10px;
+}
+
+input {
+
 }

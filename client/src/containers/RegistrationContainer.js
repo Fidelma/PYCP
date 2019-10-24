@@ -13,7 +13,6 @@ class RegistrationContainer extends Component {
     return(
       <>
       <NavBar />
-      <h2> Registration Container </h2>
       <Form
       addPerson={this.props.addPerson}
       handleNewFormData={this.props.handleNewFormData}

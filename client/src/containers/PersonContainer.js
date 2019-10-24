@@ -13,7 +13,6 @@ class PersonContainer extends Component {
     return(
       <>
       <NavBar/>
-      <h2>Drop Downs</h2>
       <Filter people={this.props.people}
       editPersonDetails={this.props.editPersonDetails}/>
       </>
