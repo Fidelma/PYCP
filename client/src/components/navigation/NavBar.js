@@ -2,14 +2,16 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../styles/navBarStyles.css';
 
-const NavBar = () => (
+const NavBar = (props) => (
   <div id='nav'>
   <ul>
     <li>
       <Link to='/'>HOME</Link>
     </li>
     <li>
-      <NavLink to='/registration' activeClassName="current">REGISTRATION</NavLink>
+      <NavLink to='/registration'
+      onClick={props.resetEditToFalse}
+      activeClassName="current">REGISTRATION</NavLink>
     </li>
     <li>
       <NavLink to='/contact' activeClassName="current">CONTACT</NavLink>

@@ -19,7 +19,7 @@ class HomePageContainer extends Component {
       activities: [],
       people: [],
       displayActivityForm: false,
-      edit: true,
+      edit: false,
       person: {
         name: {
           firstName: '',
@@ -116,6 +116,7 @@ class HomePageContainer extends Component {
     this.handleSignatureRadioButtonChange = this.handleSignatureRadioButtonChange.bind(this);
     this.editPersonDetails = this.editPersonDetails.bind(this);
     this.handleEditPersonSubmit = this.handleEditPersonSubmit.bind(this);
+    this.resetEditToFalse = this.resetEditToFalse.bind(this);
   }
 
   handleNewFormData(data){
@@ -483,7 +484,7 @@ class HomePageContainer extends Component {
   }
 
   editPersonDetails(personToEdit){
-    this.setState({person: personToEdit})
+    this.setState({person: personToEdit, edit: true})
   }
 
   handleEditPersonSubmit(){
@@ -550,7 +551,7 @@ class HomePageContainer extends Component {
         notes: ''
       }
     }
-    this.setState({person: resetPerson})
+    this.setState({person: resetPerson, edit: false})
   }
 
   updatePerson(updatedPerson){
@@ -560,6 +561,71 @@ class HomePageContainer extends Component {
     // const index = this.state.people.indexOf(updatedPerson._id);
     // tempPeople.splice(index, 1, updatedPerson);
     // this.setState({people: tempPeople})
+    }
+
+    resetEditToFalse(){
+      const resetPerson = {
+        name: {
+          firstName: '',
+          lastName: ''
+        },
+        gender: '',
+        dob: '',
+        address: {
+          address: '',
+          postcode: ''
+        },
+        email: '',
+        primaryContact: '',
+        secondaryContact: '',
+        emergencyContact: {
+          name: '',
+          relationship: '',
+          number: ''
+        },
+        dietaryRequirements: {
+          exists: false,
+          details: ''
+        },
+        medicalConditions: {
+          exists: false,
+          details: '',
+          medications: ''
+        },
+        allergies: {
+          exists: false,
+          details: ''
+        },
+        doctorsSurgery: '',
+        community: '',
+        school: {
+          name: '',
+          year: ''
+        },
+        photographyPermission: true,
+        pickUp: {
+          toBeCollected: false,
+          byWho: ''
+        },
+      siblings: {
+        exists: false,
+        siblings: []
+        },
+        ethnicity: '',
+        volunteering: true,
+        signed: {
+          signed: false,
+          name: '',
+          relationship: '',
+          date:''
+        },
+        timeOut: {
+          exists: false,
+          reason: '',
+          notes: ''
+        }
+      }
+      this.setState({person: resetPerson, edit: false})
     }
 
   componentDidMount() {
@@ -583,14 +649,16 @@ class HomePageContainer extends Component {
   renderMain(props) {
     return (
       <>
-      <Button/>
+      <Button resetEditToFalse={this.resetEditToFalse}/>
       </>
     )
   }
 
   renderContact(props) {
     return (
-      <ContactContainer people = {this.state.people}/>
+      <ContactContainer
+      people = {this.state.people}
+      resetEditToFalse={this.resetEditToFalse}/>
     )
   }
 
@@ -603,6 +671,7 @@ class HomePageContainer extends Component {
         toggleActivityForm={this.toggleActivityForm}
         deleteActivity={this.deleteActivity}
         updateActivity={this.updateActivity}
+        resetEditToFalse={this.resetEditToFalse}
       />
     )
   }
@@ -612,7 +681,8 @@ class HomePageContainer extends Component {
 
       <PersonContainer
       people={this.state.people}
-      editPersonDetails={this.editPersonDetails}/>
+      editPersonDetails={this.editPersonDetails}
+      resetEditToFalse={this.resetEditToFalse}/>
     )
   }
 
@@ -620,7 +690,8 @@ class HomePageContainer extends Component {
     return (
       <RestrictionsContainer
       people={this.state.people}
-      updatePerson={this.updatePerson}/>
+      updatePerson={this.updatePerson}
+      resetEditToFalse={this.resetEditToFalse}/>
     )
   }
 
