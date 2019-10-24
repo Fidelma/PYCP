@@ -33,3 +33,15 @@
 .delete-button:hover {
     background: #eb3607;
 }
+
+.saveForm {
+  font-family: 'Lato', sans-serif;
+  background: #f6aa04;
+  border-radius: 14px;
+  border: none;
+  color: #FFFFFF;
+  padding: 4px 12px;
+}
+.saveForm:hover {
+  background: #dd9904;
+}
