@@ -69,7 +69,32 @@ const PersonListItem = (props) => {
      <BanIcon person={props.person}/>
    </td>
    <td>
-     <label className="container">Mon
+      <div className="attendance"></div>
+      <div className="attendance"></div>
+      <div className="attendance"></div>
+      <div className="attendance"></div>
+      <div className="attendance"></div>
+   </td>
+   <td>
+
+   <button onClick={handlClickDetails} className="options">Details</button>
+
+     <Link to='/registration'>
+     <button onClick={handlClickEdit}
+      className="options">Edit</button>
+    </Link>
+
+
+   </td>
+   </tr>
+  </>
+)
+}
+
+export default PersonListItem
+
+
+   /* <label className="container">Mon
        <input type="checkbox"/>
      </label>
      <label className="container">Tue
@@ -89,22 +114,4 @@ const PersonListItem = (props) => {
      </label>
      <label className="container">Sun
        <input type="checkbox"/>
-     </label>
-   </td>
-   <td>
-
-   <button onClick={handlClickDetails} className="options">Details</button>
-
-     <Link to='/registration'>
-     <button onClick={handlClickEdit}
-      className="options">Edit</button>
-    </Link>
-
-
-   </td>
-   </tr>
-  </>
-)
-}
-
-export default PersonListItem
+     </label> */
