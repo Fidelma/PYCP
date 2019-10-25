@@ -397,10 +397,10 @@ class HomePageContainer extends Component {
   updateActivity(id, activity){
     const request = new ActivityRequest
     request.edit(id, activity)
-    const tempActivities = this.state.activities
-    const index = tempActivities.indexOf(id);
-    tempActivities.splice(index, 1, activity);
-    this.setState({activities: tempActivities})
+    // const tempActivities = this.state.activities
+    // const index = tempActivities.indexOf(id);
+    // tempActivities.splice(index, 1, activity);
+    // this.setState({activities: tempActivities})
   }
 
   deleteActivity(id){
