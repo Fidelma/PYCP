@@ -14,7 +14,6 @@ class RegistrationContainer extends Component {
       <h2> Registration Container </h2>
       <Form
       addPerson={this.props.addPerson}
-      handleNewFormData={this.props.handleNewFormData}
       handleChange={this.props.handleChange}
       handleNameUpdate={this.props.handleNameUpdate}
       handleAddressUpdate={this.props.handleAddressUpdate}

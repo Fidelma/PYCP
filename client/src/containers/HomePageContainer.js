@@ -94,7 +94,6 @@ class HomePageContainer extends Component {
     this.updatePerson = this.updatePerson.bind(this);
     this.deleteActivity = this.deleteActivity.bind(this);
     this.updateActivity = this.updateActivity.bind(this);
-    this.handleNewFormData = this.handleNewFormData.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleNameUpdate = this.handleNameUpdate.bind(this);
     this.handleAddressUpdate = this.handleAddressUpdate.bind(this);
@@ -119,11 +118,7 @@ class HomePageContainer extends Component {
     this.resetEditToFalse = this.resetEditToFalse.bind(this);
   }
 
-  handleNewFormData(data){
-    console.log(data);
-  }
   //handles changes to top level keys in person object
-
   handleChange(value, name) {
     this.setState(prevState => ({
       person: {
@@ -133,6 +128,7 @@ class HomePageContainer extends Component {
     }));
   }
 
+  // The following methods handle the changes to the form and setting state.
   handleNameUpdate(value, name){
     this.setState(prevState => ({
       person: {
@@ -379,13 +375,17 @@ class HomePageContainer extends Component {
       }))
     }
   }
+  //End of Person form setting state methods
 
+
+// Toggles the form for adding an activity
   toggleActivityForm = () => {
     this.setState((prevState) => ({
       displayActivityForm: !prevState.displayActivityForm
     }));
-
 }
+
+//Posts activity to db and on frontend
   addActivity(activity){
     const request = new ActivityRequest
     request.post(activity)
@@ -394,6 +394,7 @@ class HomePageContainer extends Component {
     this.setState({displayActivityForm: false})
   }
 
+//edit activity and updates db
   updateActivity(id, activity){
     const request = new ActivityRequest
     request.edit(id, activity)
@@ -403,6 +404,7 @@ class HomePageContainer extends Component {
     this.setState({activities: tempActivities})
   }
 
+//removes activity from db and frontend
   deleteActivity(id){
     const request = new ActivityRequest
     request.delete(id)
@@ -410,9 +412,9 @@ class HomePageContainer extends Component {
     const index = tempActivities.indexOf(id);
     tempActivities.splice(index, 1);
     this.setState({activities: tempActivities})
-
   }
 
+//Adds person to db and frontend - resets state
   addPerson(){
     const person = this.state.person
     const request = new PeopleRequest
@@ -482,11 +484,12 @@ class HomePageContainer extends Component {
     }
     this.setState({person: resetPerson})
   }
-
+ //Gets details from selected person to edit and sets the state which is passed down to pre-populate the form. sets edit to true so that update button is displayed.
   editPersonDetails(personToEdit){
     this.setState({person: personToEdit, edit: true})
   }
 
+//Gets data for updating the persona dn resets the state
   handleEditPersonSubmit(){
     const updatedPerson = this.state.person
     this.updatePerson(updatedPerson)
@@ -554,6 +557,7 @@ class HomePageContainer extends Component {
     this.setState({person: resetPerson, edit: false})
   }
 
+// posts updated person to db commented out code is to try and update the frontend but not working.
   updatePerson(updatedPerson){
     const request = new PeopleRequest
     request.edit(updatedPerson._id, updatedPerson)
@@ -563,6 +567,7 @@ class HomePageContainer extends Component {
     // this.setState({people: tempPeople})
     }
 
+//This method ensure that if someone moves out of editing a person and then navigates to the form it is reset to be empty and edit set to false
     resetEditToFalse(){
       const resetPerson = {
         name: {
@@ -628,6 +633,7 @@ class HomePageContainer extends Component {
       this.setState({person: resetPerson, edit: false})
     }
 
+//fetches data from database
   componentDidMount() {
     const url = 'http://localhost:8080/api/activities';
     fetch(url)
@@ -698,7 +704,6 @@ class HomePageContainer extends Component {
   renderRegistration(props) {
     return (
       <RegistrationContainer addPerson={this.addPerson}
-      handleNewFormData={this.handleNewFormData}
       handleChange={this.handleChange}
       handleNameUpdate={this.handleNameUpdate}
       handleAddressUpdate={this.handleAddressUpdate}
