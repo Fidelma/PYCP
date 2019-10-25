@@ -88,7 +88,7 @@ class Filter extends Component {
         <table align="center">
           <tbody>
           <tr>
-           <th>Full Name</th>
+           <th>First Name</th>
            <th>Last Name</th>
            <th>School Year</th>
            <th>Information</th>
