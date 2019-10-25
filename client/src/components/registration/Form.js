@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import '../../styles/registrationForm.css';
+import '../../styles/buttons.css'
 
 class Form extends Component {
   constructor(props){
@@ -560,12 +562,12 @@ render(){
 
         <div style={{ display: this.props.edit ? 'block' : 'none'}}>
 
-          <button type="submit" onClick={this.handleEdit}>Update Person</button>
+          <button className="saveForm" type="submit" onClick={this.handleEdit}>Update Person</button>
         </div>
 
         <div style={{ display: this.props.edit ? 'none' : 'block'}}>
 
-          <button type="submit" onClick={this.handleSubmit}>Add new participant</button>
+          <button className="saveForm" type="submit" onClick={this.handleSubmit}>Add new participant</button>
 
           </div>
         </fieldset>

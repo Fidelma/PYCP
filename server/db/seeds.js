@@ -10,9 +10,9 @@ Activity.remove({}, function(err) {
    const ccard = new Activity()
      ccard.title = 'c-card drop in',
      ccard.day = 'Wednesday',
-     ccard.startTime = '17.15',
-     ccard.endTime = '18.15',
-     ccard.age = ['s1', 's2', 's3', 's4'],
+     ccard.startTime = '17:15',
+     ccard.endTime = '18:15',
+     ccard.age = ['S1', 'S2', 'S3', 'S4'],
      ccard.gender = 'Both',
      ccard.location = 'pycp',
      ccard.description = 'Free condoms and advice on sexual health'
@@ -24,9 +24,9 @@ Activity.remove({}, function(err) {
    const fridays = new Activity()
      fridays.title = 'Funky Fridays',
      fridays.day = 'Friday',
-     fridays.startTime = '13.30',
-     fridays.endTime = '15.00',
-     fridays.age = ['p1', 'p2'],
+     fridays.startTime = '13:30',
+     fridays.endTime = '15:00',
+     fridays.age = ['P1', 'P2'],
      fridays.gender = 'both',
      fridays.location = 'pycp',
      fridays.description = 'Fun activities, arts and crafts, games and sports!'
@@ -61,8 +61,7 @@ Person.remove({}, function(err) {
      person1.medicalConditions.details = 'heart condition'
      person1.medicalConditions.medications = 'medication 1'
      person1.allergies.exists = true
-     person1.allergies.alergens = ['eggs', 'nuts']
-     person1.allergies.other = 'allergic to the colour red'
+     person1.allergies.details = 'food'
      person1.doctorsSurgery = 'Pilton GP'
      person1.community = 'West Pilton'
      person1.school.name = 'Pilton Junior School'
@@ -80,6 +79,8 @@ Person.remove({}, function(err) {
      person1.timeOut.exists = true
      person1.timeOut.reason = 'ban for inappropriate behaviour'
      person1.timeOut.notes = '1 week'
+     person1.timeOut.startDate = '2019/10/24'
+     person1.timeOut.endDate = '2019/10/28'
 
      person1.save(function(err){
        if(err)throw err;
@@ -105,8 +106,7 @@ Person.remove({}, function(err) {
        person2.medicalConditions.details = 'heart condition'
        person2.medicalConditions.medications = 'medication 1'
        person2.allergies.exists = true
-       person2.allergies.alergens = ['eggs', 'nuts']
-       person2.allergies.other = 'allergic to the colour red'
+       person2.allergies.details = 'red'
        person2.doctorsSurgery = 'Pilton GP'
        person2.community = 'West Pilton'
        person2.school.name = 'Pilton Junior School'
@@ -125,6 +125,8 @@ Person.remove({}, function(err) {
        person2.timeOut.exists = true
        person2.timeOut.reason = 'ban for inappropriate behaviour'
        person2.timeOut.notes = '1 week'
+       person2.timeOut.startDate = '2019/10/24'
+       person2.timeOut.endDate = '2019/10/28'
 
        person2.save(function(err){
          if(err)throw err;
@@ -150,8 +152,7 @@ Person.remove({}, function(err) {
        person3.medicalConditions.details = ''
        person3.medicalConditions.medications = ''
        person3.allergies.exists = true
-       person3.allergies.alergens = ['eggs', 'nuts']
-       person3.allergies.other = 'allergic to the colour red'
+       person3.allergies.details = 'eggs and nuts'
        person3.doctorsSurgery = 'Pilton GP'
        person3.community = 'West Pilton'
        person3.school.name = 'Pilton Junior School'
@@ -170,6 +171,9 @@ Person.remove({}, function(err) {
        person3.timeOut.exists = true
        person3.timeOut.reason = 'ban for inappropriate behaviour'
        person3.timeOut.notes = '1 week'
+       person3.timeOut.startDate = '2019/10/24'
+       person3.timeOut.endDate = '2019/10/28'
+
 
        person3.save(function(err){
          if(err)throw err;
@@ -195,12 +199,11 @@ Person.remove({}, function(err) {
        person4.medicalConditions.details = 'heart condition'
        person4.medicalConditions.medications = 'medication 1'
        person4.allergies.exists = false
-       person4.allergies.alergens = ['eggs', 'nuts']
-       person4.allergies.other = 'allergic to the colour red'
+       person4.allergies.details = ''
        person4.doctorsSurgery = 'Pilton GP'
        person4.community = 'West Pilton'
        person4.school.name = 'Pilton Junior School'
-       person4.school.year = 's2'
+       person4.school.year = 'S2'
        person4.photographyPermission = false
        person4.pickUp.toBeCollected = true
        person4.pickUp.byWho = 'Amy Black'
@@ -215,6 +218,8 @@ Person.remove({}, function(err) {
        person4.timeOut.exists = false
        person4.timeOut.reason = 'ban for inappropriate behaviour'
        person4.timeOut.notes = '1 week'
+       person4.timeOut.startDate = '2019/10/24'
+       person4.timeOut.endDate = '2019/10/28'
 
        person4.save(function(err){
          if(err)throw err;
@@ -240,8 +245,7 @@ Person.remove({}, function(err) {
        person5.medicalConditions.details = 'heart condition'
        person5.medicalConditions.medications = 'medication 1'
        person5.allergies.exists = false
-       person5.allergies.alergens = ['eggs', 'nuts']
-       person5.allergies.other = 'allergic to the colour red'
+       person5.allergies.details = 'allergic to the colour red'
        person5.doctorsSurgery = 'Pilton GP'
        person5.community = 'West Pilton'
        person5.school.name = 'Pilton Junior School'
@@ -260,6 +264,8 @@ Person.remove({}, function(err) {
        person5.timeOut.exists = false
        person5.timeOut.reason = 'ban for inappropriate behaviour'
        person5.timeOut.notes = '1 week'
+       person5.timeOut.startDate = '2019/10/24'
+       person5.timeOut.endDate = '2019/10/28'
 
        person5.save(function(err){
          if(err)throw err;
@@ -285,8 +291,7 @@ Person.remove({}, function(err) {
        person6.medicalConditions.details = 'heart condition'
        person6.medicalConditions.medications = 'medication 1'
        person6.allergies.exists = false
-       person6.allergies.alergens = ['eggs', 'nuts']
-       person6.allergies.other = 'allergic to the colour red'
+       person6.allergies.details = 'allergic to the colour red'
        person6.doctorsSurgery = 'Pilton GP'
        person6.community = 'West Pilton'
        person6.school.name = 'Pilton Junior School'
@@ -305,6 +310,8 @@ Person.remove({}, function(err) {
        person6.timeOut.exists = true
        person6.timeOut.reason = 'ban for inappropriate behaviour'
        person6.timeOut.notes = '1 week'
+       person6.timeOut.startDate = '2019/10/24'
+       person6.timeOut.endDate = '2019/10/28'
 
        person6.save(function(err){
          if(err)throw err;
@@ -330,8 +337,7 @@ Person.remove({}, function(err) {
        person7.medicalConditions.details = 'heart condition'
        person7.medicalConditions.medications = 'medication 1'
        person7.allergies.exists = false
-       person7.allergies.alergens = ['eggs', 'nuts']
-       person7.allergies.other = 'allergic to the colour red'
+       person7.allergies.details = 'allergic to the colour red'
        person7.doctorsSurgery = 'Pilton GP'
        person7.community = 'West Pilton'
        person7.school.name = 'Pilton Junior School'
@@ -350,6 +356,8 @@ Person.remove({}, function(err) {
        person7.timeOut.exists = true
        person7.timeOut.reason = 'ban for inappropriate behaviour'
        person7.timeOut.notes = '1 week'
+       person7.timeOut.startDate = '2019/10/24'
+       person7.timeOut.endDate = '2019/10/28'
 
        person7.save(function(err){
          if(err)throw err;

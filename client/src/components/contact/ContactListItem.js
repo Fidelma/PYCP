@@ -9,7 +9,7 @@ const ContactListItem = ({person}) => {
 
   return (
     <>
-      <tr>
+      <tr className="rowHover">
        <td className="left-align">{person.name.firstName}</td>
        <td className="left-align">{person.name.lastName}</td>
        <td>{person.school.year}</td>
@@ -18,6 +18,8 @@ const ContactListItem = ({person}) => {
        <td>{person.emergencyContact.name} {person.emergencyContact.number}</td>
        <td>
        <button className="details-button">Details</button>
+       </td>
+       <td>
        <button className="edit-button">Edit</button>
        </td>
       </tr>

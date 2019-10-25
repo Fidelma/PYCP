@@ -7,13 +7,29 @@
 
 .checks{
   display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
 
 }
 
-activity-table {
+activity-table-labels {
+
   display: inline-block;
+  float: left;
   width: 200px;
   text-align: right;
   vertical-align: top;
   margin-right: 10px;
+}
+
+label {
+  margin: 5px;
+}
+
+input {
+  margin: 5px;
+}
+
+textarea {
+  min-width: 450px;
 }

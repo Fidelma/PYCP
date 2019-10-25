@@ -14,6 +14,7 @@ class RestrictionsContainer extends Component {
     }
     this.filterArray = this.filterArray.bind(this);
     this.handleRestrictionPost = this.handleRestrictionPost.bind(this);
+    this.handleRestrictionPostRemoval = this.handleRestrictionPostRemoval.bind(this);
   }
 
 //sets filteredPerson state to the object of the selected person from the dropdown
@@ -21,9 +22,19 @@ class RestrictionsContainer extends Component {
       this.setState({filteredPerson: selectedPerson})
   }
 
-//handleRestrcitionPost must update filteredPerson timeOut parameters and then pass to homePage to update database
+//handleRestrictionPost must update filteredPerson timeOut parameters and then pass to homePage to update database
   handleRestrictionPost(timeOut) {
     const updatedPerson = this.state.filteredPerson
+    updatedPerson.timeOut = timeOut
+    this.setState({personWithRestriction: updatedPerson})
+    this.props.updatePerson(updatedPerson);
+  }
+
+  //handleRestrictionPost must update filteredPerson timeOut parameters and then pass to homePage to update database
+  handleRestrictionPostRemoval(timeOut, value) {
+    console.log("this is in the container:", value)
+    const updatedPerson =  this.props.people.filter(x => x._id === value)[0]
+    console.log(updatedPerson)
     updatedPerson.timeOut = timeOut
     this.setState({personWithRestriction: updatedPerson})
     this.props.updatePerson(updatedPerson);
@@ -37,18 +48,21 @@ class RestrictionsContainer extends Component {
         <table align="center">
           <tbody>
             <tr>
-              <th>first name</th>
-              <th>last name</th>
-              <th>startDate</th>
-              <th>endDate</th>
-              <th>reason</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>StartDate</th>
+              <th>EndDate</th>
+              <th>Reason</th>
+              <th>Notes</th>
+              <th>Remove</th>
             </tr>
             {this.props.people.map((person, index) => {
-              return<RestrictionsList person={person} key={index}/>
+              return<RestrictionsList person={person} key={index} handleRestrictionPostRemoval={this.handleRestrictionPostRemoval}/>
             })}
           </tbody>
         </table>
         <br/>
+        <h2> Restriction Input </h2>
       <RestrictionsSearch people={this.props.people} filterArray={this.filterArray}/>
       <RestrictionsForm handleRestrictionPost={this.handleRestrictionPost} />
       </>

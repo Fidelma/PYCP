@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import activityForm from '../../styles/activityForm.css';
+import '../../styles/activityForm.css';
+import '../../styles/buttons.css'
 
 class ActivityForm extends Component {
 
@@ -40,15 +41,15 @@ render(){
   <form className='new-activity-form'>
   <fieldset>
 
-    <div>
-      <label className='activity-table'>Activity Title</label>
+    <p>
+      <label className='activity-table-labels'>Activity Title</label>
       <input type="text" id="title" name="title" value={this.props.activity.title} onChange={this.handleChange} required/>
-    </div>
+    </p>
 
 
 
-    <div>
-      <label className='activity-table'>Day</label>
+    <p>
+      <label className='activity-table-labels'>Day</label>
       <select name="day" id="day" value={this.props.activity.day} onChange={this.handleChange} required>
         <option value="" defaultValue disabled hidden>Select Here</option>
         <option value="Monday">Monday</option>
@@ -59,21 +60,21 @@ render(){
         <option value="Saturday">Saturday</option>
         <option value="Sunday">Sunday</option>
       </select>
-    </div>
+    </p>
 
-    <div>
-      <label className='activity-table'>Start Time</label>
+    <p>
+      <label className='activity-table-labels'>Start Time</label>
       <input type="time" id="startTime" name="startTime" value={this.props.activity.startTime} onChange={this.handleChange} required/>
-    </div>
+    </p>
 
-    <div>
-      <label className='activity-table'>End Time</label>
+    <p>
+      <label className='activity-table-labels'>End Time</label>
       <input type="time" id="endTime" name="endTime" value={this.props.activity.endTime} onChange={this.handleChange} required/>
-    </div>
+    </p>
 
 
 
-      <div>
+      <p>Select Years:
           {this.props.activity.ageCheckboxes.map((age, i) => {
             return(
               <>
@@ -87,10 +88,10 @@ render(){
             </>
           )})}
 
-      </div>
+      </p>
 
-    <div>
-      <label className='activity-table'>Gender</label>
+    <p>
+      <label className='activity-table-labels'>Gender</label>
       <select name="gender" id="gender" value={this.props.activity.gender} onChange={this.handleChange} required>
         <option value="" defaultValue disabled hidden>Select Here</option>
         <option value="Male">Male</option>
@@ -98,30 +99,30 @@ render(){
         <option value="Both">Both</option>
 
       </select>
-    </div>
+    </p>
 
-    <div>
-      <label className='activity-table'>Location</label>
+    <p>
+      <label className='activity-table-labels'>Location</label>
       <input type="text" id="location" name="location" value={this.props.activity.location} onChange={this.handleChange} required/>
-    </div>
+    </p>
 
-    <div>
-      <label className='activity-table'>Description</label>
+    <p>
+      <label className='activity-table-labels'>Description</label>
       <textarea id="description" name="description" value={this.props.activity.description} onChange={this.handleChange} required>
       </textarea>
-    </div>
+    </p>
 
 
 
-    <div style={{ display: this.props.edit ? 'block' : 'none'}
+    <p style={{ display: this.props.edit ? 'block' : 'none'}
     }>
-      <button type="submit" onClick={this.handleEdit}>Update Activity</button>
-    </div>
+      <button className="edit-button" type="submit" onClick={this.handleEdit}>Update Activity</button>
+    </p>
 
-    <div style={{ display: this.props.edit ? 'none' : 'block'}
+    <p style={{ display: this.props.edit ? 'none' : 'block'}
   }>
-      <button type="submit" onClick={this.handleSubmit}>Save Activity</button>
-    </div>
+      <button className="details-button" type="submit" onClick={this.handleSubmit}>Save Activity</button>
+    </p>
 
 
 

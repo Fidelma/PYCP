@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../styles/buttons.css';
+import '../../styles/tables.css';
 
 const ActivityListItem = (props) => {
 

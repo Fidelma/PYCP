@@ -13,7 +13,7 @@ const ActivityList = (props) => {
   });
   return(
     <>
-    <table align="center">
+    <table className='activity-list-table' align="center">
       <tbody>
         <tr>
           <th>Title</th>

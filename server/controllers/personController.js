@@ -70,6 +70,8 @@ exports.new = function (req, res) {
     person.timeOut.exists = req.body.timeOut.exists;
     person.timeOut.reason = req.body.timeOut.reason;
     person.timeOut.notes = req.body.timeOut.notes;
+    person.timeOut.startDate = req.body.timeOut.startDate;
+    person.timeOut.endDate = req.body.timeOut.endDate;
 
 // save the person and check for errors
     person.save(function (err) {
@@ -148,6 +150,8 @@ Person.findById(req.params.person_id, function (err, person) {
             person.timeOut.endDate = req.body.timeOut.endDate;
             person.timeOut.reason = req.body.timeOut.reason;
             person.timeOut.notes = req.body.timeOut.notes;
+            person.timeOut.startDate = req.body.timeOut.startDate;
+            person.timeOut.endDate = req.body.timeOut.endDate;
 
 // save the person and check for errors
         person.save(function (err) {

@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import '../../styles/navBarStyles.css';
 
 const NavBar = (props) => (
-  <div id='nav'>
+  <div id='nav' className="sticky">
   <ul>
     <li>
       <Link to='/'>HOME</Link>
