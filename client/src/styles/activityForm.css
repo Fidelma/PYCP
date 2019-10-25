@@ -8,6 +8,7 @@
 .checks{
   display: inline-block;
   margin-left: 5px;
+  cursor: pointer;
 
 }
 
@@ -27,4 +28,8 @@ label {
 
 input {
   margin: 5px;
+}
+
+textarea {
+  min-width: 450px;
 }
